@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estate & Property Decision Dashboard (Anonymized)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">Estate Decision Hub</div>
+      <div class="brand-sub">Privacy-First · $10-Rounded · 2040–2050</div>
+
+      <div class="nav-group">Decision &amp; Modeling</div>
+      <button class="nav-btn active" data-page="overview">Executive Summary</button>
+      <button class="nav-btn" data-page="model">What-If &amp; Mixed Paths</button>
+      <button class="nav-btn" data-page="blackswan">Black Swan &amp; Phased</button>
+
+      <div class="nav-group">Properties &amp; Law</div>
+      <button class="nav-btn" data-page="properties">Property A &amp; B Data</button>
+      <button class="nav-btn" data-page="taxlaw">Verified Tax &amp; Law</button>
+      <button class="nav-btn" data-page="timeline">Inheritance Timeline</button>
+
+      <div class="nav-group">Governance &amp; Review</div>
+      <button class="nav-btn" data-page="brief">Attorney &amp; CPA Brief</button>
+      <button class="nav-btn" data-page="questions">Questions &amp; Suggestions</button>
+      <button class="nav-btn" data-page="glossary">Glossary</button>
+      <button class="nav-btn" data-page="flagged">Flagged for Review</button>
+    </aside>
+
+    <main class="main">
+      <!-- 1. EXECUTIVE SUMMARY -->
+      <section id="page-overview" class="page active">
+        <h1>Executive Summary</h1>
+        <p class="subtitle">Anonymized inheritance decision framework for Property A (Cupertino, 95014) while already owning Property B (San Francisco 3-unit, 94122). All figures rounded to nearest $10.</p>
+
+        <div class="banner">
+          <strong>What Would Change the Answer (First-Screen Triggers):</strong>
+          <ul style="margin:6px 0 0 18px;">
+            <li><strong>Prop 19 Occupancy:</strong> If the heir will NOT live in Property A for 1+ years, Property A reassesses to full market value (~$3.1M+ → ~$41,400/yr tax), making <em>Sell &amp; Invest</em> or <em>1031 Exchange</em> strongly favored.</li>
+            <li><strong>Federal Estate Exclusion:</strong> Currently $15,000,000 (2026). If total estate (Property A + liquid assets) exceeds the future exclusion at 2040–2050, liquidity planning &amp; portability (Form 706) become critical.</li>
+            <li><strong>Equity vs. Rent Spread:</strong> If net rental yield on Property A (&lt;2.5% after reassessment) trails diversified equity returns (~7%), selling at inheritance with a full IRC §1014 step-up in basis maximizes after-tax wealth.</li>
+          </ul>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="kpi-label">Property A (Cupertino 95014)</div>
+            <div class="kpi-val">$3,100,000</div>
+            <div class="kpi-note">Est. 2026 Value · 2025 Tax: $7,210 · Solar net credit</div>
+          </div>
+          <div class="card">
+            <div class="kpi-label">Property B (SF 94122 · 3-Unit)</div>
+            <div class="kpi-val">$1,800,000</div>
+            <div class="kpi-note">Already Owned · $7,150/mo rent (2 units) + 1 owner unit</div>
+          </div>
+          <div class="card">
+            <div class="kpi-label">2026 Federal Estate Exclusion</div>
+            <div class="kpi-val">$15,000,000</div>
+            <div class="kpi-note">IRS Form 706 (2026) · Portability requires timely filing</div>
+          </div>
+        </div>
+
+        <h2>Pre-Commitment Decision Matrix</h2>
+        <p class="subtitle">Agree in writing what would make the household choose each path before projections arrive.</p>
+        <table>
+          <thead><tr><th>Path</th><th>Trigger / Condition</th><th>Decision &amp; Date</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Sell at Inheritance &amp; Invest</strong></td><td>Heir prefers staying in SF Property B; full §1014 step-up eliminates cap gains.</td><td>Pending · Target Review: Annual</td></tr>
+            <tr><td><strong>Live in Property A (Prop 19)</strong></td><td>Heir commits to 1+ yr principal residence; saves ~$25k+/yr in property tax.</td><td>Pending · Target Review: Annual</td></tr>
+            <tr><td><strong>Live 2+ Yrs then Sell (§121)</strong></td><td>Heir wants Prop 19 bridge + $250k/$500k §121 exclusion on post-death gain.</td><td>Pending · Target Review: Annual</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 2. WHAT-IF MODEL & MIXED PATHS -->
+      <section id="page-model" class="page">
+        <h1>What-If Controls &amp; Mixed Paths</h1>
+        <p class="subtitle">Compare pure and mixed paths over a 20-year post-inheritance horizon. Transfer tax (0.11% SCC) and selling costs are priced into sell paths.</p>
+
+        <div class="controls">
+          <div class="control-item">
+            <label>Transfer Year: <span id="val-year">2045</span></label>
+            <input type="range" id="inp-year" min="2040" max="2050" value="2045" />
+          </div>
+          <div class="control-item">
+            <label>Home Appreciation: <span id="val-home-growth">3.5%</span></label>
+            <input type="range" id="inp-home-growth" min="1.5" max="6.0" step="0.5" value="3.5" />
+          </div>
+          <div class="control-item">
+            <label>Equity Return: <span id="val-eq-return">7.0%</span></label>
+            <input type="range" id="inp-eq-return" min="4.0" max="10.0" step="0.5" value="7.0" />
+          </div>
+          <div class="control-item">
+            <label>Property A Market Rent: <span id="val-rent-a">$7,500/mo</span></label>
+            <input type="range" id="inp-rent-a" min="5500" max="10500" step="250" value="7500" />
+          </div>
+          <div class="control-item">
+            <label>Imputed Rent (Living): <span id="val-imputed">$7,500/mo</span></label>
+            <input type="range" id="inp-imputed" min="5500" max="10500" step="250" value="7500" />
+          </div>
+          <div class="control-item">
+            <label><input type="checkbox" id="inp-prop19" checked /> Claim Prop 19 (Live Paths)</label>
+            <label><input type="checkbox" id="inp-sec121" checked /> Use IRC §121 ($500k MFJ)</label>
+          </div>
+        </div>
+
+        <table id="table-model-paths">
+          <thead><tr><th>Strategy Path</th><th>Projected 20-Yr Net Wealth</th><th>Key Tax &amp; Cost Drivers</th></tr></thead>
+          <tbody></tbody>
+        </table>
+
+        <h2>Outcome Distribution Chart (Top Path)</h2>
+        <canvas id="dist-chart"></canvas>
+      </section>
+
+      <!-- 3. BLACK SWAN & PHASED INVESTING -->
+      <section id="page-blackswan" class="page">
+        <h1>Black Swan &amp; Phased-Investing Stress Test</h1>
+        <p class="subtitle">Tests parking sale proceeds in 3M–2Y Treasuries for 24–36 months after inheritance before phasing into stocks, softening 1929/2008 crash entry risk.</p>
+
+        <div class="controls">
+          <div class="control-item">
+            <label>Black Swan Scenario</label>
+            <select id="bs-scenario">
+              <option value="1929">1929 Great Depression (-80% equities)</option>
+              <option value="2008" selected>2008 Global Financial Crisis (-50% equities)</option>
+              <option value="1970s">1970s Stagflation (High inflation, flat real)</option>
+              <option value="ca_ins">CA Insurance / Earthquake Shock</option>
+            </select>
+          </div>
+          <div class="control-item">
+            <label>Treasury Staging Window: <span id="val-bs-staging">24 months</span></label>
+            <input type="range" id="bs-staging" min="12" max="36" step="6" value="24" />
+          </div>
+          <div class="control-item">
+            <label>3M–2Y Treasury Yield: <span id="val-bs-tbyield">4.0%</span></label>
+            <input type="range" id="bs-tbyield" min="1.0" max="6.0" step="0.5" value="4.0" />
+          </div>
+        </div>
+
+        <div id="bs-results"></div>
+      </section>
+
+      <!-- 4. PROPERTY A & B DATA -->
+      <section id="page-properties" class="page">
+        <h1>Property A &amp; Property B Data ($10-Rounded)</h1>
+        <p class="subtitle">All historical tax and assessed values rounded to the nearest $10 increment for privacy.</p>
+
+        <h2>Property A — Cupertino (95014) · Inherited via Trust</h2>
+        <p class="subtitle">Water: $100–$150/mo · Electricity: Solar net credit ($10–$20/mo) · Insurance est.: $1,660/yr (CA avg benchmark)</p>
+        <table id="table-propA-history">
+          <thead><tr><th>Year</th><th>Property Tax</th><th>Assessed Value</th><th>Notes</th></tr></thead>
+          <tbody></tbody>
+        </table>
+
+        <h2>Property B — San Francisco Outer Sunset (94122) · Currently Owned 3-Unit</h2>
+        <p class="subtitle">2 units rented ($7,150/mo) + 1 owner-occupied unit · Water: $330–$400/mo · Electric: $30–$70/mo · Insurance est.: $2,400/yr</p>
+        <table id="table-propB-history">
+          <thead><tr><th>Year</th><th>Property Tax</th><th>Assessed Value</th><th>Notes</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- 5. VERIFIED TAX & LAW -->
+      <section id="page-taxlaw" class="page">
+        <h1>Verified Tax, Legal &amp; Official Sources</h1>
+        <p class="subtitle">Every row is verified against an official government source. Unverified items are listed on Flagged for Review.</p>
+        <table id="table-verified-rules">
+          <thead><tr><th>Topic</th><th>Verified Rule / Rate</th><th>Decision Impact</th><th>Status</th><th>Official Source</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- 6. TIMELINE -->
+      <section id="page-timeline" class="page">
+        <h1>Step-by-Step Inheritance Process &amp; Deadlines</h1>
+        <p class="subtitle">Critical statutory deadlines from pre-inheritance planning through post-transfer execution.</p>
+        <div id="timeline-list"></div>
+      </section>
+
+      <!-- 7. ATTORNEY & CPA BRIEF -->
+      <section id="page-brief" class="page">
+        <h1>Attorney &amp; CPA Briefing Sheet</h1>
+        <p class="subtitle">One-page printable summary for estate counsel and tax adviser. <button class="btn no-print" onclick="window.print()">Print / Save PDF</button></p>
+        <div class="card">
+          <h3>1. Estate Structure &amp; Assets (Anonymized)</h3>
+          <ul>
+            <li><strong>Property A (Cupertino, 95014):</strong> Est. $3,100,000 (Nov 2026); 2025 Assessed: $539,740; 2025 Tax: $7,210. Held in Trust; expected transfer 2040–2050.</li>
+            <li><strong>Property B (San Francisco, 94122):</strong> Est. $1,800,000 (Nov 2026); 3-unit building already owned by inheritor (2 rented @ $7,150/mo, 1 owner unit).</li>
+            <li><strong>Liquid / Other Estate Assets:</strong> Potentially significant; requires private inventory against $15,000,000 (2026) federal exclusion.</li>
+          </ul>
+          <h3>2. Key Questions for Counsel &amp; CPA</h3>
+          <ul>
+            <li><strong>Portability &amp; Prior Gifts:</strong> Confirm prior taxable gifts and whether Form 706 portability (DSUE) election is needed.</li>
+            <li><strong>Prop 19 vs. Sale:</strong> If heir does not occupy Property A within 1 year, full reassessment occurs. Confirm §1014 step-up in basis on Date of Death.</li>
+            <li><strong>1031 Exchange:</strong> If Property A is held as a rental post-inheritance and later sold, evaluate 45/180-day 1031 exchange vs. §121 primary residence exclusion.</li>
+            <li><strong>CA Form 540:</strong> Factor 1% Mental Health Services Tax above $1,000,000 taxable income on any post-death capital gains.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 8. QUESTIONS & SUGGESTIONS -->
+      <section id="page-questions" class="page">
+        <h1>Missing Information, Questions &amp; Suggestions</h1>
+        <h2>Open Questions &amp; Discovery Steps</h2>
+        <table id="table-questions">
+          <thead><tr><th>Question to Resolve</th><th>How to Discover / Action</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <h2>Site &amp; Model Suggestions</h2>
+        <table id="table-suggestions">
+          <thead><tr><th>ID</th><th>Suggestion</th><th>Status</th><th>Details</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- 9. GLOSSARY -->
+      <section id="page-glossary" class="page">
+        <h1>Glossary of Terms</h1>
+        <table id="table-glossary">
+          <thead><tr><th>Term</th><th>Definition</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <!-- 10. FLAGGED FOR REVIEW -->
+      <section id="page-flagged" class="page">
+        <h1>Flagged for Review</h1>
+        <p class="subtitle">Items that could not be fully confirmed from an official source or require private parcel-level verification.</p>
+        <table id="table-flagged">
+          <thead><tr><th>Item</th><th>Reason Flagged</th><th>Recommended Action</th><th>Reference</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
