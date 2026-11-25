@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Evidence register, private inventory checklist, and maintenance plan for inheritance decision readiness.">
-  <title>Questions & Private Inventory — Inheritance Decision Desk</title>
+  <meta name="description" content="Complete register of the questions, information and answers needed before an inheritance decision can be made, with how each missing item would be discovered.">
+  <title>Questions, Answers &amp; Gates — Inheritance Decision Desk</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/site.js"></script>
 </head>
@@ -16,99 +16,248 @@
         <div>
           <p class="eyebrow">Decision-readiness register</p>
           <h1>Questions first. Answers second. Decision last.</h1>
-          <p class="lede">This is the complete public-facing list of questions, information, current answers, discovery actions, and owners needed before a reasonable choice can be made. “Blank” means the site has not independently verified it and refuses to invent it.</p>
+          <p class="lede">This is the full public list of what has to be known before a reasonable choice exists: the question, the honest current answer, why it changes the outcome, and exactly how the missing information gets discovered. A blank is a gate, not an invitation to substitute a round number.</p>
         </div>
-        <aside class="hero-callout"><p class="eyebrow" style="color:#9edbd0">Privacy instruction</p><h2>Keep the answers private.</h2><p>Collect documents in an encrypted household/counsel workspace. Do not enter personal information into this public site, its repository, an issue tracker, or a source-link form.</p></aside>
+        <aside class="hero-callout">
+          <p class="eyebrow" style="color:#9edbd0">Privacy instruction</p>
+          <h2>Answers go in the private room.</h2>
+          <p>Collect documents in an encrypted household and counsel workspace. Never enter a name, address, parcel number, account balance or lease into this site, its repository, an issue tracker or a form.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section compact" aria-labelledby="score-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Where the file stands</p>
+            <h2 id="score-title">Twelve gates, zero closed</h2>
+            <p>A gate closes only with dated evidence and a source, not with a plausible estimate. The status column reflects the public record; the private workbook may already close some of them.</p>
+          </div>
+          <span class="status blocked">Not decision-ready</span>
+        </div>
+        <div class="grid four">
+          <article class="metric"><span class="label">Closed</span><span class="number">0</span><span class="caption">No gate can be closed from published sources. Every one depends on private facts.</span></article>
+          <article class="metric"><span class="label">Open</span><span class="number">12</span><span class="caption">Each has a named owner and a discovery route in the tables below.</span></article>
+          <article class="metric"><span class="label">Blocking the ranking</span><span class="number">5</span><span class="caption">Valuation, occupancy, rate area, rent evidence and whole-estate position.</span></article>
+          <article class="metric"><span class="label">Recheck cadence</span><span class="number">Annual</span><span class="caption">Law, rates, insurance and the extreme scenarios, at minimum.</span></article>
+        </div>
       </div>
     </section>
 
     <section class="section" aria-labelledby="register-title">
       <div class="container">
-        <div class="section-header"><div><p class="eyebrow">Questions · information · current answer</p><h2 id="register-title">The evidence register</h2><p>Every row has a next action. A missing item is a decision gate, not permission to substitute a generic number.</p></div><span class="status blocked">Core facts incomplete</span></div>
-        <div class="table-wrap">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">The register</p>
+            <h2 id="register-title">Questions, current answers, and how to find out</h2>
+            <p>Grouped by the decision each one unblocks. Every row links to the authority or method that governs the answer.</p>
+          </div>
+        </div>
+
+        <h3 style="margin-top:.4rem">A · Ownership, authority and valuation</h3>
+        <div class="table-wrap" style="margin-top:.7rem">
           <table data-source-table>
-            <caption>Must-answer questions before an irreversible choice</caption>
-            <thead><tr><th>Question / information needed</th><th>Current answer on public site</th><th>Why it changes the decision</th><th>Discovery action &amp; owner</th><th>Official source</th></tr></thead>
+            <caption>Gate group A</caption>
+            <thead><tr><th>Question</th><th>Current answer</th><th>Why it changes the decision</th><th>How to find out · owner</th><th>Source</th></tr></thead>
             <tbody>
-              <tr><td>Who has authority under the trust, and what assets/liabilities pass?</td><td>Not independently verified.</td><td>Controls who can list, lease, file claims, elect portability, and sign tax returns.</td><td>Estate attorney / trustee: review executed trust, amendments, title, beneficiary provisions, and administration authority privately.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td></tr>
-              <tr><td>What is the independently supported date-of-death fair market value of Property A?</td><td>Not independently verified.</td><td>Usually establishes inherited basis and anchors a same-year sale test.</td><td>Licensed independent appraiser: issue a written date-of-death valuation; preserve supporting comparables privately.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS inherited-property basis</a></td></tr>
-              <tr><td>Is an alternate valuation or estate-tax valuation election relevant?</td><td>Not independently verified.</td><td>Can affect basis and estate return reporting; cannot be inferred from a home estimate.</td><td>Estate attorney / CPA: screen Form 706 elections before a sale decision.</td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706 instructions</a></td></tr>
-              <tr><td>What is the complete gross estate, net liquidity, prior taxable-gift history, and spouse history?</td><td>Not independently verified.</td><td>Determines federal estate-tax exposure, liquidity reserve, filing requirement, and portability work.</td><td>CPA + estate attorney: build a private estate balance sheet, gifts schedule, and cash-flow calendar.</td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax">IRS estate &amp; gift update</a></td></tr>
-              <tr><td>Should a portability election be filed?</td><td>Not independently verified.</td><td>Could affect a surviving spouse’s later estate/gift capacity; cannot be decided from Property A alone.</td><td>Executor / estate attorney: ask now, document decision, and calendar filing/extension dates.</td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706 portability instructions</a></td></tr>
-              <tr><td>Is there mortgage debt, a lien, a payoff penalty, or estate debt secured by Property A?</td><td>Not independently verified.</td><td>Changes net sale proceeds, estate liquidity, and holding cost.</td><td>Trustee: obtain current payoff, lien, and insurance statements privately.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS estate administration overview</a></td></tr>
-              <tr><td>What is Property A’s tax-rate area and current published rate?</td><td>—</td><td>Determines actual property-tax calculation; postal-area inference is unsafe.</td><td>Assessor / tax collector: read private bill and property record; record rate/date privately.</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
-              <tr><td>Does Property A qualify for Prop. 19, and will the heir actually occupy it long term?</td><td>Not independently verified; exclusion not assumed.</td><td>May substantially change reassessment, but requires actual conditions and deadlines.</td><td>Attorney + county assessor: validate transferor and transferee facts, then calendar exemption / claim filings.</td><td><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a></td></tr>
-              <tr><td>What is the factored base-year value and then-current indexed Prop. 19 allowance?</td><td>—</td><td>Needed for the current-law formula; market value is not a substitute.</td><td>Assessor + CPA: collect private tax history and the event-date BOE indexed amount.</td><td><a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm">BOE allowance update</a></td></tr>
-              <tr><td>What is the actual net market rent for Property A?</td><td>—</td><td>Without market-rent evidence, rent paths are a floor rather than a ranking.</td><td>Independent local rental appraisal / property manager: written rent opinion, days-on-market, concessions, management, vacancy, and leasing cost.</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS rental property guide</a></td></tr>
-              <tr><td>What do Property A condition, deferred maintenance, and capital needs require over five years?</td><td>—</td><td>May overwhelm generic return differences and affects insurability / tenant readiness.</td><td>Independent inspector + specialists: written scope, timing, and contingency; no round-percent reserve substitute.</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA insurance guide</a></td></tr>
-              <tr><td>What will actual primary / rental insurance cost and cover?</td><td>Not independently verified. Third-party aggregator estimates for Cupertino primary-residence homeowners coverage cluster roughly $930–$1,480 per year (rounded to $10); not an official rate.</td><td>Coverage, deductibles, availability, and premiums differ by property, occupancy, and peril; generic or aggregator premium claims are not evidence.</td><td>Licensed broker: obtain like-for-like written quotes and exclusions; compare coverage, not only premium.</td><td><a class="source-link" href="https://interactive.web.insurance.ca.gov/apex_extprd/f?p=111%3A21%3A2953378409957%3A%3ANO%3ARP%2C21%3A%3A">CA DOI comparison tool</a> · <a class="source-link" href="https://www.gethomeinsurancequotes.com/california/cupertino-homeowners-insurance.php">Market context</a></td></tr>
-              <tr><td>What are actual water, electricity, solar-credit, and other utility records?</td><td>—</td><td>Operating cost and solar treatment cannot be inferred from a verbal range.</td><td>Trustee / utility providers: collect 24 months of private statements and current tariff details.</td><td><a class="source-link" href="questions.html#inventory">Private-only evidence method</a></td></tr>
-              <tr><td>What are Property B’s lease terms, unit classifications, registration, rent-increase license, and local rules?</td><td>Not independently verified.</td><td>Property B continues in every scenario; existing tenant compliance and cash flow must not be mixed with Property A inheritance analysis.</td><td>Local landlord-tenant counsel / property manager: review every lease and current local portal status privately.</td><td><a class="source-link" href="https://www.sf.gov/rent-board-housing-inventory">Official local housing inventory</a></td></tr>
-              <tr><td>What is the current annual rent-increase rule for covered Property B units?</td><td>Not independently verified for any specific unit.</td><td>Rent-control coverage and license status can constrain income assumptions.</td><td>Review each unit’s construction/coverage and tenancy facts with local counsel; do not apply citywide rate automatically.</td><td><a class="source-link" href="https://www.sf.gov/learn-about-rent-increases-san-francisco">Official local rent-increase rules</a></td></tr>
-              <tr><td>What depreciation has been claimed or is allowable for each rental use?</td><td>—</td><td>Depreciation changes taxable income and can affect taxable gain / recapture; it cannot be reconstructed from gross rent alone.</td><td>CPA: rebuild depreciation schedule, improvement basis, passive-activity records, and prior returns privately.</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a></td></tr>
-              <tr><td>Would any live-then-sell path qualify for the federal primary-residence exclusion?</td><td>Not independently verified; no exclusion assumed.</td><td>Ownership, use, look-back, rental/depreciation, and filing facts can change taxable gain.</td><td>CPA: screen specific dates and use; do not toggle a tax benefit on based only on intent.</td><td><a class="source-link" href="https://www.irs.gov/publications/p523">IRS Pub. 523</a></td></tr>
-              <tr><td>Is a like-kind exchange actually wanted and eligible?</td><td>Not independently verified.</td><td>§1031 can be unavailable for personal use and has strict transaction/timing rules.</td><td>Tax counsel + qualified intermediary: decide before listing / receiving proceeds, not after close.</td><td><a class="source-link" href="https://www.irs.gov/publications/p544">IRS Pub. 544</a></td></tr>
-              <tr><td>What investment policy governs net proceeds?</td><td>Not yet documented.</td><td>Protects against an impulsive market-entry, concentration, or liquidity decision after the sale.</td><td>Household + fiduciary adviser: agree in writing on reserve, Treasury ladder, phase-in, allocation, rebalancing, tax, and override rules.</td><td><a class="source-link" href="paths.html#method">Model policy checklist</a></td></tr>
-              <tr><td>What proposed laws or local measures are enacted versus merely proposed?</td><td>Proposal status must be rechecked.</td><td>A proposal must not be silently included in a tax or rent projection.</td><td>Annual owner: recheck official federal, state, county, and local pages; record status and source date.</td><td><a class="source-link" href="sources.html#monitor">Official law monitor</a></td></tr>
+              <tr><td>Who has authority under the trust, and what actually passes?</td><td>Not verified. Trust terms are private.</td><td>Controls who can list, lease, borrow, claim the exclusion and sign returns.</td><td>Trustee and estate attorney read the executed trust, amendments, deed and beneficiary provisions privately.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td></tr>
+              <tr><td>What is the written date-of-death fair market value of Property A?</td><td>Unknown. Deliberately not estimated.</td><td>Sets inherited basis, drives gain and tax, and anchors the same-year sale test.</td><td>Licensed appraiser engaged at death; comparables retained in the private file.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS inherited basis</a></td></tr>
+              <tr><td>Will an alternate valuation, special-use or consistent-basis election matter?</td><td>Unknown.</td><td>Can change both the estate value and the heir's basis, and therefore the sale tax.</td><td>CPA and estate attorney screen the Form 706 elections before any listing.</td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706 instructions</a></td></tr>
+              <tr><td>Is there debt, a lien, or a payoff penalty against Property A?</td><td>Unknown.</td><td>Changes net proceeds, estate liquidity and whether holding is even affordable.</td><td>Trustee obtains current payoff and lien statements.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td></tr>
+              <tr><td>What did the deceased actually use the home for in the last years?</td><td>Unknown.</td><td>Determines whether the family-home exclusion is even available, and whether rental recapture exists.</td><td>Trustee gathers occupancy evidence: exemptions claimed, mail, utility usage, tax filings, care arrangements.</td><td><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:1.8rem">B · Property tax and the occupancy gate</h3>
+        <div class="table-wrap" style="margin-top:.7rem">
+          <table data-source-table>
+            <caption>Gate group B</caption>
+            <thead><tr><th>Question</th><th>Current answer</th><th>Why it changes the decision</th><th>How to find out · owner</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>What is Property A's tax rate area and published rate?</td><td>Blank. A postal code cannot establish it.</td><td>Fixes the annual bill: 1% plus local debt rates, direct charges and any parcel tax.</td><td>Read the private tax bill and the assessor record; record the rate area and rate.</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
+              <tr><td>What is the transferor's current factored base year value?</td><td>Blank.</td><td>Needed for the Prop. 19 formula and for projecting the new assessed value.</td><td>Assessor record or the current tax bill, privately.</td><td><a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">CA BOE Pub. 800-10</a></td></tr>
+              <tr><td>Will the heir occupy the home as a principal residence within one year — and stay?</td><td>Undecided.</td><td>It is the difference between retaining the transferor's base year value and a full reassessment.</td><td>Household decision, recorded in writing with the move-in and exemption-filing dates.</td><td><a class="source-link" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2">R&amp;TC §63.2</a></td></tr>
+              <tr><td>Is a homeowners' or disabled veterans' exemption claim ready to file?</td><td>Not prepared.</td><td>The exemption is both a tax reduction and a Prop. 19 condition; missing it forfeits the exclusion.</td><td>County form completed at transfer; calendar the one-year deadline.</td><td><a class="source-link" href="https://www.boe.ca.gov/proptaxes/homeexem.htm">CA BOE exemptions</a></td></tr>
+              <tr><td>Are there direct charges, special taxes or parcel taxes on the parcel?</td><td>Unknown.</td><td>Can add substantially to the bill and is not part of the 1% rate.</td><td>Read the full private tax bill, not just the headline rate.</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
+              <tr><td>Is there a pending local tax measure that would affect the parcel?</td><td>Monitoring only.</td><td>A parcel tax can change the carry cost for years; a proposal cannot be modelled as law.</td><td>Annual review of the local elections authority and municipal finance pages.</td><td><a class="source-link" href="sources.html#monitor">Law monitor</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:1.8rem">C · Rent, condition and operating cost</h3>
+        <div class="table-wrap" style="margin-top:.7rem">
+          <table data-source-table>
+            <caption>Gate group C</caption>
+            <thead><tr><th>Question</th><th>Current answer</th><th>Why it changes the decision</th><th>How to find out · owner</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>What is the real market rent for Property A?</td><td>Blank. The model's 3.0% gross yield is a convention, not an estimate.</td><td>The rental ranking is only as good as the rent assumption; the sensitivity table proves it can flip the leader.</td><td>Independent rental opinion with comparables, days on market, concessions and management cost.</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a> · <a class="source-link" href="paths.html#s121">Model sensitivity</a></td></tr>
+              <tr><td>What condition is the house in, and what work is deferred?</td><td>Unknown.</td><td>Deferred work can exceed a year of rent and can block insurance or a rental certificate.</td><td>Independent inspection plus specialist reports; written five-year scope with bids and contingency.</td><td><a class="source-link" href="questions.html#five-year-plan">Five-year plan template</a></td></tr>
+              <tr><td>What will insurance cost and cover?</td><td>Unknown. No quote obtained.</td><td>Availability, deductibles and exclusions can matter more than the premium, and a rental policy differs from an owner policy.</td><td>Licensed broker obtains like-for-like written quotes for both occupancies.</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA Department of Insurance</a></td></tr>
+              <tr><td>What do water, power and any solar credit actually run?</td><td>Unknown. The only figures supplied are informal ranges, which are private and unverified.</td><td>Small in absolute terms, but they belong in the carry cost and in the imputed-rent comparison.</td><td>Twenty-four months of statements plus the solar agreement and tariff.</td><td><a class="source-link" href="questions.html#inventory">Private evidence method</a></td></tr>
+              <tr><td>Which tenant rules would apply to a rental of Property A?</td><td>Unknown.</td><td>Cure periods, just-cause rules, relocation obligations and rent caps materially change the downside.</td><td>Local landlord-tenant counsel confirms coverage for a single-family home in the applicable jurisdiction.</td><td><a class="source-link" href="sources.html">Source register</a></td></tr>
+              <tr><td>Is a like-kind exchange wanted or possible?</td><td>Not decided.</td><td>Personal-use property does not qualify, and the decision closes 45 days after the first sale.</td><td>Tax counsel and a qualified intermediary engaged before listing.</td><td><a class="source-link" href="https://www.irs.gov/publications/p544">IRS Pub. 544</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:1.8rem">D · Whole estate, gifts and portfolio policy</h3>
+        <div class="table-wrap" style="margin-top:.7rem">
+          <table data-source-table>
+            <caption>Gate group D</caption>
+            <thead><tr><th>Question</th><th>Current answer</th><th>Why it changes the decision</th><th>How to find out · owner</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>What is the gross estate, net of deductions, and what liquidity exists?</td><td>Unknown.</td><td>Decides whether a return is needed, whether assets must be sold to pay tax, and how much of any sale proceeds is actually investable.</td><td>CPA builds a private estate balance sheet and cash calendar.</td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes">IRS estate-tax FAQs</a></td></tr>
+              <tr><td>What prior taxable gifts exist?</td><td>Unknown.</td><td>Adjusted taxable gifts are added back when measuring the estate and the remaining exclusion.</td><td>CPA reconstructs gift returns and the running exclusion balance.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-drop/rp-26-35.pdf">Rev. Proc. 2026-35</a></td></tr>
+              <tr><td>Should portability be elected?</td><td>Not decided.</td><td>It can preserve a spouse's unused exclusion, but only through a timely return.</td><td>Executor and estate attorney decide and calendar Form 706 in the first week.</td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706</a></td></tr>
+              <tr><td>What investment policy governs the proceeds?</td><td>Not written.</td><td>Decides the ladder length, the phase-in, the reserve and the rebalancing rules — the model inputs on the paths page.</td><td>Household and adviser write and sign the policy before any money moves.</td><td><a class="source-link" href="paths.html#crash-entry">Staging evidence</a></td></tr>
+              <tr><td>How much cash reserve must be held outside the market?</td><td>Unknown.</td><td>Determines how much is actually available for the equity phase-in, and therefore whether staging is even meaningful.</td><td>CPA and adviser set the reserve from tax, repairs and household needs.</td><td><a class="source-link" href="brief.html">Professional brief</a></td></tr>
+              <tr><td>What would make the household choose each path?</td><td>Not agreed.</td><td>Without pre-agreement, whichever projection is seen last wins.</td><td>Write the thresholds and sign them before figures arrive.</td><td><a class="source-link" href="questions.html#agreement-title">Pre-commitment table</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 style="margin-top:1.8rem">E · Property B, the already-owned building</h3>
+        <div class="table-wrap" style="margin-top:.7rem">
+          <table data-source-table>
+            <caption>Gate group E</caption>
+            <thead><tr><th>Question</th><th>Current answer</th><th>Why it changes the decision</th><th>How to find out · owner</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>Are all units lawfully established and registered?</td><td>Unknown.</td><td>Affects rent legality, insurance, sale value and whether the household can rely on that income.</td><td>Local counsel and the rent board inventory record, privately.</td><td><a class="source-link" href="https://www.sf.gov/rent-board-housing-inventory">SF Rent Board inventory</a></td></tr>
+              <tr><td>What do the leases actually permit?</td><td>Unknown.</td><td>Owner move-in, rent increases, subletting and utility allocation are all lease- and ordinance-dependent.</td><td>Lease-by-lease review with local counsel.</td><td><a class="source-link" href="https://www.sf.gov/learn-about-san-francisco-rental-laws">SF rental laws</a></td></tr>
+              <tr><td>Which units are covered by the rent ordinance, and at what base rent?</td><td>Unknown.</td><td>Coverage determines the permitted annual increase and the value of the income stream.</td><td>Unit-by-unit coverage analysis; do not apply the citywide percentage automatically.</td><td><a class="source-link" href="https://www.sf.gov/learn-about-rent-increases-san-francisco">SF rent increases</a></td></tr>
+              <tr><td>Is the household relying on Property B to house itself while Property A is decided?</td><td>Unstated.</td><td>If yes, Property A's living option is a preference question, not a housing necessity — which changes the whole ranking.</td><td>Household decision, recorded.</td><td><a class="source-link" href="index.html#assets">Asset distinction</a></td></tr>
+              <tr><td>Does a proposed rent-increase limitation affect Property B?</td><td>Proposal only, not enacted.</td><td>Would cap combined banked and capital-improvement increases if adopted.</td><td>Monitor the Board of Supervisors file and the Rent Board notice.</td><td><a class="source-link" href="sources.html#monitor">Law monitor</a></td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <section class="section tint" id="inventory" aria-labelledby="inventory-title">
+    <section class="section tint" id="missing" aria-labelledby="missing-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Discovery plan</p>
+            <h2 id="missing-title">How to go and get the missing information</h2>
+            <p>Ordered by cost and by how much it unblocks. The first three are cheap, fast and decide most of the ranking.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Discovery sequence</caption>
+            <thead><tr><th>Step</th><th>What it produces</th><th>Cost / effort</th><th>Unblocks</th><th>Method</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td>A complete private tax bill and assessor record for Property A</td><td>Low — one request</td><td>Rate area, base year value, direct charges, projection accuracy</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
+              <tr><td>2</td><td>Trust, deed and title review</td><td>Low to moderate</td><td>Authority, what passes, who decides, whether a sale needs consent</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td></tr>
+              <tr><td>3</td><td>Written rental opinion with comparables</td><td>Moderate</td><td>Rental path credibility; the single most likely input to flip the leader</td><td><a class="source-link" href="paths.html#outcomes-title">Sensitivity table</a></td></tr>
+              <tr><td>4</td><td>Condition report and five-year capital scope</td><td>Moderate</td><td>Hold, rent and live affordability; insurability</td><td><a class="source-link" href="questions.html#five-year-plan">Capital template</a></td></tr>
+              <tr><td>5</td><td>Insurance quotes for both occupancies</td><td>Low</td><td>Carry cost and rental feasibility</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI guide</a></td></tr>
+              <tr><td>6</td><td>Utility and solar history</td><td>Low</td><td>Carry cost and imputed-rent accuracy</td><td><a class="source-link" href="questions.html#inventory">Private evidence method</a></td></tr>
+              <tr><td>7</td><td>Estate balance sheet, gifts schedule and liquidity calendar</td><td>Moderate — professional time</td><td>Estate tax, portability, reserve size, sale-before-invest sequencing</td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706</a></td></tr>
+              <tr><td>8</td><td>Property B lease and coverage audit</td><td>Moderate</td><td>Reliability of the household's cash-flow base</td><td><a class="source-link" href="https://www.sf.gov/learn-about-rent-increases-san-francisco">SF rent rules</a></td></tr>
+              <tr><td>9</td><td>Written investment policy</td><td>Low — a meeting and a signature</td><td>Ladder length, phase-in, reserve, override conditions</td><td><a class="source-link" href="paths.html#crash-entry">Staging comparison</a></td></tr>
+              <tr><td>10</td><td>Annual law and source re-verification</td><td>Low, recurring</td><td>Everything dated on this site</td><td><a class="source-link" href="sources.html#monitor">Law monitor</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="inventory" aria-labelledby="inventory-title">
       <div class="container grid two">
         <div>
           <p class="eyebrow">Private estate inventory</p>
-          <h2 id="inventory-title">Use a private worksheet, never this public repository</h2>
-          <p>Keep the following documents in an encrypted folder with access controls agreed by the trustee, attorney, and CPA. This page is intentionally a blank template: it neither asks for nor stores the answers.</p>
+          <h2 id="inventory-title">A blank index, stored outside this repository</h2>
+          <p>This page neither asks for nor stores the answers. It is a folder structure for the encrypted workspace that the trustee, attorney and CPA share under access control.</p>
           <div class="table-wrap" style="margin-top:1rem">
-            <table class="table-tight" data-source-table>
-              <caption>Private-only inventory index</caption>
-              <thead><tr><th>Folder / record</th><th>Store privately</th><th>Decision use</th><th>Authority / guide</th></tr></thead>
+            <table data-source-table>
+              <caption>Private index — contents stay out of Git</caption>
+              <thead><tr><th>Folder</th><th>Records</th><th>Decision use</th><th>Authority</th></tr></thead>
               <tbody>
-                <tr><td>Authority &amp; title</td><td>Trust, amendments, deeds, death certificate, title report, entities, beneficiary authority.</td><td>Who can act; what transfers; title / recording actions.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td></tr>
-                <tr><td>Valuation &amp; basis</td><td>Date-of-death appraisal, condition photos, comparables, estate valuation elections, improvement records.</td><td>Income-tax basis and sale analysis.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS inherited basis</a></td></tr>
-                <tr><td>Estate &amp; liquidity</td><td>Asset/debt list, bank/broker statements, tax returns, gift history, cash-flow calendar, insurance, creditor claims.</td><td>Estate-tax, portability, reserve, and sale timing.</td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706</a></td></tr>
-                <tr><td>Property A operations</td><td>Tax bill, assessor notices, utility statements, solar documents, insurance, permits, inspections, repair scopes, rent opinion.</td><td>Prop. 19 / property tax, sale cost, live/rent feasibility.</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
-                <tr><td>Property B operations</td><td>Leases, rent history, notices, registration, unit status, insurance, repairs, expense records, depreciation schedules.</td><td>Separate existing-property compliance and cash flow.</td><td><a class="source-link" href="https://www.sf.gov/rent-board-housing-inventory">Official rental authority</a></td></tr>
-                <tr><td>Decision record</td><td>Decision owner, date, evidence version, advice received, dissent, thresholds, recheck date.</td><td>Audit trail; avoids re-litigating undocumented assumptions.</td><td><a class="source-link" href="review.html#decision-log">Decision-log template</a></td></tr>
+                <tr><td>01 Authority</td><td>Trust, amendments, deed, death certificate, title report, entity documents</td><td>Who can act and what passes</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td></tr>
+                <tr><td>02 Valuation</td><td>Date-of-death appraisal, comparables, condition photos, improvement records</td><td>Basis and gain</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">Inherited basis</a></td></tr>
+                <tr><td>03 Estate</td><td>Asset and debt list, statements, returns, gift history, cash calendar, creditor claims</td><td>Estate tax, portability, liquidity, reserve</td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706</a></td></tr>
+                <tr><td>04 Property A</td><td>Tax bill, assessor notices, utility history, solar documents, insurance, inspections, rent opinion</td><td>Carry cost, projection, rental feasibility</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
+                <tr><td>05 Property B</td><td>Leases, rent history, notices, registration, insurance, repairs, depreciation schedules</td><td>Cash-flow base reliability</td><td><a class="source-link" href="https://www.sf.gov/rent-board-housing-inventory">SF Rent Board</a></td></tr>
+                <tr><td>06 Decision record</td><td>Owner, date, evidence version, advice received, dissent, thresholds, recheck date</td><td>Audit trail</td><td><a class="source-link" href="review.html#decision-log">Decision log</a></td></tr>
               </tbody>
             </table>
           </div>
         </div>
-        <aside class="card danger"><span class="label">Contain prior exposure</span><h3>Do not solve a privacy problem by making a better public dossier.</h3><p>Do not paste names, addresses, parcel numbers, trust pages, tax bills, rental ledgers, account balances, identity documents, appraisal reports, or solar/utility account identifiers into Git, issues, screenshots, public maps, or this site.</p><ul class="check-list pending"><li>Remove any legacy public copies after counsel assesses retention obligations.</li><li>Use access-limited document storage and a sharing log.</li><li>Redact before any professional receives a nonessential copy.</li><li>Use Property A / Property B labels in working drafts until private counsel needs identifiers.</li></ul></aside>
+        <aside class="card danger">
+          <span class="label">Contain prior exposure</span>
+          <h3>Do not solve a privacy problem with a better public dossier.</h3>
+          <p>Earlier drafts of this project carried case-specific identifiers into a public repository. Deleting them from the current pages does not remove them from earlier commits, caches or copies. The containment steps and the remaining history risk are recorded on the privacy page and in the coordination board.</p>
+          <ul class="check-list pending">
+            <li>Do not paste names, parcels, bills, ledgers or balances into Git, issues, screenshots or forms.</li>
+            <li>Rewrite history only with explicit owner authorisation and a coordinated force-push.</li>
+            <li>Log every share of a document outside the encrypted workspace.</li>
+            <li>Use Property A / Property B labels in every working draft.</li>
+          </ul>
+          <div class="buttons"><a class="button secondary" href="review.html#privacy">Open the privacy page</a></div>
+        </aside>
       </div>
     </section>
 
-    <section class="section" id="five-year-plan" aria-labelledby="five-year-title">
+    <section class="section tint" id="five-year-plan" aria-labelledby="five-year-title">
       <div class="container">
-        <div class="section-header"><div><p class="eyebrow">Five-year maintenance & capital plan</p><h2 id="five-year-title">Plan work for both buildings before assigning a return</h2><p>All cost cells are deliberately blank. A generic annual-percent reserve is not a verified substitute for inspection, scope, bids, permits, and owner priorities.</p></div></div>
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Five-year maintenance and capital plan</p>
+            <h2 id="five-year-title">Scope both buildings before assigning a return</h2>
+            <p>Every cost cell stays blank in public. A generic percentage-of-value reserve is not a substitute for inspection, scope, bids, permits and a contingency.</p>
+          </div>
+        </div>
         <div class="table-wrap">
           <table data-source-table>
-            <caption>Private five-year condition and capital planning template</caption>
-            <thead><tr><th>Workstream</th><th>Property A: first 90 days / Year 1</th><th>Property B: first 90 days / Year 1</th><th>Years 2–5 action</th><th>Public-site cost</th><th>Evidence route</th></tr></thead>
+            <caption>Planning template — cost columns are private</caption>
+            <thead><tr><th>Workstream</th><th>Property A — year 1</th><th>Property B — year 1</th><th>Years 2–5</th><th>Public cost</th><th>Method</th></tr></thead>
             <tbody>
-              <tr><td>Life safety / structure</td><td>Independent inspection; roof, foundation, drainage, envelope, electrical, plumbing, safety systems.</td><td>Independent inspection by unit/common system; habitability and safety review.</td><td>Prioritize failures, permits, reserve schedule, and re-inspection dates.</td><td>—</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI coverage guide</a></td></tr>
-              <tr><td>Insurance / catastrophe resilience</td><td>Replacement-cost review, deductible/exclusion comparison, mitigation documentation.</td><td>Landlord / multi-unit coverage and liability review; compare loss-of-rent provisions.</td><td>Requote annually; recheck catastrophe, flood, quake, FAIR Plan / DIC exposure where relevant.</td><td>—</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI residential guide</a></td></tr>
-              <tr><td>Utilities / energy / water</td><td>Preserve bills, solar documents, equipment warranties, tariff, and maintenance history privately.</td><td>Allocate shared utilities by lease/rules; test equipment and detect leaks.</td><td>Measure actual consumption; replace only after scope/cost/benefit review.</td><td>—</td><td><a class="source-link" href="questions.html#inventory">Private evidence method</a></td></tr>
-              <tr><td>Tenant / occupancy systems</td><td>Before rental: written rent study, lease form review, habitability, deposit, notice, and management plan.</td><td>Review existing leases, unit coverage, registration/inventory, notice, rent-increase license, and maintenance processes.</td><td>Annual lease / local-law audit; record vacancy and repair events privately.</td><td>—</td><td><a class="source-link" href="https://www.sf.gov/learn-about-san-francisco-rental-laws">Official local rental rules</a></td></tr>
-              <tr><td>Capital / tax records</td><td>Classify repairs vs. improvements; keep invoices, permits, and before/after support.</td><td>Maintain improvement and depreciation records by unit/system.</td><td>CPA annual review of basis, depreciation, and planned dispositions.</td><td>—</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a></td></tr>
+              <tr><td>Structure and life safety</td><td>Roof, foundation, drainage, envelope, electrical, plumbing, smoke and CO</td><td>Unit-by-unit safety and habitability review, common systems</td><td>Prioritise failures, permits, reserve schedule, re-inspection dates</td><td>—</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI guide</a></td></tr>
+              <tr><td>Insurance and resilience</td><td>Replacement-cost review, deductible and exclusion comparison, mitigation evidence</td><td>Landlord and multi-unit liability, loss-of-rent provisions</td><td>Requote annually; check catastrophe, flood and quake exposure</td><td>—</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI residential guide</a></td></tr>
+              <tr><td>Utilities and energy</td><td>Preserve bills, solar agreement, warranties, tariff, maintenance history</td><td>Allocate shared utilities as the leases require; test equipment and detect leaks</td><td>Measure actual consumption before replacing anything</td><td>—</td><td><a class="source-link" href="questions.html#inventory">Private evidence method</a></td></tr>
+              <tr><td>Tenancy systems</td><td>Before renting: written rent study, lease form review, habitability, deposits, notices, management</td><td>Lease, coverage, registration and notice audit</td><td>Annual lease and local-law audit; record vacancy and repair events</td><td>—</td><td><a class="source-link" href="https://www.sf.gov/learn-about-san-francisco-rental-laws">SF rental laws</a></td></tr>
+              <tr><td>Capital and tax records</td><td>Classify repairs versus improvements; keep invoices and permits</td><td>Improvement and depreciation records by unit and system</td><td>CPA annual review of basis, depreciation and planned dispositions</td><td>—</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a></td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <section class="section tint" aria-labelledby="agreement-title">
+    <section class="section" id="agreement-title" aria-labelledby="agreement-h">
       <div class="container grid two">
         <div>
           <p class="eyebrow">Pre-commitment agreement</p>
-          <h2 id="agreement-title">Agree what would select each path before the figures arrive.</h2>
-          <p>Fill the thresholds privately with counsel and the household. This site deliberately leaves them blank until independently supported data is available.</p>
-          <div class="table-wrap" style="margin-top:1rem"><table class="table-tight" data-source-table><caption>Decision criteria to record privately</caption><thead><tr><th>Path</th><th>Choose only if all agreed conditions are met</th><th>Current state</th><th>Review route</th></tr></thead><tbody><tr><td>Sell / reinvest</td><td>Verified net sale proceeds, reserve, basis/tax estimate, acceptable investment policy, and no stronger live/rent objective.</td><td>—</td><td><a class="source-link" href="brief.html">Attorney &amp; CPA brief</a></td></tr><tr><td>Live</td><td>Genuine durable occupancy objective, affordability, condition plan, and validated Prop. 19 / future sale-tax treatment.</td><td>—</td><td><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a></td></tr><tr><td>Rent</td><td>Written market rent, lease-rule compliance, insurance, management, reserves, capex, and tax/recapture analysis support it.</td><td>—</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS rental guide</a></td></tr><tr><td>Mixed / staged</td><td>Written bridge end date, exit trigger, Treasury/stock policy, and post-bridge tax/occupancy conditions are defined.</td><td>—</td><td><a class="source-link" href="paths.html">Stress-test methodology</a></td></tr></tbody></table></div>
+          <h2 id="agreement-h">Agree what would select each path before the figures arrive</h2>
+          <p>Fill this privately with counsel and the household. Leaving it until the numbers exist guarantees that the numbers will decide, and that is exactly how a projection gets reverse-engineered.</p>
+          <div class="table-wrap" style="margin-top:1rem">
+            <table data-source-table>
+              <caption>Decision criteria to record privately, with a date</caption>
+              <thead><tr><th>Path</th><th>Choose only if all of these hold</th><th>Would reverse it</th><th>Reference</th></tr></thead>
+              <tbody>
+                <tr><td>Sell and reinvest</td><td>Verified net proceeds and tax estimate, a funded reserve, an adopted investment policy, and no stronger housing or rental objective</td><td>A materially higher verified rent, or a housing need that Property B cannot meet</td><td><a class="source-link" href="paths.html">Model</a></td></tr>
+                <tr><td>Live in it</td><td>Genuine durable occupancy, affordability at the new assessment, a condition plan, and validated Prop. 19 and future §121 treatment</td><td>A re-assessment that makes the carry unaffordable, or a change in household circumstances</td><td><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a></td></tr>
+                <tr><td>Rent it</td><td>Written rent opinion, lawful tenancy, insurance, management, reserves, capital plan and recapture analysis all support it</td><td>Vacancy above the agreed threshold, a tenant-law change, or capital cost overrun</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a></td></tr>
+                <tr><td>Mixed or staged</td><td>A written bridge end date, exit trigger, ladder and phase-in policy, and post-bridge tax and occupancy conditions</td><td>An early sale offer, or a law change that removes the exclusion</td><td><a class="source-link" href="paths.html#crash-entry">Staging test</a></td></tr>
+              </tbody>
+            </table>
+          </div>
         </div>
-        <aside class="card info"><span class="label">Rebuild rule</span><h3>Every validated input change triggers a rebuild.</h3><p>After valuation, tax-rate-area, rent, lease, insurance, debt, capital, occupancy, or law-status changes, rerun the private model and record whether the recommendation moved. Do not preserve an earlier conclusion just because it was convenient.</p><div class="buttons no-print"><a class="button secondary" href="review.html#decision-log">Open decision log</a><a class="button secondary" href="sources.html#monitor">Open law monitor</a></div></aside>
+        <aside class="stack">
+          <article class="card info">
+            <span class="label">Rebuild rule</span>
+            <h3>Any validated input change forces a rebuild.</h3>
+            <p>After valuation, rate area, rent, insurance, debt, capital, occupancy or law-status changes, re-run the comparison and record whether the leader moved. Do not preserve an earlier conclusion because it was convenient.</p>
+            <div class="buttons"><a class="button secondary" href="review.html#decision-log">Decision log</a><a class="button secondary" href="sources.html#monitor">Law monitor</a></div>
+          </article>
+          <article class="card warning">
+            <span class="label">Order of operations</span>
+            <h3>Occupancy before tax, tax before investment.</h3>
+            <p>The occupancy decision determines the property-tax outcome. The property-tax outcome changes the carry cost. The carry cost changes how much of the proceeds can be invested and when. Doing these in a different order means doing them twice.</p>
+          </article>
+        </aside>
       </div>
     </section>
   </main>
