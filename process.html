@@ -110,6 +110,90 @@
         <aside class="card info"><span class="label">Prop. 13 model guardrail</span><h3>Do not project taxes as a flat percentage of market value.</h3><p>California BOE explains that assessed value and market value can diverge materially. The statewide basic rate is 1% plus rates for local voter-approved indebtedness; assessment growth is subject to rules and can differ during a Prop. 8 decline-in-value period.</p><p><a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">Read BOE assessment guidance</a></p></aside>
       </div>
     </section>
+
+    <section class="section tint" id="tax-rate-area" aria-labelledby="tra-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Tax-rate area · published rate · projection method</p><h2 id="tra-title">How the property-tax number is built—and why the exact rate stays blank here</h2><p>Santa Clara County is divided into more than 800 tax rate areas. Each parcel's bill combines a base 1% with voter-approved bonds and special assessments, so the composite rate varies by area. A postal area is not a tax-rate area, and the specific Property A rate is deliberately left blank to keep the property non-identifiable; it must be read from the private tax bill / assessor record.</p></div><span class="status review">Rate left blank — private</span></div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Published Santa Clara County tax-rate-area structure (general, official)</caption>
+            <thead><tr><th>Component</th><th>Official published finding</th><th>Use for the private Property A model</th><th>Status</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>Base rate</td><td>1% maximum ad valorem rate on net assessed value (Prop. 13; Revenue &amp; Taxation Code §51).</td><td>Apply to the private assessed value only after the parcel's area and exemptions are confirmed.</td><td><span class="status ready">Published</span></td><td><a class="source-link" href="https://files.santaclaracounty.gov/exjcpb1521/2024-11/assessment_information_booklet.pdf">County assessor booklet</a></td></tr>
+              <tr><td>Voter-approved bonds / special assessments</td><td>County, city, school, and special-district bond levies and direct assessments are added above the 1%; each tax-rate area has a unique combination.</td><td>Read the line-by-line rates on the private bill; do not assume a single composite percentage.</td><td><span class="status ready">Published</span></td><td><a class="source-link" href="https://files.santaclaracounty.gov/exjcpb1521/2024-11/assessment_information_booklet.pdf">County assessor booklet</a></td></tr>
+              <tr><td>Illustrative composite (not a property rate)</td><td>A typical tax-rate-area example shows $1.1488 per $100 of assessed value (≈$11,488 on a $1,000,000 assessed value), before the $7,000 homeowners' exemption.</td><td>Example only. Do not apply it to Property A; obtain the parcel's actual rate area and rate privately.</td><td><span class="status review">Illustrative</span></td><td><a class="source-link" href="https://files.santaclaracounty.gov/exjcpb1521/2024-11/assessment_information_booklet.pdf">County assessor booklet</a></td></tr>
+              <tr><td>Tax-rate-area identifier</td><td>Each bill shows a tax-rate-area code; a postal code alone does not identify the area.</td><td>Record the private bill's tax-rate-area code and published rate; do not infer from a zip code.</td><td><span class="status blocked">Private bill required</span></td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
+              <tr><td>Property A published rate</td><td>—</td><td>Read from the private tax bill / assessor record at the event; kept blank here for privacy.</td><td><span class="status blocked">Unverified / suppressed</span></td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid two" style="margin-top:1rem">
+          <div>
+            <p class="eyebrow">Projection method (inputs blank)</p>
+            <ul class="check-list pending">
+              <li>Start from the private base-year / factored base-year value, not market value.</li>
+              <li>Apply the annual inflation adjustment within the Prop. 13 growth limit, then voter-approved debt-rate changes from elections and bonds.</li>
+              <li>Apply Prop. 8 only if a verified decline-in-value review establishes a lower factored base-year value.</li>
+              <li>For a qualifying family home, carry the Prop. 19 formula forward: factored base-year value + the then-current indexed allowance.</li>
+              <li>Projected dollar outputs are rounded to the nearest $10; percentages and rates are shown as published.</li>
+            </ul>
+          </div>
+          <aside class="card info"><span class="label">Rounding rule</span><h3>Rounded outputs are not rounded inputs.</h3><p>The nearest-$10 rule applies to displayed dollar results so the site cannot be traced to a source property. Inputs, rates, and the private tax bill keep their published precision; do not round a rate or basis to force anonymity.</p><p><a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">BOE assessment guidance</a></p></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="operating-costs" aria-labelledby="costs-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Operating-cost evidence</p><h2 id="costs-title">Insurance, utilities, and maintenance: collect evidence, don't guess</h2><p>Property-specific operating costs stay private. The table below gives the official route for each cost type and clearly labels any third-party market context as unverified, not an official quote. Actual premiums, tariffs, and scopes must come from written private sources.</p></div><span class="status review">Private evidence required</span></div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Operating-cost inputs and the route to verify them</caption>
+            <thead><tr><th>Cost</th><th>Official / general route</th><th>Market context (unverified, rounded to $10)</th><th>Status</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>Property A homeowners insurance</td><td>Compare coverage, deductibles, and exclusions with a licensed broker; the state provides comparison tools, not individual quotes.</td><td>Third-party aggregator estimates for Cupertino primary-residence coverage cluster roughly $930–$1,480 per year depending on coverage and source. Not an official rate.</td><td><span class="status review">Unverified context</span></td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI guide</a> · <a class="source-link" href="https://www.gethomeinsurancequotes.com/california/cupertino-homeowners-insurance.php">Market context</a></td></tr>
+              <tr><td>Property B rental / multi-unit insurance</td><td>Landlord and multi-unit coverage, liability, and loss-of-rent provisions require property-specific written quotes.</td><td>No official state premium is published; obtain like-for-like broker quotes. Third-party context is not a substitute.</td><td><span class="status blocked">Quote required</span></td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI guide</a></td></tr>
+              <tr><td>Water, electricity, solar credits</td><td>Collect 24 months of private utility statements and the current tariff / net-metering terms; solar-credit treatment depends on the utility and account.</td><td>The household's specific utility and solar-credit figures are private and are not published here.</td><td><span class="status blocked">Private statements required</span></td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a></td></tr>
+              <tr><td>Repairs, maintenance, and capital work</td><td>Independent inspection, written scope, bids, permits, and a five-year reserve; a generic percentage reserve is not a verified substitute.</td><td>—</td><td><span class="status blocked">Scope required</span></td><td><a class="source-link" href="questions.html#five-year-plan">Five-year plan template</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" id="estate-exclusion" aria-labelledby="exclusion-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Federal exclusion · projection · law monitor</p><h2 id="exclusion-title">The inheritance threshold is a moving, law-dependent number</h2><p>The federal basic exclusion applies to the whole taxable estate plus prior taxable gifts, not to one home. The target inheritance window is roughly 2040–2050, so today's threshold is a monitoring reference, not an estimate for the future event. California imposes no state inheritance or gift tax.</p></div><span class="status info">Monitoring reference</span></div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Federal exclusion and California death-tax status</caption>
+            <thead><tr><th>Item</th><th>Current verified finding</th><th>How to use it in the private model</th><th>Status</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>Federal basic exclusion (2026)</td><td>$15,000,000 for decedents dying in calendar year 2026, set by Public Law 119-21; the scheduled sunset was removed.</td><td>Monitoring reference only. A 2040–2050 transfer uses the then-current year's law and indexed amount.</td><td><span class="status ready">Published</span></td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax">IRS estate &amp; gift update</a></td></tr>
+              <tr><td>Future indexing / law changes</td><td>Later years are inflation-adjusted and subject to future legislation; no forecast is made here.</td><td>Recheck the IRS page each tax year and at the event date; record the amount and source date privately.</td><td><span class="status review">Recheck annually</span></td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax">IRS estate &amp; gift update</a></td></tr>
+              <tr><td>California inheritance / gift tax</td><td>California does not have a gift tax or inheritance tax; the state tax service center states this directly.</td><td>Keep this separate from federal estate-tax and income-tax analysis; do not assume a state death tax.</td><td><span class="status ready">Published</span></td><td><a class="source-link" href="https://taxes.ca.gov/income-tax/special-circumstances/">CA Tax Service Center</a></td></tr>
+              <tr><td>Estate liquidity plan</td><td>If the whole estate may exceed the then-current exclusion, a liquidity plan, return review, and portability election are needed.</td><td>Ask now about portability and prior taxable gifts; calendar filing deadlines with counsel.</td><td><span class="status blocked">Private facts required</span></td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="step-by-step" aria-labelledby="steps-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Step-by-step inheritance process</p><h2 id="steps-title">What the trust inheritance actually looks like, in order</h2><p>These are process steps, not legal instructions. The order puts irreversible deadlines before optional market decisions, and records a decision with its date at every step.</p></div></div>
+        <ol class="priority-list">
+          <li><div><b>Pre-event: build the private evidence room</b><span>Create an encrypted inventory of trust, title, debt, insurance, lease, utility, and gift records outside this public repo. Ask for a valuation plan and independent condition/rent reviews.</span></div></li>
+          <li><div><b>Date of death / transfer event</b><span>Capture condition, the valuation engagement, title/trust facts, occupancy, liabilities, and estate liquidity. Inherited income-tax basis is generally date-of-death fair market value; California treats an inheritance as a change in ownership unless an exclusion applies.</span></div></li>
+          <li><div><b>Same-tax-year sale test first</b><span>Before any holding decision, model a same-year sale using a written date-of-death valuation and a private preliminary closing statement. Separate transfer/recording charges, debt payoff, and reserves.</span></div></li>
+          <li><div><b>Property-tax and Prop. 19 gate</b><span>Read the private tax-rate area and rate. If pursuing the family-home exclusion, confirm long-term occupancy, the one-year exemption timing, and the claim window before committing.</span></div></li>
+          <li><div><b>Estate-tax and portability review</b><span>Screen the whole estate, prior taxable gifts, and portability; calendar the Form 706 / tax deadline with counsel. Ask now, not after a sale.</span></div></li>
+          <li><div><b>Decide the path, then document it</b><span>Select sale, rent, live, or a mixed/staged path only after the gates above. Write the decision, the date, the evidence version, and the next review date beside it.</span></div></li>
+          <li><div><b>Investment policy before proceeds arrive</b><span>If selling, set the reserve, 3M–2Y Treasury ladder, 24–36 month hold, 12-month phase-in, allocation, and override rules in writing before the money lands.</span></div></li>
+          <li><div><b>Annual recheck</b><span>Rebuild the model with updated inputs, re-run the black-swan scenarios, recheck law and rates, and record whether the recommendation moved.</span></div></li>
+        </ol>
+      </div>
+    </section>
   </main>
   <div data-site-footer></div>
 </body>
