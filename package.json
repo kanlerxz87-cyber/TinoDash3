@@ -1,0 +1,1 @@
+{"name":"estate-pathfinder","private":true,"version":"1.0.0","scripts":{"test":"node tests/model.test.js","build":"node scripts/build.js"}}
