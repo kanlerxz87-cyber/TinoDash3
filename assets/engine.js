@@ -97,7 +97,13 @@
     capGainsRate: 0,            // 0 = taxes deliberately OFF in the normalised view
     recaptureRate: 0,
     depreciationYears: 27.5,
-    showReal: false
+    showReal: false,
+    // Section 121 screen. Expressed in normalised units: 0.5 = half the starting
+    // value, standing in for a $500,000 joint exclusion against a $1,000,000 start.
+    // The real amount and the real gain must be recomputed from actual facts.
+    section121: false,
+    section121Units: 0.5,
+    expansionMonths: 0
   };
 
   function mergeAssumptions(overrides) {
@@ -199,10 +205,44 @@
     };
   }
 
+  function proceedsWith121(price, saleCostRatio, basis, a) {
+    var netPrice = price * (1 - saleCostRatio);
+    if (!a.capGainsRate) return netPrice;
+    var gainUnits = Math.max(0, netPrice - basis);
+    var taxable = applySection121(gainUnits, a);
+    return netPrice - taxable * a.capGainsRate;
+  }
+
   function ownerOccupied(a) {
     var copy = mergeAssumptions(a);
     copy.ownerOccupied = true;
     return copy;
+  }
+
+  // Published county transfer-tax and recording math (Santa Clara County).
+  // rate values come from the official recorder pages linked in sources.html.
+  var OFFICIAL_FEES = {
+    countyTransferTaxPer500: 0.55,
+    cityConveyancePer500SanJosePaloAltoMountainView: 1.65,
+    recordingFirstPage: 102,
+    recordingAdditionalPage: 3,
+    pcORpenalty: 20
+  };
+
+  function officialFees(price, options) {
+    var opts = options || {};
+    var pages = opts.pages || 2;
+    var citySurcharge = opts.citySurcharge ? OFFICIAL_FEES.cityConveyancePer500SanJosePaloAltoMountainView : 0;
+    var county = Math.ceil((price / 500)) * OFFICIAL_FEES.countyTransferTaxPer500;
+    var city = Math.ceil((price / 500)) * citySurcharge;
+    var recording = OFFICIAL_FEES.recordingFirstPage + Math.max(0, pages - 1) * OFFICIAL_FEES.recordingAdditionalPage;
+    return { countyTransferTax: county, cityConveyance: city, recording: recording, total: county + city + recording };
+  }
+
+  // Section 121: exclude up to the stated units of gain on a qualifying sale.
+  function applySection121(gainUnits, a) {
+    if (!a.section121) return gainUnits;
+    return Math.max(0, gainUnits - a.section121Units);
   }
 
   // After-tax proceeds of a sale. Basis is the inherited value plus post-death
@@ -251,7 +291,7 @@
         held = holdProperty(start, liveMonths, scenario, ownerOccupied(a));
         // The §121 exclusion is never added automatically: the caller must switch it on
         // and the facts must satisfy Pub. 523. Basis stays at the inherited amount.
-        proceeds = afterTaxProceeds(held.value, a.saleCostRatio, basis, 0, a);
+        proceeds = proceedsWith121(held.value, a.saleCostRatio, basis, a);
         remaining = months - liveMonths;
         var liveNet = held.imputed - held.carryOpportunity;
         if (remaining <= 0) return { nominal: proceeds + liveNet, imputed: liveNet };
@@ -427,7 +467,7 @@
         return held.cash + (remaining <= 0 ? proceeds : investShift(proceeds, remaining, a.stageMonths, a.phaseMonths));
       case "liveThenSell":
         held = holdShift(1, liveMonths, true);
-        proceeds = saleTax(held.value, 0);
+        proceeds = proceedsWith121(held.value, a.saleCostRatio, 1, a);
         remaining = months - liveMonths;
         return (held.imputed - held.carryOpportunity) + (remaining <= 0 ? proceeds : investShift(proceeds, remaining, a.stageMonths, a.phaseMonths));
       case "partialSell":
@@ -520,6 +560,107 @@
     });
   }
 
+  // How often does each path finish in the top two across every designed scenario and
+  // every horizon? A robustness count, not a probability and not a recommendation.
+  function robustness(base) {
+    var scenarios = Object.keys(SCENARIOS);
+    var horizons = [5, 10, 25, 50];
+    var tally = {};
+    PATH_META.forEach(function (meta) { tally[meta.key] = { key: meta.key, name: meta.name, top2: 0, wins: 0, worst: Infinity, best: -Infinity, total: 0 }; });
+    var cells = 0;
+    scenarios.forEach(function (scenario) {
+      horizons.forEach(function (horizon) {
+        cells += 1;
+        var rows = evaluate({ scenario: scenario, horizon: horizon, assumptions: mergeAssumptions(base) });
+        rows.forEach(function (row, index) {
+          var t = tally[row.key];
+          t.total += 1;
+          if (index < 2) t.top2 += 1;
+          if (index === 0) t.wins += 1;
+          if (row.value < t.worst) t.worst = row.value;
+          if (row.value > t.best) t.best = row.value;
+        });
+      });
+    });
+    return {
+      cells: cells,
+      rows: Object.keys(tally).map(function (k) { return tally[k]; }).sort(function (a, b) {
+        return b.top2 - a.top2 || b.wins - a.wins || b.best - a.best;
+      })
+    };
+  }
+
+  // Staged-entry comparison: how much does parking in 3M–2Y Treasuries change the
+  // result in a crash-entry scenario, and what constant ladder yield would have been
+  // needed to match immediate equity entry over the same horizon?
+  function stagingComparison(base) {
+    var out = [];
+    ["crash1929", "crisis2008", "baseline", "stagflation"].forEach(function (scenario) {
+      [5, 10, 25].forEach(function (horizon) {
+        var a = mergeAssumptions(base);
+        var deps = [{ key: "sellStocks", label: "Equities now", stage: 0, phase: 1 },
+                    { key: "sellDca12", label: "12-month entry", stage: 0, phase: 12 },
+                    { key: "stage24", label: "24-month ladder", stage: 24, phase: 12 },
+                    { key: "stage30", label: "30-month ladder", stage: 30, phase: 12 },
+                    { key: "stage36", label: "36-month ladder", stage: 36, phase: 12 }];
+        var values = deps.map(function (dep) {
+          var local = mergeAssumptions(a);
+          local.stageMonths = dep.stage;
+          local.phaseMonths = dep.phase;
+          var start = afterTaxProceeds(1, local.saleCostRatio, 1, 0, local);
+          return { key: dep.key, label: dep.label, value: start === 0 ? 0 : invest(start, horizon * 12, scenario, { stageMonths: dep.stage, phaseMonths: dep.phase }) };
+        });
+        var be = breakEvenTreasuryRate({ scenario: scenario, horizon: horizon, assumptions: mergeAssumptions(base) });
+        out.push({ scenario: scenario, label: SCENARIOS[scenario].label, horizon: horizon, values: values, breakEven: be });
+      });
+    });
+    return out;
+  }
+
+  // Normalised property-tax projection. Uses only published Prop. 13 mechanics:
+  // base-year value reassessed at transfer, then factored annually by the lower of
+  // California CPI and 2%. The rate is 1% plus locally voter-approved debt, which is
+  // parcel-specific and therefore shown as a range, never as a household figure.
+  function propertyTaxProjection() {
+    var rows = [];
+    var capFactor = 1.02;
+    var lowFactor = 1.015;
+    [0, 5, 10, 20, 30, 40, 50].forEach(function (years) {
+      var capped = Math.pow(capFactor, years);
+      var lower = Math.pow(lowFactor, years);
+      rows.push({
+        years: years,
+        assessedAtCap: capped,
+        assessedLower: lower,
+        taxAt110: capped * 0.0110,
+        taxAt125: capped * 0.0125,
+        taxLowerAt110: lower * 0.0110,
+        taxLowerAt125: lower * 0.0125
+      });
+    });
+    return rows;
+  }
+
+  // Does the primary-residence exclusion actually matter? Sweep the owner-occupancy
+  // window and compare a taxed sale with the switch on and off. Short windows fail
+  // because round-trip selling costs exceed the appreciation.
+  function section121Sweep(base) {
+    var out = [];
+    [1, 2, 3, 5, 8, 10, 15, 20].forEach(function (liveYears) {
+      var horizon = Math.max(liveYears + 8, 15);
+      var offA = mergeAssumptions(base);
+      offA.capGainsRate = 0.33;
+      offA.section121 = false;
+      offA.liveBridgeMonths = liveYears * 12;
+      var onA = mergeAssumptions(offA);
+      onA.section121 = true;
+      var off = resultFor("liveThenSell", { scenario: "baseline", horizon: horizon, assumptions: offA });
+      var on = resultFor("liveThenSell", { scenario: "baseline", horizon: horizon, assumptions: onA });
+      out.push({ liveYears: liveYears, horizon: horizon, without: off.nominal, with: on.nominal, delta: on.nominal - off.nominal });
+    });
+    return out;
+  }
+
   function sensitivity(base) {
     var probes = [
       { label: "Capital-gains rate 0 → 33%", apply: function (s) { s.assumptions.capGainsRate = 0.33; } },
@@ -556,6 +697,13 @@
     evaluate: evaluate,
     resultFor: resultFor,
     evaluateRange: evaluateRange,
+    robustness: robustness,
+    section121Sweep: section121Sweep,
+    stagingComparison: stagingComparison,
+    propertyTaxProjection: propertyTaxProjection,
+    officialFees: officialFees,
+    OFFICIAL_FEES: OFFICIAL_FEES,
+    applySection121: applySection121,
     breakEvenTreasuryRate: breakEvenTreasuryRate,
     winnerTable: winnerTable,
     sensitivity: sensitivity,

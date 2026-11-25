@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Register of every modelling assumption, its value, its basis, and what replaces it once private evidence exists. Enacted law is separated from modelling convention.">
+  <title>Assumptions Register — Inheritance Decision Desk</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/site.js"></script>
+</head>
+<body data-page="assumptions">
+  <div data-site-header></div>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Assumption register · no hidden numbers</p>
+          <h1>Every number in the model is on this page.</h1>
+          <p class="lede">If a figure appears in a result and it is not an official published rate, it is listed here with the reason it was chosen and the specific private fact that should replace it. Round-number conventions are labelled as conventions, not facts.</p>
+        </div>
+        <aside class="hero-callout">
+          <p class="eyebrow" style="color:#9edbd0">Three labels only</p>
+          <h2>Fact · Convention · Unknown</h2>
+          <p><strong>Fact</strong> is linked to an official page. <strong>Convention</strong> is a documented choice inside the model. <strong>Unknown</strong> is deliberately blank and blocks a real recommendation.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section compact" aria-labelledby="triage-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Read this before any result</p>
+            <h2 id="triage-title">What kind of number are you looking at?</h2>
+          </div>
+        </div>
+        <div class="grid three">
+          <article class="card accent"><span class="label">Fact</span><h3>Published and linked</h3><p>Statutes, exclusions, rates, filing windows and published fee schedules. Each has a date and an official URL. A fact here is not a prediction that the same rule will exist in 2040–2050.</p></article>
+          <article class="card warning"><span class="label">Convention</span><h3>Chosen, disclosed, replaceable</h3><p>Cost ratios, vacancy, rent yield and the designed return sequences. They exist to test robustness. They are not market data, not appraisals, and not estimates for this property.</p></article>
+          <article class="card danger"><span class="label">Unknown</span><h3>Blank on purpose</h3><p>Address, parcel, rate area, valuation, rent roll, leases, insurance quotes, condition, debt, estate size, prior gifts, and occupancy intent. Publishing or inventing any of these would be a privacy failure and a modelling failure.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="law-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Enacted law used in the model</p>
+            <h2 id="law-title">Official facts, with dates and limits</h2>
+            <p>A future inheritance in 2040–2050 will run on future law. These values are monitoring anchors, and every one carries a “recheck at event” note.</p>
+          </div>
+          <span class="status ready">Official-source linked</span>
+        </div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Statutory and published items</caption>
+            <thead><tr><th>Item</th><th>Value used</th><th>Exact scope and date</th><th>How the model uses it</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>Inherited basis</td><td>Fair market value at date of death</td>
+                <td>Generally FMV at death; alternate valuation or special-use valuation if the personal representative elects; stated exceptions apply.</td>
+                <td>Sets basis equal to the starting unit. Gain is measured from there. If an election changes basis, every taxed cell changes.</td>
+                <td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td>
+              </tr>
+              <tr>
+                <td>Federal basic exclusion</td><td>$15,000,000 (2026) · $15,480,000 (2027)</td>
+                <td>Per decedent. 2026 amount set by P.L. 119-21; 2027 amount published in Rev. Proc. 2026-35 §3.44 and indexed thereafter.</td>
+                <td>Not used inside the path engine at all. It is shown separately because it is an estate-level question, not a house-level one.</td>
+                <td><a class="source-link" href="https://www.irs.gov/pub/irs-drop/rp-26-35.pdf">Rev. Proc. 2026-35</a> · <a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes">IRS estate-tax FAQs</a></td>
+              </tr>
+              <tr>
+                <td>Form 706 due date</td><td>9 months, extendable 6</td>
+                <td>Nine months after date of death; an automatic six-month extension is available by filing Form 4768 on time.</td>
+                <td>Drives the deadline timeline, never the path comparison.</td>
+                <td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes">IRS estate-tax FAQs</a></td>
+              </tr>
+              <tr>
+                <td>California inheritance and gift tax</td><td>None</td>
+                <td>The California Tax Service Center states that California does not have a gift tax or an inheritance tax.</td>
+                <td>No California transfer tax is added anywhere in the model. Federal transfer tax is handled separately.</td>
+                <td><a class="source-link" href="https://taxes.ca.gov/income-tax/special-circumstances/">CA Tax Service Center</a></td>
+              </tr>
+              <tr>
+                <td>California capital-gains treatment</td><td>Ordinary income rates</td>
+                <td>“California does not have a lower rate for capital gains. All capital gains are taxed as ordinary income.”</td>
+                <td>Justifies offering a blended 33% sensitivity rather than a preferential state rate.</td>
+                <td><a class="source-link" href="https://www.ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html">CA FTB</a></td>
+              </tr>
+              <tr>
+                <td>California 1% additional tax</td><td>1% of taxable income above $1,000,000</td>
+                <td>2025 Form 540 instructions, line 62, compute 1% on taxable income in excess of $1,000,000.</td>
+                <td>Included in the blended-rate sensitivity only. It applies to taxable income, not to gross proceeds.</td>
+                <td><a class="source-link" href="https://www.ftb.ca.gov/forms/2025/2025-540-instructions.html">FTB 2025 Form 540 instructions</a></td>
+              </tr>
+              <tr>
+                <td>Net investment income tax</td><td>3.8%</td>
+                <td>On the lesser of net investment income or the excess of MAGI over the filing-status threshold ($250,000 joint, $200,000 single). Excludes gain excluded from gross income on a personal residence.</td>
+                <td>Basis for the 23.8% federal sensitivity option.</td>
+                <td><a class="source-link" href="https://www.irs.gov/individuals/net-investment-income-tax">IRS NIIT</a></td>
+              </tr>
+              <tr>
+                <td>Unrecaptured §1250 gain</td><td>25% maximum</td>
+                <td>“The portion of any unrecaptured section 1250 gain from selling section 1250 real property is taxed at a maximum 25% rate.”</td>
+                <td>Recapture rate applied to accumulated depreciation in rental paths.</td>
+                <td><a class="source-link" href="https://www.irs.gov/taxtopics/tc409">IRS Topic 409</a></td>
+              </tr>
+              <tr>
+                <td>§121 home-sale exclusion</td><td>$250,000 / $500,000</td>
+                <td>Ownership for 24 of the last 60 months, use as a main home for 24 of the last 60 months, no exclusion on another home in the prior two years, depreciation recapture handled separately.</td>
+                <td>The toggle subtracts a fixed exclusion from gain. Expressed in normalised units (0.5 per 1.00 start) so no household value is used.</td>
+                <td><a class="source-link" href="https://www.irs.gov/publications/p523">IRS Pub. 523</a></td>
+              </tr>
+              <tr>
+                <td>Prop. 13 assessment mechanics</td><td>1% + local debt rates; FBYV growth capped at 2%</td>
+                <td>Base year value is set at change in ownership; the annual factor is the California CPI change but not more than 2%; the assessor enrolls the lower of FBYV or market value.</td>
+                <td>Property-tax projection uses a 2.0% cap and a 1.5% lower-CPI variant, at two published-rate bands (1.10% and 1.25%).</td>
+                <td><a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">CA BOE Pub. 800-10</a></td>
+              </tr>
+              <tr>
+                <td>Homeowners' exemption</td><td>$7,000 of full value</td>
+                <td>Reduces the assessed value by $7,000; roughly $70 of tax at the 1% rate; must be claimed; also a Prop. 19 requirement within one year of transfer.</td>
+                <td>Not added as a benefit anywhere. It is a filing obligation, not a strategy.</td>
+                <td><a class="source-link" href="https://www.boe.ca.gov/proptaxes/homeexem.htm">CA BOE exemptions</a></td>
+              </tr>
+              <tr>
+                <td>Prop. 19 value limit</td><td>Factored base year value + $1,044,586</td>
+                <td>For qualifying transfers from 16 Feb 2025 through 15 Feb 2027. The allowance is adjusted every other year; the next adjustment has not been published.</td>
+                <td>Shown as a formula. Never carried forward as a dollar amount into a 2040–2050 transfer.</td>
+                <td><a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm">BOE NR 25-02</a></td>
+              </tr>
+              <tr>
+                <td>Prop. 19 conditions</td><td>Occupancy + exemption + claim + value tests</td>
+                <td>Transferor's principal residence; becomes the transferee's principal residence within one year; homeowners' or disabled veterans' exemption filed within one year; claim filed within three years or before a third-party transfer, whichever is earlier.</td>
+                <td>The model never assumes the exclusion. It is a gate, listed in the questions register.</td>
+                <td><a class="source-link" href="https://boe.ca.gov/prop19/">CA BOE Prop. 19</a> · <a class="source-link" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2">R&amp;TC §63.2</a></td>
+              </tr>
+              <tr>
+                <td>County documentary transfer tax</td><td>$0.55 per $500 or fraction</td>
+                <td>Santa Clara County rate on the consideration or value of the interest conveyed, excluding liens and encumbrances already of record.</td>
+                <td>The fee calculator rounds the number of $500 units up, as the published “or fractional portion” wording requires.</td>
+                <td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate">County recorder</a></td>
+              </tr>
+              <tr>
+                <td>City conveyance tax</td><td>$1.65 per $500 in San Jose, Palo Alto, Mountain View</td>
+                <td>Applies only to properties in those three cities, in addition to the county tax. Claims and refunds go to the city finance department.</td>
+                <td>Offered as a checkbox in the fee calculator. The correct setting depends on the parcel's municipality, which is a private fact.</td>
+                <td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate">County recorder</a></td>
+              </tr>
+              <tr>
+                <td>Recording fee</td><td>$102 first page, $3 each additional</td>
+                <td>Includes a $10 real-estate fraud prevention fee, the $75 SB 2 Building Homes and Jobs Act fee and the $2 AB 1466 restrictive covenant fee; the $10 fraud fee is subtracted for documents subject to documentary transfer tax.</td>
+                <td>Two-page deed-plus-PCOR assumption in the calculator, disclosed in the row label.</td>
+                <td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/resources/fee-schedule">County fee schedule</a></td>
+              </tr>
+              <tr>
+                <td>San Francisco rent-increase limit</td><td>1.6% then 2.3%</td>
+                <td>1.6% effective 1 Mar 2026 – 28 Feb 2027; 2.3% effective 1 Mar 2027 – 29 Feb 2028. Based on 60% of Bay Area CPI.</td>
+                <td>Context for Property B only. Property B's rent is never merged into Property A's result.</td>
+                <td><a class="source-link" href="https://www.sf.gov/learn-about-rent-increases-san-francisco">SF Rent Board</a></td>
+              </tr>
+              <tr>
+                <td>Short Treasury yields</td><td>3-month 4.36% · 2-year 4.63%</td>
+                <td>Daily Treasury par yield curve, 24 November 2026.</td>
+                <td>Reference only. The staged-path scenarios use designed sequences, not this curve, because a 2040s curve does not exist yet.</td>
+                <td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202611">U.S. Treasury</a></td>
+              </tr>
+              <tr>
+                <td>Consumer price inflation</td><td>3.7% (12 months to Sep 2026)</td>
+                <td>CPI-U all items, 12-month change, not seasonally adjusted. Energy was 20.4% over the same period, which is why a single inflation number is a poor planning input.</td>
+                <td>Supports the “use ranges, not points” rule and the stagflation sequence.</td>
+                <td><a class="source-link" href="https://www.bls.gov/cpi/">BLS CPI</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="conv-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Modelling conventions</p>
+            <h2 id="conv-title">Chosen values, and what retires each one</h2>
+            <p>None of these is a market fact or a property estimate. Each has a default, a tested range, and the private input that would replace it.</p>
+          </div>
+          <span class="status review">Replaceable by design</span>
+        </div>
+        <div class="table-wrap">
+          <table data-sources="convention">
+            <caption>Model conventions with their tested ranges</caption>
+            <thead><tr><th>Convention</th><th>Default</th><th>Range tested</th><th>Why this default</th><th>Replaced by</th></tr></thead>
+            <tbody>
+              <tr><td>Gross rent yield</td><td>3.0% of value per year</td><td>1.0% – 5.0%</td><td>A mid-range rental yield for high-cost California housing; deliberately not an appraisal of any property.</td><td>Written rental opinion plus comparable leases</td></tr>
+              <tr><td>Vacancy</td><td>5% of gross rent</td><td>0% – 20%</td><td>Normal-turnover allowance in a strong rental market; deliberately low so the rental path is not flattered by a pessimistic default.</td><td>Local vacancy data and the actual unit's history</td></tr>
+              <tr><td>Operating-cost ratio</td><td>28% of gross rent</td><td>20% – 45%</td><td>Covers property tax, insurance, utilities, management, routine repairs and turnover. Excludes capital work, which is a separate line.</td><td>Twenty-four months of actual statements</td></tr>
+              <tr><td>Owner-occupied carry ratio</td><td>2.0% of value per year</td><td>1.2% – 3.0%</td><td>Property tax on the post-transfer assessment, insurance, water, power and routine upkeep, annualised.</td><td>Actual bills and quotes after transfer</td></tr>
+              <tr><td>Sale cost ratio</td><td>5.5%</td><td>3% – 10%</td><td>Commission, escrow, title, transfer and recording taxes, minor prep. Statutory items are separately calculated on the process page.</td><td>Written listing and escrow estimates</td></tr>
+              <tr><td>Imputed rent, living paths</td><td>0% (off)</td><td>0% – 6%</td><td>Off by default so that living never wins because of an unverified benefit. Switching it on is a deliberate choice by the reader.</td><td>Rent comparison for equivalent housing</td></tr>
+              <tr><td>Depreciation life</td><td>27.5 years, 75% of value</td><td>—</td><td>Residential rental straight-line convention, applied only when tax is switched on.</td><td>CPA fixed-asset schedule</td></tr>
+              <tr><td>Recapture rate</td><td>25%</td><td>—</td><td>Statutory maximum for unrecaptured §1250 gain.</td><td>CPA computation of the actual depreciation taken</td></tr>
+              <tr><td>Capital-gains rate options</td><td>0% / 15% / 23.8% / 33%</td><td>—</td><td>Off by default, because a normalised comparison should not pretend to know the household's bracket. The 33% option approximates federal plus California at the top end.</td><td>Return-level CPA projection for the sale year</td></tr>
+              <tr><td>§121 exclusion in the model</td><td>0.5 units</td><td>—</td><td>Stands in for a $500,000 joint exclusion against a $1,000,000 starting unit. The real exclusion is a fixed dollar amount and does not scale with the property.</td><td>Actual exclusion amount and actual gain</td></tr>
+              <tr><td>Rent bridge</td><td>60 months</td><td>24 – 120 months</td><td>Long enough to show the recapture and capital-plan drag, short enough to stay a bridge rather than a permanent hold.</td><td>The chosen bridge, if any</td></tr>
+              <tr><td>Living screen</td><td>24 months</td><td>12 – 240 months</td><td>Exactly the §121 use threshold, so the model shows what the minimum qualifying stay is worth — usually less than the round trip costs.</td><td>Actual intended occupancy</td></tr>
+              <tr><td>Treasury parking</td><td>30 months</td><td>24 – 36 months</td><td>Middle of the range the household asked about.</td><td>The written investment policy</td></tr>
+              <tr><td>Phase-in after parking</td><td>12 months, linear</td><td>—</td><td>A simple, auditable rule. Any other rule should be written into the policy before proceeds arrive.</td><td>The written investment policy</td></tr>
+              <tr><td>Economic sequences</td><td>Four designed 20-year sequences</td><td>—</td><td>Deliberately irregular, because growth and inflation are never constant over 50 years. They are not historical reconstructions and not forecasts.</td><td>A privately reviewed capital-market assumption set, if one is adopted</td></tr>
+              <tr><td>Beyond 20 years</td><td>Sequence repeats</td><td>—</td><td>A 50-year horizon exceeds the designed sequence. Repetition is disclosed so no reader mistakes it for a new forecast.</td><td>A longer designed sequence, if a 50-year view is required</td></tr>
+              <tr><td>Rounding</td><td>Nearest $10 on the illustrative unit</td><td>—</td><td>Removes false precision and keeps outputs non-identifying. Multiples are shown to three decimals so small differences are visible.</td><td>Nothing — this is a presentation rule</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="gap-title">
+      <div class="container grid two">
+        <div>
+          <p class="eyebrow">Not assumed anywhere</p>
+          <h2 id="gap-title">Inputs the model deliberately refuses to invent</h2>
+          <ul class="check-list pending">
+            <li>Date-of-death fair market value, and therefore inherited basis.</li>
+            <li>Tax rate area, voter-approved debt rates, direct charges and any Mello-Roos or parcel tax.</li>
+            <li>Whether the transferor used the home as a principal residence, which governs Prop. 19 eligibility.</li>
+            <li>Whether the heir will occupy, for how long, and when.</li>
+            <li>Condition, deferred maintenance, roof, foundation, sewer, electrical capacity.</li>
+            <li>Insurance availability, deductible structure, earthquake and wildfire cover.</li>
+            <li>Water, power and solar-credit history.</li>
+            <li>Debt, liens, payoff penalties and estate liquidity needs.</li>
+            <li>Whole-estate value, prior taxable gifts, marital history and portability.</li>
+            <li>Any like-kind exchange intent.</li>
+            <li>Property B's leases, unit lawfulness, registration and rent-increase licence status.</li>
+          </ul>
+        </div>
+        <aside class="stack">
+          <article class="card danger">
+            <span class="label">Privacy rule for this page</span>
+            <h3>No real figure belongs in this table.</h3>
+            <p>If a real number is entered here, the repository becomes a searchable dossier. The model therefore works in multiples, and the private workbook holds the only copy of the actual amounts.</p>
+          </article>
+          <article class="card warning">
+            <span class="label">Rebuild rule</span>
+            <h3>Every validated input change forces a rebuild.</h3>
+            <p>After a valuation, rate-area lookup, rent opinion, insurance quote, lease review or law change, re-run the comparison and record whether the leader moved, by how much, and why. Keep that record next to the decision.</p>
+            <div class="buttons"><a class="button secondary" href="review.html#decision-log">Decision log</a><a class="button secondary" href="paths.html">Model</a></div>
+          </article>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>
