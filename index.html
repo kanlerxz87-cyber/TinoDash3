@@ -3,186 +3,258 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy-first decision support for an inherited California home and an already-owned multi-unit home.">
-  <title>Inheritance Decision Desk — private, evidence-gated planning</title>
+  <meta name="description" content="Privacy-first, evidence-gated decision support for a future inherited California home alongside an already-owned multi-unit home. Ranges, not point estimates.">
+  <title>Inheritance Decision Desk — ranges, gates and crash tests</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/site.js"></script>
 </head>
 <body data-page="home">
   <div data-site-header></div>
   <main id="main">
+
+    <!-- ============ SCREEN 1: what would change the answer ============ -->
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">Evidence-gated inheritance planning</p>
-          <h1>Do not let one projection choose the outcome.</h1>
-          <p class="lede">This is a privacy-first, public decision dashboard for two distinct assets: <strong>Property A</strong>, an inherited home expected in a future period, and <strong>Property B</strong>, an already-owned multi-unit home. It compares sale, rent, live, and mixed paths only after their legal, tax, operating, and liquidity differences are visible.</p>
+          <p class="eyebrow">Answer first · evidence second · decision last</p>
+          <h1>What would change the answer</h1>
+          <p class="lede">Five facts decide this case. None of them is published here, and none is known yet. Until they are, every ranking on this site is a <strong>range test</strong>: a way to see which missing fact actually moves the outcome, and which one is noise.</p>
           <div class="buttons no-print">
-            <a class="button" href="paths.html">Compare mixed paths</a>
-            <a class="button secondary" href="brief.html">Open printable professional brief</a>
+            <a class="button" href="#gates">See the five gates</a>
+            <a class="button secondary" href="paths.html">Open the range model</a>
           </div>
         </div>
         <aside class="hero-callout" aria-label="Decision status">
           <p class="eyebrow" style="color:#9edbd0">Decision status</p>
-          <h2>No path is ready to recommend.</h2>
-          <p>Too many outcome-changing facts remain unverified. The correct current output is a gated decision, not a ranking made from a single forecast.</p>
+          <h2>Blocked — and that is the finding.</h2>
+          <p>The household inherits <strong>Property A</strong> (a California single-family home) in roughly 2040–2050. <strong>Property B</strong> (a rent-controlled San Francisco multi-unit building) is already owned and stays owned in every path. Only A is inherited. That asymmetry is the single most important input.</p>
         </aside>
       </div>
     </section>
 
-    <section class="section compact" aria-labelledby="changes-title">
+    <section class="section compact" id="gates" aria-labelledby="gates-title">
       <div class="container">
         <div class="section-header">
           <div>
-            <p class="eyebrow">First screen: what would change the answer</p>
-            <h2 id="changes-title">The five facts most likely to move the decision</h2>
-            <p>Agree these decision gates in writing before receiving estimates. That prevents a later model from being reverse-engineered to defend a preferred outcome.</p>
+            <p class="eyebrow">Agree these in writing before the numbers arrive</p>
+            <h2 id="gates-title">The five facts that can each reverse the ranking</h2>
+            <p>Written in advance, these thresholds stop a preferred path from being reverse-engineered out of one projection later. Keep the filled-in version in the private workbook, not in this repository.</p>
           </div>
-          <span class="status blocked">Decision blocked</span>
+          <span class="status blocked">Blocked</span>
         </div>
         <ol class="priority-list">
-          <li><div><b>Date-of-death fair market value and estate basis</b><span>Same-tax-year sale analysis cannot begin until an independent written valuation establishes the inherited basis and any applicable estate election is known.</span></div></li>
-          <li><div><b>Actual occupancy commitment</b><span>Property-tax relief is not assumed. A long-term primary-residence decision must satisfy the applicable California occupancy, exemption, and filing requirements.</span></div></li>
-          <li><div><b>Property A tax-rate area and transfer costs</b><span>A postal area is not a tax-rate area. Obtain the private tax bill / assessor record and verify the municipality-specific transfer-tax treatment before pricing a sale.</span></div></li>
-          <li><div><b>Market rent, condition, leases, and five-year capital plan</b><span>Without independent rent and condition evidence, rental paths are only floors or placeholders—not an evidence-based return estimate.</span></div></li>
-          <li><div><b>Whole-estate liquidity, prior gifts, and portability</b><span>The federal threshold applies to the whole taxable estate and prior taxable gifts, not one home. Cash needs and portability must be reviewed with the executor, attorney, and CPA.</span></div></li>
+          <li><div><b>1 · Date-of-death value and the basis it creates</b><span>Inherited basis is generally fair market value at death under IRS Pub. 559. Without a written valuation there is no gain calculation, no same-year sale test and no defensible tax number.</span></div></li>
+          <li><div><b>2 · Whether the heir will really live there — and for how long</b><span>Property-tax relief under Prop. 19 needs the home to become the heir's principal residence within one year, plus a homeowners' exemption filing. The §121 income-tax exclusion needs 24 months of use inside five years. Both fail quietly if the plan is a short stay.</span></div></li>
+          <li><div><b>3 · Property A's tax rate area and real sale costs</b><span>A postal code is not a tax rate area. The county sets the rate from the parcel's rate area; the sale adds county transfer tax, any city conveyance tax and recording fees from published schedules.</span></div></li>
+          <li><div><b>4 · Real market rent, condition and a five-year capital plan</b><span>Rental paths are bounded by verified rent, vacancy, insurance, tenant rules and deferred maintenance. An unverified rent assumption can flip the ranking on its own — the sensitivity table on the model page shows it doing exactly that.</span></div></li>
+          <li><div><b>5 · The whole estate, prior gifts and portability</b><span>Federal estate tax is measured on the entire taxable estate plus adjusted taxable gifts, not on one house. The 2026 exclusion is $15,000,000; the 2027 figure is $15,480,000. A future death year uses future law.</span></div></li>
         </ol>
       </div>
     </section>
 
+    <!-- ============ Executive summary ============ -->
     <section class="section tint" aria-labelledby="summary-title">
       <div class="container">
         <div class="section-header">
           <div>
             <p class="eyebrow">Executive summary</p>
-            <h2 id="summary-title">The decision frame, before numbers arrive</h2>
+            <h2 id="summary-title">The decision frame, before any forecast</h2>
+            <p>Keep three tax systems apart, and never let one of them decide the others.</p>
           </div>
+          <a class="button secondary no-print" href="assumptions.html">What the model assumes</a>
         </div>
         <div class="grid four">
-          <article class="metric"><span class="label">Asset distinction</span><span class="number">A ≠ B</span><span class="caption">Only Property A is expected to be inherited. Property B already belongs to the household and remains in every Property A comparison.</span></article>
-          <article class="metric"><span class="label">First tax test</span><span class="number">Year 0</span><span class="caption">Model a sale in the same tax year as the inheritance before assuming any holding period is needed for tax reasons.</span></article>
-          <article class="metric"><span class="label">Required comparison</span><span class="number">6 paths</span><span class="caption">Pure sale, rent, and live choices are shown beside staged and mixed paths at the same transfer date and horizon.</span></article>
-          <article class="metric"><span class="label">Safest output now</span><span class="number">Hold</span><span class="caption">Preserve options, collect evidence, and avoid irreversible steps until valuation, eligibility, tax, lease, debt, and cost facts are complete.</span></article>
+          <article class="metric"><span class="label">Estate tax</span><span class="number">Whole estate</span><span class="caption">Federal exclusion and portability, measured on the entire estate and prior taxable gifts. California has no inheritance or estate tax of its own.</span></article>
+          <article class="metric"><span class="label">Income-tax basis</span><span class="number">Date of death</span><span class="caption">Generally fair market value at death. It is reset by the inheritance, not by the price the deceased paid decades ago.</span></article>
+          <article class="metric"><span class="label">Property-tax assessment</span><span class="number">1% + local</span><span class="caption">Prop. 13 fixes the base year value at transfer and caps growth at the lower of California CPI or 2%. Inheritance is a change in ownership unless an exclusion applies.</span></article>
+          <article class="metric"><span class="label">Best current output</span><span class="number">Range</span><span class="caption">Every ranking on this site is a range across four designed scenarios, four horizons and twenty sequence rotations. No probability is claimed.</span></article>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="facts-title">
+    <!-- ============ What the model says, in ranges ============ -->
+    <section class="section" aria-labelledby="range-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Robustness, not a forecast</p>
+            <h2 id="range-title">No single path wins every cell</h2>
+            <p>Counting how often each path finishes in the top two across 16 designed cells — four scenarios × four horizons. Occurrence counts, unweighted, not probabilities.</p>
+          </div>
+          <span class="status review">Not a recommendation</span>
+        </div>
+        <div class="grid two">
+          <div>
+            <div class="table-wrap">
+              <table class="table-tight">
+                <caption>Top-two finishes across 16 designed cells, all eight paths (normalised units)</caption>
+                <thead><tr><th>Path</th><th class="num">Top-two</th><th class="num">Wins</th><th class="num">Best cell</th><th class="num">Worst cell</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Staged 3M–2Y ladder → equities</strong></td><td class="num">7 / 16</td><td class="num">6</td><td class="num">6.843</td><td class="num">1.044</td></tr>
+                  <tr><td>Sell half, rent half 5y</td><td class="num">6 / 16</td><td class="num">0</td><td class="num">5.544</td><td class="num">0.961</td></tr>
+                  <tr><td><strong>Hold as rental</strong></td><td class="num">5 / 16</td><td class="num">5</td><td class="num">7.342</td><td class="num">0.865</td></tr>
+                  <tr><td>Rent 5y → sell → staged</td><td class="num">5 / 16</td><td class="num">4</td><td class="num">5.093</td><td class="num">0.865</td></tr>
+                  <tr><td>12-month equity entry</td><td class="num">4 / 16</td><td class="num">0</td><td class="num">6.731</td><td class="num">0.736</td></tr>
+                  <tr><td>Sell now → equities</td><td class="num">2 / 16</td><td class="num">1</td><td class="num">5.307</td><td class="num">0.588</td></tr>
+                  <tr><td>Live 2y → sell → staged</td><td class="num">2 / 16</td><td class="num">0</td><td class="num">5.323</td><td class="num">0.771</td></tr>
+                  <tr><td>Live long term</td><td class="num">1 / 16</td><td class="num">0</td><td class="num">3.170</td><td class="num">0.819</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Read it as: <strong>staging and holding are robust; immediate equity entry is fragile.</strong> The worst cell for immediate entry (0.588) is the 1929-style crash at a five-year horizon. Open the <a href="paths.html">model page</a> to change the inputs and watch the counts move.</p>
+          </div>
+          <aside class="stack">
+            <article class="card warning">
+              <span class="label">The honest headline</span>
+              <h3>Parking proceeds in 24–36 months of 3M–2Y Treasuries helps exactly when the entry year is a crash — and costs money otherwise.</h3>
+              <p>In a 1929-style sequence, a 30-month ladder finishes at <strong>1.359</strong> against <strong>0.588</strong> for immediate equity entry at five years. In the irregular baseline at 25 years it finishes at <strong>2.293</strong> against <strong>2.367</strong>. That is the trade: crash protection paid for with expected return.</p>
+              <p><a class="source-link" href="paths.html#crash-entry">Compare staging lengths</a></p>
+            </article>
+            <article class="card">
+              <span class="label">Reinvestment risk, beside the headline</span>
+              <h3>The ladder has to earn a rate that no longer exists.</h3>
+              <p>For staging to match immediate investment over ten years in a crash sequence, the parked cash needs a constant yield the model reports for every cell. The 24 November 2026 par curve showed 3-month at 4.36% and 2-year at 4.63% — published facts, not promises about 2029 maturities.</p>
+              <p><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202611">U.S. Treasury par curve</a></p>
+            </article>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Asset distinction ============ -->
+    <section class="section tint" id="assets" aria-labelledby="assets-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">A ≠ B</p>
+            <h2 id="assets-title">One house is inherited. The other is already owned.</h2>
+            <p>Mixing them is the most common modelling error in this file. Property B is not an inheritance and must not be counted as one; it is the household's <em>fallback housing and cash-flow base</em> while Property A is decided.</p>
+          </div>
+        </div>
+        <div class="grid two">
+          <article class="card accent">
+            <span class="label">Property A · inherited, roughly 2040–2050 by trust</span>
+            <h3>California single-family home</h3>
+            <ul class="check-list">
+              <li>Ownership changes at death: basis resets, and the county reassesses unless an exclusion applies.</li>
+              <li>Vacant or rented while owned by the trust → no family-home exclusion, no §121 eligibility, full reassessment.</li>
+              <li>Three decision families: <strong>sell</strong>, <strong>rent</strong>, <strong>live</strong> — plus mixed and staged variants of each.</li>
+              <li>Carrying cost while held: property tax at the new assessed value, insurance, water, electricity, upkeep, and (if rented) management and tenant-law compliance.</li>
+            </ul>
+          </article>
+          <article class="card accent">
+            <span class="label">Property B · already owned, never inherited</span>
+            <h3>San Francisco multi-unit building</h3>
+            <ul class="check-list">
+              <li>Existing rental income continues in <em>every</em> Property A path, so it is a constant, not a differentiator.</li>
+              <li>Owner-occupying part of B while renting the rest is a separate lawful-use and rent-ordinance question, not a Property A option.</li>
+              <li>Rent-increase limits are set annually by the Rent Board (1.6% from 1 Mar 2026 to 28 Feb 2027; 2.3% from 1 Mar 2027).</li>
+              <li>A proposed 2026 ordinance (File No. 261020) would cap combined banked and capital-improvement increases. It is <strong>not enacted</strong> and is excluded from every number here.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Known / unknown ============ -->
+    <section class="section" aria-labelledby="known-title">
       <div class="container">
         <div class="section-header">
           <div>
             <p class="eyebrow">Known / unknown boundary</p>
-            <h2 id="facts-title">What this site will and will not publish</h2>
-            <p>The repository is public. Household facts are intentionally not copied into it. The table preserves the decision-relevant distinction without making a property searchable.</p>
+            <h2 id="known-title">What is verified, what is assumed, what is missing</h2>
+            <p>Three labels are used throughout. They are never mixed: a <em>fact</em> is linked to an official page, an <em>assumption</em> is a documented modelling convention, and a <em>missing</em> item is left blank on purpose.</p>
           </div>
-          <a class="button secondary no-print" href="questions.html">Open evidence checklist</a>
+          <a class="button secondary no-print" href="assumptions.html">Open the register</a>
         </div>
         <div class="table-wrap">
           <table data-source-table>
-            <caption>Publication-safe asset register</caption>
-            <thead><tr><th>Item</th><th>Decision-relevant answer</th><th>Evidence status</th><th>Authority / method</th></tr></thead>
+            <caption>Publication-safe register</caption>
+            <thead><tr><th>Item</th><th>Status</th><th>What this site says</th><th>Where the answer must come from</th></tr></thead>
             <tbody>
-              <tr><td>Property A</td><td>Future inherited California home; no address, parcel, or exact financial record is published.</td><td><span class="status review">Private evidence required</span></td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a><small>Basis must be supported privately by date-of-death evidence.</small></td></tr>
-              <tr><td>Property B</td><td>Already-owned multi-unit home; retained in every Property A path and not treated as an inherited asset.</td><td><span class="status review">Lease / rules review required</span></td><td><a class="source-link" href="https://www.sf.gov/rent-board-housing-inventory">Official local rental authority</a><small>Local reporting and rent-increase rules require private verification.</small></td></tr>
-              <tr><td>Address, owner, APN, bills, leases, accounts</td><td>Never published; no public parcel lookup was performed.</td><td><span class="status ready">Suppressed by design</span></td><td><a class="source-link" href="review.html#privacy">Site privacy boundary</a><small>Internal policy; not a claim about government records.</small></td></tr>
-              <tr><td>Future inheritance date</td><td>Exact date is unknown; the model uses Year 0 (date of death / transfer event) rather than a calendar-year prediction.</td><td><span class="status review">Unknown</span></td><td><a class="source-link" href="process.html#timeline">Process timeline</a><small>Current rules must be rechecked at the actual event date.</small></td></tr>
+              <tr><td>Inherited basis</td><td><span class="status ready">Fact</span></td><td>Generally fair market value at the date of death, or the alternate valuation date if elected, with stated exceptions.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td></tr>
+              <tr><td>Property A date-of-death value</td><td><span class="status blocked">Missing</span></td><td>Not published, not estimated. Every property path in this model starts from a normalised 1.00 unit instead.</td><td><a class="source-link" href="questions.html#inventory">Private appraisal file</a></td></tr>
+              <tr><td>Property A tax rate area and rate</td><td><span class="status blocked">Missing</span></td><td>Deliberately blank. The model shows the mechanics at 1.10% and 1.25% of assessed value and lets the reader substitute the real rate privately.</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
+              <tr><td>Prop. 13 growth mechanics</td><td><span class="status ready">Fact</span></td><td>Base year value set at change in ownership; annual inflation factor is the California CPI change, capped at 2%; the lower of FBYV or market value is enrolled.</td><td><a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">CA BOE Pub. 800-10</a></td></tr>
+              <tr><td>Prop. 19 indexed allowance</td><td><span class="status ready">Fact, dated</span></td><td>$1,044,586 for transfers from 16 Feb 2025 through 15 Feb 2027, added to the transferor's factored base year value. The next adjustment has not been published.</td><td><a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm">BOE NR 25-02</a></td></tr>
+              <tr><td>Federal estate exclusion</td><td><span class="status ready">Fact, dated</span></td><td>$15,000,000 for 2026 decedents; $15,480,000 for 2027 per Rev. Proc. 2026-35. A 2040–2050 death uses whatever law then exists.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-drop/rp-26-35.pdf">Rev. Proc. 2026-35</a></td></tr>
+              <tr><td>Property B operating figures</td><td><span class="status review">Private</span></td><td>Rent, utilities, insurance, leases and unit configuration are not published and not used in any public calculation.</td><td><a class="source-link" href="questions.html#inventory">Encrypted private workbook</a></td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <section class="section" id="property-b-operations" aria-labelledby="property-b-title">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Existing-asset overlay</p>
-            <h2 id="property-b-title">Property B is a separate operating decision</h2>
-            <p>The public brief carries forward only a non-identifying, user-supplied description. These rows are unverified context, not official property records; exact rent, leases, utilities, debt, insurance, and unit identifiers stay private.</p>
-          </div>
-          <span class="status review">User context — unverified</span>
-        </div>
-        <div class="table-wrap">
-          <table data-source-table>
-            <caption>Publication-safe Property B operating overlay</caption>
-            <thead><tr><th>Decision fact</th><th>Public description</th><th>What must be verified</th><th>Official starting point</th></tr></thead>
-            <tbody>
-              <tr><td>Separate rental and owner space</td><td>A multi-unit home may allow owner occupancy without displacing tenants or reducing existing rent. The actual configuration is private and unverified.</td><td>Lawful unit status, available space, registration, insurance classification, permits, and local reporting.</td><td><a class="source-link" href="https://www.sf.gov/rent-board-housing-inventory">Official rental inventory</a></td></tr>
-              <tr><td>Existing rental activity</td><td>Any existing leases, income, and obligations remain relevant across every Property A comparison. Their terms are private and unverified.</td><td>Executed leases, deposits, notices, rent limits, utilities, expenses, vacancy, and owner-occupancy effects.</td><td><a class="source-link" href="https://www.sf.gov/learn-about-rent-increases-san-francisco">Official rent rules</a></td></tr>
-              <tr><td>Owner-occupancy option</td><td>Test whether available owner space could be used while existing rental income continues; do not assume eligibility or recommend a move.</td><td>Professional review of notices, relocation / rent rules, household needs, insurance, reserves, and utility allocation.</td><td><a class="source-link" href="https://www.sf.gov/learn-about-san-francisco-rental-laws">Official local rental laws</a></td></tr>
-              <tr><td>Property B cash flow and costs</td><td>Existing rental income and operating costs are not loaded into the public calculator because the household figures are private and unverified.</td><td>Debt, insurance, maintenance, five-year capital plan, utilities, depreciation, taxes, and net cash flow.</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
+    <!-- ============ Six ways to hold or exit ============ -->
     <section class="section tint" aria-labelledby="choice-title">
       <div class="container">
         <div class="section-header">
           <div>
             <p class="eyebrow">Decision options</p>
-            <h2 id="choice-title">Compare decisions, not slogans</h2>
-            <p>Every option should be compared at the same Year 0 transfer date and the same 5-, 10-, 25-, or 50-year horizon. Unknown debt, capital work, insurance, and actual taxes are deliberately not disguised as precise estimates.</p>
+            <h2 id="choice-title">Eight paths, measured the same way</h2>
+            <p>Same transfer date, same horizon, same cost assumptions. Mixed paths are modelled as first-class choices, not footnotes to the three pure ones.</p>
           </div>
         </div>
-        <div class="grid three">
-          <article class="card accent"><span class="label">Sale path</span><h3>Sell in Year 0</h3><p>Test a same-tax-year sale against verified date-of-death basis, sale costs, and whole-estate liquidity needs. Do not use a prior owner’s old purchase price as a substitute for inherited basis.</p><div class="pills"><span class="pill">Highest liquidity</span><span class="pill">Transfer costs required</span><span class="pill">Basis proof required</span></div></article>
-          <article class="card accent"><span class="label">Living path</span><h3>Live in Property A</h3><p>Only model California family-home reassessment relief if primary-residence conditions will genuinely be met and sustained. Measure the housing value of living there alongside cash expenses.</p><div class="pills"><span class="pill">Imputed rent matters</span><span class="pill">Prop 19 gate</span><span class="pill">§121 screening later</span></div></article>
-          <article class="card accent"><span class="label">Rental path</span><h3>Rent, then reassess</h3><p>Use written market rent, condition, tenant-rule, vacancy, insurance, management, maintenance, and capital estimates—not an unverified benchmark. Treat Property B compliance separately.</p><div class="pills"><span class="pill">Lease rule gate</span><span class="pill">Recapture risk</span><span class="pill">Low liquidity</span></div></article>
-          <article class="card info"><span class="label">Mixed path</span><h3>Rent for a defined bridge, then sell</h3><p>A bounded rental period can preserve optionality while evidence is collected, but it creates operating and depreciation records that must be included in the later sale analysis.</p><div class="pills"><span class="pill">Defined exit</span><span class="pill">Capex plan</span></div></article>
-          <article class="card info"><span class="label">Mixed path</span><h3>Live, then sell</h3><p>Screen the federal primary-residence exclusion only when the ownership, use, timing, and depreciation facts are actually met. It is not switched on by intention alone.</p><div class="pills"><span class="pill">2-of-5 review</span><span class="pill">No automatic exclusion</span></div></article>
-          <article class="card info"><span class="label">Mixed investing path</span><h3>Sell → Treasuries → phase into stocks</h3><p>Park proceeds in a 3-month to 2-year Treasury ladder for 24–36 months, then phase stock purchases. This softens immediate crash-entry exposure but adds reinvestment and missed-upside risk.</p><div class="pills"><span class="pill">Black-swan control</span><span class="pill">Reinvestment risk beside return</span></div></article>
+        <div class="grid four">
+          <article class="card accent"><span class="label">Sell</span><h3>Sell now → equities</h3><p>Cleanest liquidity, highest sequence-of-returns exposure in the first years. Sale costs and tax drag applied before any investment.</p><div class="pills"><span class="pill">Liquid</span><span class="pill">Fragile in a crash</span></div></article>
+          <article class="card accent"><span class="label">Sell, staged</span><h3>Sell → 3M–2Y ladder → phase in</h3><p>Park 24–36 months in short Treasuries, then phase into equities over 12 months. Softens crash-entry risk; creates reinvestment risk.</p><div class="pills"><span class="pill">Crash-tested</span><span class="pill">Reinvestment risk</span></div></article>
+          <article class="card accent"><span class="label">Mixed liquid</span><h3>Sell → 12-month entry</h3><p>Partial mitigation only: almost all of the money is exposed within a year. Included so the ladder is not credited with effects a slow drip does not produce.</p><div class="pills"><span class="pill">Cheap to run</span><span class="pill">Weak protection</span></div></article>
+          <article class="card accent"><span class="label">Rent</span><h3>Rent 5y → sell → staged</h3><p>A bounded bridge that collects rent and defers the sale. Creates depreciation, tenant-law exposure and a capital plan obligation.</p><div class="pills"><span class="pill">Rent + growth</span><span class="pill">Recapture risk</span></div></article>
+          <article class="card info"><span class="label">Live</span><h3>Live 2y → sell → staged</h3><p>A screening window, not a tax strategy. Two years is exactly the §121 use threshold and nothing more; carry costs and forgone investment return are charged.</p><div class="pills"><span class="pill">Housing value</span><span class="pill">Carry costs</span></div></article>
+          <article class="card info"><span class="label">Mixed split</span><h3>Sell half, rent half 5y</h3><p>Two tax records, two exit dates. Buys optionality at the price of double administration.</p><div class="pills"><span class="pill">Optionality</span><span class="pill">Complexity</span></div></article>
+          <article class="card info"><span class="label">Hold</span><h3>Hold as rental</h3><p>Long-run property exposure with the lowest liquidity. Wins the long horizons only when verified rent, vacancy and capital costs hold.</p><div class="pills"><span class="pill">Illiquid</span><span class="pill">Operating risk</span></div></article>
+          <article class="card info"><span class="label">Hold</span><h3>Live long term</h3><p>Turns the house into housing rather than an asset. Only ranks well when a verified imputed rent and low carry costs are entered — otherwise it trails badly.</p><div class="pills"><span class="pill">Stable housing</span><span class="pill">Capital trapped</span></div></article>
         </div>
-        <div class="buttons no-print"><a class="button" href="paths.html">Run the non-identifying stress test</a><a class="button secondary" href="process.html#step-by-step">See timeline &amp; step-by-step process</a></div>
+        <div class="buttons no-print"><a class="button" href="paths.html">Run the range model</a><a class="button secondary" href="process.html#timeline">See the timeline &amp; step-by-step process</a></div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="law-title">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <p class="eyebrow">Current-law map</p>
-            <h2 id="law-title">Keep three tax systems separate</h2>
-            <p>A property-tax assessment, income-tax basis, and estate-tax measurement answer different questions. Combining them is a common model error.</p>
-          </div>
-          <span class="status info">Snapshot: <span data-build-date></span></span>
-        </div>
-        <div class="table-wrap">
-          <table data-source-table>
-            <caption>Current-law concepts to revalidate at the actual transfer date</caption>
-            <thead><tr><th>System</th><th>What it determines</th><th>Current verified finding</th><th>Not safe to assume</th><th>Official source</th></tr></thead>
-            <tbody>
-              <tr><td>Federal income-tax basis</td><td>Gain or loss when inherited property is sold.</td><td>Inherited property basis is generally fair market value at death, subject to stated exceptions and elections.</td><td>That sale gain is automatically zero, or that an old owner’s basis controls.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td></tr>
-              <tr><td>California property-tax assessment</td><td>Assessed value and property-tax bill.</td><td>Prop. 13 generally uses acquisition value; base-year growth is limited, and inheritance is generally a change in ownership unless an exclusion applies.</td><td>That market value, tax basis, and assessed value are interchangeable.</td><td><a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">CA BOE Pub. 800-10</a></td></tr>
-              <tr><td>California Prop. 19</td><td>Potential reassessment exclusion for an eligible family home.</td><td>Current law requires the qualifying family-home / primary-residence conditions plus specific exemption and claim timing.</td><td>That a rental, occasional use, or later move-in preserves the exclusion.</td><td><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a></td></tr>
-              <tr><td>Federal estate and gift tax</td><td>Whole-estate transfer-tax exposure and portability planning.</td><td>The IRS lists a 2026 basic exclusion amount of $15,000,000; future inflation adjustments and future law are not forecast here.</td><td>That one inherited home alone answers whether a return, tax, or portability election matters.</td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax">IRS estate &amp; gift update</a></td></tr>
-              <tr><td>California income tax</td><td>California tax on taxable gain and other income.</td><td>California says capital gains are taxed as ordinary income; its individual return instructions impose an additional 1% tax on taxable income over $1,000,000.</td><td>That federal long-term capital-gain treatment or a federal exclusion resolves the California result without review.</td><td><a class="source-link" href="https://www.ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html">CA FTB gains</a></td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="disclosure"><strong>Important:</strong> Future inheritance timing makes every current-law dollar threshold provisional. The site treats current amounts as a monitoring reference, not an estimate for a later transfer.</p>
-      </div>
-    </section>
-
-    <section class="section tint" aria-labelledby="next-title">
+    <!-- ============ Process + deadlines ============ -->
+    <section class="section" aria-labelledby="process-title">
       <div class="container grid two">
         <div>
-          <p class="eyebrow">Next 30 days</p>
-          <h2 id="next-title">Build the evidence room—not a public dossier</h2>
-          <ul class="check-list pending">
-            <li>Create an encrypted, private estate inventory outside this repository.</li>
-            <li>Ask an independent appraiser for a date-of-death valuation protocol and a future engagement path.</li>
-            <li>Obtain independent condition, maintenance, insurance, rent, and lease-rule reviews.</li>
-            <li>Ask estate counsel about trust administration, portability, prior taxable gifts, liquidity, and any potential 1031 plan before listing.</li>
-            <li>Write an investment policy for any future proceeds before money arrives.</li>
-          </ul>
+          <p class="eyebrow">Inheritance, step by step</p>
+          <h2 id="process-title">The fourteen steps, in the order they bind</h2>
+          <p class="section-intro">Deadlines run from the date of death, not from the date the family feels ready. The short ones come first.</p>
+          <ol class="step-list">
+            <li><div><b>Before death: write the policy</b><span>Investment policy, decision thresholds and the private evidence room exist before any money moves.</span></div></li>
+            <li><div><b>Date of death: freeze the facts</b><span>Photograph condition, note occupancy, collect trust and title documents, engage the appraiser.</span></div></li>
+            <li><div><b>Day 1–30: written valuation</b><span>Independent date-of-death appraisal and a preliminary closing estimate before any listing conversation.</span></div></li>
+            <li><div><b>Day 1–30: model the same-tax-year sale first</b><span>The cheapest tax outcome to test and the one most often skipped.</span></div></li>
+            <li><div><b>Within 1 year: move in, or don't</b><span>Prop. 19 requires the home to become the heir's principal residence within one year plus a homeowners' exemption filing.</span></div></li>
+            <li><div><b>Within 9 months (extendable): estate return</b><span>Form 706 and the portability decision are on a calendar whether or not the house is decided.</span></div></li>
+            <li><div><b>Within 3 years: exclusion claim</b><span>Claim filed within three years of transfer or before a sale to a third party, whichever is earlier.</span></div></li>
+            <li><div><b>Day 1–90: property tax, insurance, utilities</b><span>Budget the new assessed value, not the deceased's bill.</span></div></li>
+            <li><div><b>Month 1–12: rent, live or list</b><span>Only after valuation, condition, rent opinion and the policy are in hand.</span></div></li>
+            <li><div><b>If renting: 5-year capital plan</b><span>Written scope, timing and contingency before the first tenant.</span></div></li>
+            <li><div><b>Before any sale: confirm exchange intent</b><span>A §1031 decision cannot be made after proceeds arrive.</span></div></li>
+            <li><div><b>At sale: settle, reserve, invest by policy</b><span>Hold back tax and repair reserves; then execute the written ladder and phase-in.</span></div></li>
+            <li><div><b>Annually: recheck law and extremes</b><span>Sources, rates, insurance, rent rules and the extreme scenarios.</span></div></li>
+            <li><div><b>Each decision: write it down with a date</b><span>Who chose, on what evidence, what would reverse it.</span></div></li>
+          </ol>
+          <div class="buttons no-print"><a class="button" href="process.html">Full timeline and deadlines</a></div>
         </div>
-        <aside class="card warning">
-          <span class="label">A deliberate limitation</span>
-          <h3>There is no “best plan” button yet.</h3>
-          <p>A projection with unverified basis, rent, debt, capital work, eligibility, and tax facts would create false precision. The dashboard will show which missing item changes the answer and who should supply it.</p>
-          <div class="buttons no-print"><a class="button secondary" href="questions.html">Questions, answers &amp; owners</a><a class="button secondary" href="review.html">Flagged items &amp; suggestions</a></div>
+        <aside class="stack">
+          <article class="card warning">
+            <span class="label">A deliberate limitation</span>
+            <h3>There is no “best plan” button, because there is no best plan yet.</h3>
+            <p>A projection built on an unverified basis, rent, condition and tenancy facts would produce confidence that the evidence does not support. What this site can do is show <em>which</em> missing item changes the answer, and who should supply it.</p>
+          </article>
+          <article class="card danger">
+            <span class="label">Privacy</span>
+            <h3>This repository is public. Treat it as such.</h3>
+            <p>No address, parcel number, owner name, tax bill, rent roll, utility account or exact balance belongs here. Earlier public drafts of this project exposed case-specific details; the containment plan and its limits are recorded on the <a href="review.html#privacy">privacy page</a>.</p>
+          </article>
+          <article class="card info">
+            <span class="label">Where to go next</span>
+            <h3>Four useful doors</h3>
+            <div class="buttons" style="margin-top:.4rem">
+              <a class="button secondary" href="questions.html">Questions &amp; gates</a>
+              <a class="button secondary" href="assumptions.html">Assumptions</a>
+              <a class="button secondary" href="sources.html">Sources</a>
+              <a class="button secondary" href="brief.html">Printable brief</a>
+            </div>
+          </article>
         </aside>
       </div>
     </section>
