@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Stylised 1929- and 2008-type crash tests for parking sale proceeds in short Treasuries before phasing into stocks.">
+  <title>Black Swan staging — Inheritance Decision Desk</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/site.js"></script>
+</head>
+<body data-page="blackswan">
+  <div data-site-header></div>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Black Swan · phased investing</p>
+          <h1>Does staging soften crash-entry risk, and what does it cost if no crash comes?</h1>
+          <p class="lede">A stylised test of parking sale proceeds in 3-month to 2-year Treasuries for 24 or 36 months, then buying stocks in equal monthly steps over 12 months. Results are per $1,000,000 of proceeds and scale linearly. The crash depths are not yet verified against an index provider; reinvestment risk is shown beside every result.</p>
+        </div>
+        <aside class="hero-callout"><p class="eyebrow" style="color:#9edbd0">Reinvestment risk, next to the headline</p><h2>Staging trades crash exposure for cash yield risk.</h2><p>Cash earned 4.36% on the official 3-month Treasury rate (24 Nov 2026). If cash yields fall to 2.00%, the staged result in every regime below is lower. Use both rows before deciding.</p></aside>
+      </div>
+    </section>
+
+    <section class="section " aria-labelledby="ref-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Historical reference periods</p><h2 id="ref-title">Dated by NBER; magnitudes not yet verified</h2><p>The NBER dates are official. The index drops used in the stylised regimes are commonly cited figures and still need checking against an index provider.</p></div></div>
+        <div class="table-wrap"><table class="table-tight " data-source-table><caption>Reference recessions and regimes</caption><thead><tr><th>Period</th><th>Peak → trough</th><th>Length</th><th>Status</th><th>Source</th></tr></thead><tbody>
+<tr><td>Great Depression contraction</td><td>Aug 1929 → Mar 1933</td><td>43 months</td><td><span class="status ready">Verified (official)</span></td><td><a class="source-link" href="https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions">NBER US business cycle dates</a></td></tr>
+<tr><td>Financial-crisis contraction</td><td>Dec 2007 → Jun 2009</td><td>18 months</td><td><span class="status ready">Verified (official)</span></td><td><a class="source-link" href="https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions">NBER US business cycle dates</a></td></tr>
+<tr><td>Stylised index drop, 1929-type (89%) and 2008-type (57%)</td><td>Depth and months as modelled</td><td>Recovery 300 and 48 months</td><td><span class="status review">Secondary only — official check pending</span></td><td><a class="source-link" href="https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions">NBER US business cycle dates</a><small>Commonly cited drawdowns; index-provider check pending.</small></td></tr>
+</tbody></table></div>
+      </div>
+    </section>
+
+
+    <section class="section tint" aria-labelledby="inputs-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Model inputs</p><h2 id="inputs-title">Assumptions in plain view</h2><p>Change these only with a written reason. Each row is either official or a stated assumption.</p></div></div>
+        <div class="table-wrap"><table class="table-tight " data-source-table><caption>Inputs</caption><thead><tr><th>Input</th><th>Value</th><th>Status</th><th>Source</th></tr></thead><tbody>
+<tr><td>3-month Treasury par yield</td><td>4.36% (24 Nov 2026)</td><td><span class="status ready">Verified (official)</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611">U.S. Treasury daily par yield curve, Nov 2026</a></td></tr>
+<tr><td>2-year Treasury par yield</td><td>4.63% (24 Nov 2026)</td><td><span class="status ready">Verified (official)</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611">U.S. Treasury daily par yield curve, Nov 2026</a></td></tr>
+<tr><td>Cash yield under reinvestment stress</td><td>2.00% (assumption)</td><td><span class="status info">Model projection</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611">U.S. Treasury daily par yield curve, Nov 2026</a><small>Stress case, not a forecast.</small></td></tr>
+<tr><td>Staging term</td><td>24 or 36 months, then 12 equal monthly buys</td><td><span class="status info">Model projection</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611">U.S. Treasury daily par yield curve, Nov 2026</a><small>Owner's choice to set; cash yields are taken from the official curve above.</small></td></tr>
+<tr><td>Equity growth after recovery</td><td>4% to 5% nominal a year (assumption)</td><td><span class="status review">Assumption — see flags</span></td><td><a class="source-link" href="#flags-bs-title">No official source for equity returns; see flags</a></td></tr>
+<tr><td>Long-run inflation anchor</td><td>2% (Federal Reserve longer-run goal, PCE)</td><td><span class="status ready">Verified (official)</span></td><td><a class="source-link" href="https://www.federalreserve.gov/monetarypolicy/files/FOMC_LongerRunGoals.pdf">Federal Reserve: 2% longer-run inflation goal</a></td></tr>
+</tbody></table></div>
+      </div>
+    </section>
+
+
+    <section class="section " aria-labelledby="results-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Stylised results</p><h2 id="results-title">Staging versus lump sum, per $1,000,000</h2><p>“Staged − lump” is the difference in ending value. A negative number means staging cost return in that case. “Worst” is the lowest value reached on the path.</p></div></div>
+        <div class="table-wrap"><table class="table-tight "><caption>Staged versus lump sum (rounded to $10)</caption><thead><tr><th>Regime</th><th>Cash yield</th><th>Staging</th><th>Horizon</th><th>Lump: ending</th><th>Staged: ending</th><th>Staged − lump</th><th>Lump: worst</th><th>Staged: worst</th></tr></thead><tbody>
+<tr><td>1929–1933-style collapse</td><td>4.36% (Treasury 3M)</td><td>24 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$365,130</td><td>$1,856,620</td><td>$1,491,490</td><td>$110,000</td><td>$796,580</td></tr>
+<tr><td>1929–1933-style collapse</td><td>4.36% (Treasury 3M)</td><td>24 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$721,130</td><td>$3,428,030</td><td>$2,706,890</td><td>$110,000</td><td>$796,580</td></tr>
+<tr><td>1929–1933-style collapse</td><td>4.36% (Treasury 3M)</td><td>36 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$365,130</td><td>$2,623,610</td><td>$2,258,480</td><td>$110,000</td><td>$1,000,000</td></tr>
+<tr><td>1929–1933-style collapse</td><td>4.36% (Treasury 3M)</td><td>36 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$721,130</td><td>$4,942,820</td><td>$4,221,690</td><td>$110,000</td><td>$1,000,000</td></tr>
+<tr><td>1929–1933-style collapse</td><td>2.00% (stress)</td><td>24 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$365,130</td><td>$1,671,060</td><td>$1,305,930</td><td>$110,000</td><td>$749,010</td></tr>
+<tr><td>1929–1933-style collapse</td><td>2.00% (stress)</td><td>24 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$721,130</td><td>$2,975,950</td><td>$2,254,810</td><td>$110,000</td><td>$749,010</td></tr>
+<tr><td>1929–1933-style collapse</td><td>2.00% (stress)</td><td>36 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$365,130</td><td>$2,355,680</td><td>$1,990,550</td><td>$110,000</td><td>$1,000,000</td></tr>
+<tr><td>1929–1933-style collapse</td><td>2.00% (stress)</td><td>36 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$721,130</td><td>$4,328,060</td><td>$3,606,930</td><td>$110,000</td><td>$1,000,000</td></tr>
+<tr><td>2007–2009-style financial crisis</td><td>4.36% (Treasury 3M)</td><td>24 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$1,250,600</td><td>$2,101,960</td><td>$851,360</td><td>$430,000</td><td>$1,000,000</td></tr>
+<tr><td>2007–2009-style financial crisis</td><td>4.36% (Treasury 3M)</td><td>24 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$2,037,090</td><td>$3,371,760</td><td>$1,334,670</td><td>$430,000</td><td>$1,000,000</td></tr>
+<tr><td>2007–2009-style financial crisis</td><td>4.36% (Treasury 3M)</td><td>36 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$1,250,600</td><td>$1,845,700</td><td>$595,100</td><td>$430,000</td><td>$1,000,000</td></tr>
+<tr><td>2007–2009-style financial crisis</td><td>4.36% (Treasury 3M)</td><td>36 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$2,037,090</td><td>$2,954,340</td><td>$917,250</td><td>$430,000</td><td>$1,000,000</td></tr>
+<tr><td>2007–2009-style financial crisis</td><td>2.00% (stress)</td><td>24 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$1,250,600</td><td>$1,906,850</td><td>$656,250</td><td>$430,000</td><td>$1,000,000</td></tr>
+<tr><td>2007–2009-style financial crisis</td><td>2.00% (stress)</td><td>24 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$2,037,090</td><td>$2,930,170</td><td>$893,080</td><td>$430,000</td><td>$1,000,000</td></tr>
+<tr><td>2007–2009-style financial crisis</td><td>2.00% (stress)</td><td>36 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$1,250,600</td><td>$1,636,460</td><td>$385,860</td><td>$430,000</td><td>$1,000,000</td></tr>
+<tr><td>2007–2009-style financial crisis</td><td>2.00% (stress)</td><td>36 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$2,037,090</td><td>$2,489,740</td><td>$452,650</td><td>$430,000</td><td>$1,000,000</td></tr>
+<tr><td>No crash (steady growth)</td><td>4.36% (Treasury 3M)</td><td>24 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$1,615,700</td><td>$1,579,160</td><td>−$36,550</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+<tr><td>No crash (steady growth)</td><td>4.36% (Treasury 3M)</td><td>24 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$2,631,810</td><td>$2,520,170</td><td>−$111,640</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+<tr><td>No crash (steady growth)</td><td>4.36% (Treasury 3M)</td><td>36 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$1,615,700</td><td>$1,572,820</td><td>−$42,890</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+<tr><td>No crash (steady growth)</td><td>4.36% (Treasury 3M)</td><td>36 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$2,631,810</td><td>$2,509,850</td><td>−$121,960</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+<tr><td>No crash (steady growth)</td><td>2.00% (stress)</td><td>24 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$1,615,700</td><td>$1,412,090</td><td>−$203,620</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+<tr><td>No crash (steady growth)</td><td>2.00% (stress)</td><td>24 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$2,631,810</td><td>$2,124,260</td><td>−$507,550</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+<tr><td>No crash (steady growth)</td><td>2.00% (stress)</td><td>36 mo cash, then 12 mo buys</td><td>10 yrs</td><td>$1,615,700</td><td>$1,384,000</td><td>−$231,700</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+<tr><td>No crash (steady growth)</td><td>2.00% (stress)</td><td>36 mo cash, then 12 mo buys</td><td>20 yrs</td><td>$2,631,810</td><td>$2,078,510</td><td>−$553,300</td><td>$1,000,000</td><td>$1,000,000</td></tr>
+</tbody></table></div>
+      </div>
+    </section>
+
+
+    <section class="section " aria-labelledby="econ-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Economic regimes beyond one crash</p><h2 id="econ-title">Growth and inflation are not steady over 50 years</h2><p>A single crash is not the only failure mode. The baseline below is a planning anchor, not a forecast.</p></div></div>
+        <div class="table-wrap"><table class="table-tight " data-source-table><caption>Regime checklist (qualitative; no unverified numbers)</caption><thead><tr><th>Regime</th><th>What breaks</th><th>Planning response</th><th>Status</th><th>Source</th></tr></thead><tbody>
+<tr><td>Deflationary collapse (1929-type)</td><td>Asset prices and incomes fall together; long recoveries.</td><td>Keep the staging term long enough to avoid forced selling; hold cash reserves for living costs.</td><td><span class="status info">Analysis — not a data claim</span></td><td><a class="source-link" href="https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions">NBER US business cycle dates</a></td></tr>
+<tr><td>Financial-crisis shock (2008-type)</td><td>Sharp, short drop, then a recovery that can take years.</td><td>Staging limits the entry loss; test the cash yield falling.</td><td><span class="status info">Analysis — not a data claim</span></td><td><a class="source-link" href="https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions">NBER US business cycle dates</a></td></tr>
+<tr><td>Inflation above the 2% goal for years</td><td>Real returns of cash and bonds fall; property taxes and costs rise faster.</td><td>Test costs at higher inflation in the property projections; keep cash short.</td><td><span class="status info">Analysis — not a data claim</span></td><td><a class="source-link" href="https://www.federalreserve.gov/monetarypolicy/files/FOMC_LongerRunGoals.pdf">Federal Reserve: 2% longer-run inflation goal</a></td></tr>
+<tr><td>Slow real growth with low rates</td><td>Cash yields fall, lowering the staging return.</td><td>Use the 2% cash-yield stress row above.</td><td><span class="status info">Analysis — not a data claim</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611">U.S. Treasury daily par yield curve, Nov 2026</a></td></tr>
+</tbody></table></div>
+      </div>
+    </section>
+
+
+    <section class="section tint" aria-labelledby="flags-bs-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Flagged for review</p><h2 id="flags-bs-title">What is not yet verified on this page</h2></div></div>
+        <ol class="check-list">
+    <li>The 1929-type and 2008-type index drops and recovery lengths are stylised and need checking against an index-provider series.</li>
+    <li>The equity growth after recovery and the staging design are the owner's assumptions, not official figures.</li>
+    <li>The results show a deterministic path, not a probability distribution. They do not capture ties between cash yields and stock crashes.</li>
+  </ol>
+      </div>
+    </section>
+
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

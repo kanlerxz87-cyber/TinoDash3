@@ -7,7 +7,10 @@
     questions: "questions.html",
     brief: "brief.html",
     sources: "sources.html",
-    review: "review.html"
+    review: "review.html",
+    figures: "figures.html",
+    blackswan: "blackswan.html",
+    flagged: "flagged.html"
   };
 
   const isCurrent = (key) => page === key ? " current" : "";
@@ -28,6 +31,8 @@
                 <a class="${isCurrent("paths")}" href="${pages.paths}">Paths &amp; stress tests</a>
                 <a class="${isCurrent("process")}" href="${pages.process}">Transfer timeline &amp; tax map</a>
                 <a class="${isCurrent("questions")}" href="${pages.questions}">Questions &amp; private inventory</a>
+                <a class="${isCurrent("figures")}" href="${pages.figures}">Household figures &amp; thresholds</a>
+                <a class="${isCurrent("blackswan")}" href="${pages.blackswan}">Black Swan staging</a>
               </div>
             </div>
             <div class="nav-group">
@@ -37,6 +42,7 @@
                 <a class="${isCurrent("brief")}" href="${pages.brief}">Attorney &amp; CPA brief</a>
                 <a class="${isCurrent("sources")}" href="${pages.sources}">Sources &amp; law monitor</a>
                 <a class="${isCurrent("review")}" href="${pages.review}">Flags &amp; suggestions</a>
+                <a class="${isCurrent("flagged")}" href="${pages.flagged}">Flagged for Review</a>
               </div>
             </div>
           </nav>
