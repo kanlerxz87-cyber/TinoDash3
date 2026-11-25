@@ -16,15 +16,12 @@ function walk(directory) {
 }
 walk(root);
 
-// These values and names are intentionally prohibited in public artifacts. Add newly discovered
-// identifiers before publishing; keep the private evidence set outside the repository.
+// Use generic patterns so this public scanner does not itself publish household identifiers.
+// Keep any known private values in the command runner / encrypted evidence system, not in Git.
 const prohibited = [
-  { label: "Property A postal identifier", pattern: /\b95014\b/g },
-  { label: "Property B postal identifier", pattern: /\b94122\b/g },
-  { label: "Exact Property A valuation", pattern: /\$?3[,]?100[,]?000\b/g },
-  { label: "Exact Property B valuation", pattern: /\$?1[,]?800[,]?000\b/g },
-  { label: "Exact reported rental amount", pattern: /\$?7[,]?150\b/g },
-  { label: "Property A city identifier", pattern: /\bCupertino\b/gi }
+  { label: "Five-digit postal-like identifier", pattern: /(?<![#A-Fa-f0-9])\d{5}(?:-\d{4})?(?![A-Fa-f0-9])/g },
+  { label: "Email address", pattern: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi },
+  { label: "North-American phone-like identifier", pattern: /(?<!\d)(?:\+?1[ .-]?)?(?:\(\d{3}\)|\d{3})[ .-]\d{3}[ .-]\d{4}(?!\d)/g }
 ];
 
 const hits = [];
