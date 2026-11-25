@@ -13,6 +13,7 @@
 
 - 2026-11-25 — Build completed: responsive dashboard, mixed-path and black-swan Treasury-staging model, timeline, questions/gaps, suggestions queue, printable attorney/CPA brief, official-source register, review flags, tests, and Pages workflow.
 - 2026-11-25 — Verification: `npm test`, `npm run build`, `git diff --check`, local HTML-link check, and privacy term scan passed. Official government content remains live-recheck-required because the environment cannot retrieve government domains. Transaction-specific values remain intentionally blank or scenario-labeled.
+- 2026-11-25 — PR [#1](https://github.com/kanlerxz87-cyber/TinoDash3/pull/1) merged to `main` as `121d882`; the repository’s existing legacy Pages pipeline deployed successfully at https://kanlerxz87-cyber.github.io/TinoDash3/. A redundant Actions-based Pages workflow was removed because repository settings are locked to legacy branch deployment.
 - 2026-11-25 — Irregularities: no pre-existing site or research data was present; the checkout history available to this session began with one README-only initial commit. Specific insurance, rent, tax-rate-area, appraisal, lease, basis, and estate facts cannot be officially verified without private identifiers/documents and are published on `flagged.html`.
 
 ## Cross-session requests
