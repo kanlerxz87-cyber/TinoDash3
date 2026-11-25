@@ -225,6 +225,9 @@
     countyTransferTaxPer500: 0.55,
     cityConveyancePer500SanJosePaloAltoMountainView: 1.65,
     recordingFirstPage: 102,
+    // The $10 real-estate fraud prevention fee is subtracted on a document that is
+    // subject to documentary transfer tax, so a grant deed pays $92 on page one.
+    recordingFraudFee: 10,
     recordingAdditionalPage: 3,
     pcORpenalty: 20
   };
@@ -235,8 +238,17 @@
     var citySurcharge = opts.citySurcharge ? OFFICIAL_FEES.cityConveyancePer500SanJosePaloAltoMountainView : 0;
     var county = Math.ceil((price / 500)) * OFFICIAL_FEES.countyTransferTaxPer500;
     var city = Math.ceil((price / 500)) * citySurcharge;
-    var recording = OFFICIAL_FEES.recordingFirstPage + Math.max(0, pages - 1) * OFFICIAL_FEES.recordingAdditionalPage;
-    return { countyTransferTax: county, cityConveyance: city, recording: recording, total: county + city + recording };
+    // A deed that pays documentary transfer tax is not charged the $10 fraud-prevention fee.
+    var transferTaxDocument = opts.transferTaxDocument !== false;
+    var firstPage = OFFICIAL_FEES.recordingFirstPage - (transferTaxDocument ? OFFICIAL_FEES.recordingFraudFee : 0);
+    var recording = firstPage + Math.max(0, pages - 1) * OFFICIAL_FEES.recordingAdditionalPage;
+    return {
+      countyTransferTax: county,
+      cityConveyance: city,
+      recording: recording,
+      recordingFirstPage: firstPage,
+      total: county + city + recording
+    };
   }
 
   // Section 121: exclude up to the stated units of gain on a qualifying sale.

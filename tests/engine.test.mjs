@@ -184,8 +184,13 @@ test("official fees reproduce the published worked example exactly", () => {
   const fees = engine.officialFees(1000000, { citySurcharge: true });
   assert.equal(fees.countyTransferTax, 1100);
   assert.equal(fees.cityConveyance, 3300);
-  assert.equal(fees.recording, 105);
-  assert.equal(fees.total, 4505);
+  assert.equal(fees.recordingFirstPage, 92, "the $10 fraud fee is not charged on a deed paying transfer tax");
+  assert.equal(fees.recording, 95);
+  assert.equal(fees.total, 4495);
+
+  const withoutTransferTax = engine.officialFees(1000000, { citySurcharge: false, transferTaxDocument: false });
+  assert.equal(withoutTransferTax.recordingFirstPage, 102);
+  assert.equal(withoutTransferTax.recording, 105);
 
   const fractional = engine.officialFees(1000500, {});
   near(fractional.countyTransferTax, 1100.55, 1e-9, "any fractional portion of $500 is charged");

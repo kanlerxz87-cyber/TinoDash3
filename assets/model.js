@@ -220,7 +220,7 @@
       output.innerHTML = `
         <tr><td>County documentary transfer tax ($0.55 per $500 or fraction)</td><td class="num">${new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(fees.countyTransferTax)}</td></tr>
         <tr><td>City conveyance tax where the county page lists it (San Jose, Palo Alto, Mountain View at $1.65 per $500)</td><td class="num">${city.checked ? new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(fees.cityConveyance) : "not applied"}</td></tr>
-        <tr><td>Recording fee, first page $102 plus $3 per extra page (2 pages)</td><td class="num">${new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(fees.recording)}</td></tr>
+        <tr><td>Recording fee, $92 first page for a deed paying documentary transfer tax ($3 per extra page, 2 pages)</td><td class="num">${new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(fees.recording)}</td></tr>
         <tr class="lead-row"><td><strong>Sum of published statutory items</strong></td><td class="num"><strong>${new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(fees.total)}</strong></td></tr>`;
     };
     price?.addEventListener("input", renderFees);
