@@ -1,9 +1,21 @@
 # Local-only working material. Never publish household or property records.
 private/
+raw-data/
 *.private.*
+*.local.*
 .env
+.env.*
 .DS_Store
 node_modules/
 
-# Generated local reports
+# Private evidence / exports and generated local reports
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.doc
+*.docx
+*.pdf
+*.zip
+*.log
 reports/

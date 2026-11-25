@@ -22,8 +22,8 @@
       inflation: [0.027, 0.021, 0.029, 0.024, 0.022, 0.026, 0.02, 0.025]
     },
     crash1929: {
-      label: "Early deep equity shock",
-      note: "A deliberately severe early sequence test; not a reconstruction of any historical episode.",
+      label: "1929–1933-style deep contraction",
+      note: "A deliberately severe early sequence test informed by the NBER-dated August 1929 peak and March 1933 trough; not a reconstruction of historical returns.",
       equity: [-0.35, -0.22, -0.08, 0.18, 0.13, 0.09, 0.07, 0.11],
       treasury: [0.041, 0.036, 0.031, 0.029, 0.032, 0.035, 0.037, 0.036],
       property: [-0.13, -0.09, -0.02, 0.02, 0.03, 0.028, 0.024, 0.03],
@@ -31,8 +31,8 @@
       inflation: [-0.01, -0.02, 0, 0.012, 0.02, 0.024, 0.023, 0.024]
     },
     crisis2008: {
-      label: "Liquidity / housing shock",
-      note: "A severe financial-system-style stress sequence; not a reconstruction or prediction.",
+      label: "2007–2009-style liquidity / housing shock",
+      note: "A severe sequence test informed by the NBER-dated December 2007 peak and Federal Reserve accounts of 2008; not a reconstruction or prediction.",
       equity: [-0.37, 0.22, 0.11, 0.08, -0.07, 0.16, 0.06, 0.09],
       treasury: [0.035, 0.029, 0.026, 0.03, 0.034, 0.038, 0.036, 0.039],
       property: [-0.16, -0.08, 0.01, 0.035, 0.026, 0.02, 0.03, 0.028],
@@ -189,6 +189,9 @@
     document.querySelector("#stagingDeltaNote").textContent = `Staged minus immediate-stock outcome in this ${scenarios[state.scenario].label.toLowerCase()} stress test. This is not a forecast.`;
   }
 
-  Object.values(controls).forEach((control) => control?.addEventListener("input", update));
+  Object.values(controls).forEach((control) => {
+    control?.addEventListener("input", update);
+    control?.addEventListener("change", update);
+  });
   update();
 })();

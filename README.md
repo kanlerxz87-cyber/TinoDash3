@@ -33,7 +33,7 @@ npm run serve
 
 ## Deployment
 
-The repository uses GitHub Pages from the `main` branch root. After a reviewed merge to `main`, GitHub Pages publishes the static pages at the repository’s Pages URL. See `COORDINATION.md` for the active task board, source verification log, and deployment record.
+`.github/workflows/pages.yml` publishes the repository root through GitHub Pages after a reviewed merge to `main` (or a manual workflow dispatch), when the repository Pages environment is enabled for GitHub Actions. `.nojekyll` keeps static assets predictable. See `COORDINATION.md` for the active task board, source verification log, and deployment record.
 
 ## Important limitation
 

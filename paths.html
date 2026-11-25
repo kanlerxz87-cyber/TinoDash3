@@ -41,7 +41,7 @@
           <div class="control">
             <label for="scenarioSelect">Economic path</label>
             <select id="scenarioSelect">
-              <option value="baseline">Irregular baseline</option>
+              <option value="baseline" selected>Irregular baseline</option>
               <option value="crash1929">Early deep equity shock</option>
               <option value="crisis2008">Liquidity / housing shock</option>
               <option value="stagflation">Stagflation / rate reset</option>
@@ -74,6 +74,23 @@
           </div>
         </div>
         <div class="callout warning" style="margin-top:1rem"><strong id="saleTimingStatus"></strong><p id="primaryStatus"></p></div>
+      </div>
+    </section>
+
+    <section class="section" id="historical-context" aria-labelledby="historical-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Documented history beside the model</p>
+            <h2 id="historical-title">Historical anchors are context, not forecasts</h2>
+            <p>The selected stress paths use transparent synthetic sequences. The sources below establish the historical timing and conditions that motivate the tests; they do not validate the model returns.</p>
+          </div>
+        </div>
+        <div class="grid three">
+          <article class="card accent"><span class="label">1929–1933</span><h3>Deep contraction context</h3><p>NBER dates the U.S. business-cycle peak to August 1929 and the trough to March 1933. The model's early equity shock is not a reconstruction of that period.</p><p><a class="source-link" href="https://www.nber.org/research/business-cycle-dating/business-cycle-dating-procedure-frequently-asked-questions">NBER chronology</a></p></article>
+          <article class="card accent"><span class="label">2007–2009</span><h3>Financial-system / housing context</h3><p>NBER dates the expansion peak to December 2007; Federal Reserve material describes the 2008 market decline and household-net-worth shock. The model uses a stress sequence, not a predicted repeat.</p><p><a class="source-link" href="https://www.nber.org/news/business-cycle-dating-committee-announcement-december-1-2008">NBER 2007 peak</a> · <a class="source-link" href="https://www.federalreserve.gov/newsevents/speech/warsh20090406a.htm">Federal Reserve 2008 account</a></p></article>
+          <article class="card accent"><span class="label">Stagflation / rates</span><h3>Reinvestment context</h3><p>Short Treasury yields can change while inflation erodes real purchasing power. Use the official daily curve for a dated input, never as a promise about the next maturity.</p><p><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates">U.S. Treasury rates</a></p></article>
+        </div>
       </div>
     </section>
 
