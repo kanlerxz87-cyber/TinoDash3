@@ -2,8 +2,8 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const include = [".html", ".js", ".css", ".md", ".json"];
-const excludedDirectories = new Set([".git", "node_modules", "private"]);
+const include = [".html", ".js", ".mjs", ".css", ".md", ".json", ".txt", ".svg", ".xml", ".yml", ".yaml"];
+const excludedDirectories = new Set([".git", "node_modules", "private", "reports"]);
 const files = [];
 
 function walk(directory) {
@@ -11,7 +11,7 @@ function walk(directory) {
     if (excludedDirectories.has(entry.name)) continue;
     const full = path.join(directory, entry.name);
     if (entry.isDirectory()) walk(full);
-    else if (include.includes(path.extname(entry.name)) && !full.endsWith(path.join("scripts", "privacy-scan.mjs"))) files.push(full);
+    else if (include.includes(path.extname(entry.name))) files.push(full);
   }
 }
 walk(root);
@@ -32,7 +32,8 @@ for (const file of files) {
     let match;
     while ((match = rule.pattern.exec(content)) !== null) {
       const line = content.slice(0, match.index).split("\n").length;
-      hits.push(`${path.relative(root, file)}:${line} — ${rule.label} (${match[0]})`);
+      // Never echo the matched value: CI logs and Pages artifacts can themselves be public.
+      hits.push(`${path.relative(root, file)}:${line} — ${rule.label}`);
       if (match.index === rule.pattern.lastIndex) rule.pattern.lastIndex += 1;
     }
   }
@@ -42,4 +43,4 @@ if (hits.length) {
   console.error("Privacy scan failed. Remove or generalize the following public identifiers:\n" + hits.join("\n"));
   process.exit(1);
 }
-console.log(`Privacy scan passed for ${files.length} text files. No prohibited household identifiers found.`);
+console.log(`Privacy scan passed for ${files.length} text files. Generic patterns are incomplete; private evidence and human review are still required.`);
