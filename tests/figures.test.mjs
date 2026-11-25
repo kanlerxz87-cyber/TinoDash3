@@ -1,4 +1,4 @@
-// T-009 tests: arithmetic, rounding, privacy of published figures, and official anchors.
+// T-013 tests: arithmetic, rounding, privacy of published figures, and official anchors.
 // Run: node tests/figures.test.mjs
 import assert from "node:assert/strict";
 import fs from "node:fs";
