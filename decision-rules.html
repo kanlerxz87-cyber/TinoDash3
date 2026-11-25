@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Decision rules agreed in writing before any model output existed: what would make the household choose each path.">
+  <title>Pre-committed Decision Rules — Inheritance Decision Desk</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/site.js"></script>
+</head>
+<body data-page="decision-rules">
+  <div data-site-header></div>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Agreed before the figures arrive</p>
+          <h1>What would make the household choose each path.</h1>
+          <p class="lede">These rules were written and committed on 25 Nov 2026 <strong>before</strong> any model output existed for this project, so a later projection cannot be reverse-engineered to defend a preferred outcome. Each rule states its condition, its outcome when unmet, and the official source route. Household-specific thresholds stay blank until the household sets them privately.</p>
+        </div>
+        <aside class="hero-callout"><p class="eyebrow" style="color:#9edbd0">Change control</p><h2>Changing a rule needs a dated entry.</h2><p>Any later change requires a dated decision-log entry stating the reason and the owner who approved it. Thresholds are never tuned to match a projection.</p></aside>
+      </div>
+    </section>
+
+    <section class="section compact" aria-labelledby="status-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Status</p><h2 id="status-title">How to read this page</h2><p>The rules below are policy choices, not official figures. Official dollar amounts are marked as such and linked. Anything the household must decide privately is left blank on purpose.</p></div><span class="status ready">Pre-committed 25 Nov 2026</span></div>
+        <div class="table-wrap">
+          <table class="table-tight" data-source-table>
+            <caption>Rule register — written before any model output</caption>
+            <thead><tr><th>ID</th><th>Rule</th><th>Choose / act only if</th><th>If unmet</th><th>Official source route</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>R0</td>
+                <td><strong>Evidence gate — no recommendation while gating facts are open</strong><br>No path is recommended until each gating item is verified from primary records: (a) a written date-of-death valuation of Property A; (b) Property A's tax-rate area and current bill read from the assessor's record; (c) the heir's Prop. 19 facts (intent and ability to occupy as principal residence, and the one-year claim); (d) whole-estate value and the portability position; (e) written insurance quotes for both properties; (f) Property B lease, rent-registration and local ballot-measure status.</td>
+                <td>All six items verified. Any single open item blocks ranking.</td>
+                <td>HOLD — collect evidence. The model may be run, but its output is labelled "not decidable".</td>
+                <td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a> · <a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a> · <a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes">IRS estate-tax FAQ</a> · <a class="source-link" href="https://www.sfelections.org/results/20261103w/index.html">Official election results</a></td>
+              </tr>
+              <tr>
+                <td>R1</td>
+                <td><strong>Living paths need documented Prop. 19 facts</strong><br>Living-based paths (live 2 years then sell; live long term) are ranked only if the heir can document a plan to make Property A the principal residence within one year and to file the claim within the BOE deadlines. Without that documentation the living paths keep full reassessment and are shown as "excluded from ranking".</td>
+                <td>Documented facts for all three conditions (occupancy plan, one-year move-in, claim filing).</td>
+                <td>Living paths excluded from ranking.</td>
+                <td><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a> · <a class="source-link" href="https://www.boe.ca.gov/proptaxes/pdf/lta25009.pdf">BOE LTA 2025/009</a></td>
+              </tr>
+              <tr>
+                <td>R2</td>
+                <td><strong>Rental paths need a written market rent</strong><br>Hold-as-rental is ranked only when an independent written market-rent estimate for Property A (comparable rentals, adjusted for condition) exists. Until then it is a floor. Rental use does not qualify for the Prop. 19 family-home exclusion, so the rental path is modeled with full reassessment.</td>
+                <td>Independent rent estimate on file.</td>
+                <td>Rental path shown as a floor with the break-even net rent it would need to match the sell path.</td>
+                <td><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a> · <a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a></td>
+              </tr>
+              <tr>
+                <td>R3</td>
+                <td><strong>Sell-now versus staged investing (Black Swan test)</strong><br>Choose staged investing (3M–2Y Treasuries for 24–36 months, then phase into equities) over an immediate lump-sum equity investment if BOTH hold: (i) in the base case the 10-year real wealth difference (staged minus lump) is no worse than −10% of net proceeds; and (ii) in the crash test (a 2008-type or 1929-type equity fall beginning at the transfer date) the 10-year real difference (staged minus lump) is at least +5% of net proceeds. Choose lump-sum if the base-case advantage of lump-sum over staged is at least 5% of net proceeds. Otherwise record "no clear winner" and decide on liquidity and owner tolerance, documented in writing.</td>
+                <td>Base case: staged ≥ lump − 10% of proceeds. Crash: staged − lump ≥ +5% of proceeds. Lump-sum preferred when lump − staged ≥ 5% of proceeds in base case.</td>
+                <td>No clear winner; decide on documented liquidity needs.</td>
+                <td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates">U.S. Treasury rates</a> · <a class="source-link" href="https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions">NBER cycle dates</a></td>
+              </tr>
+              <tr>
+                <td>R4</td>
+                <td><strong>Sell versus living: break-even imputed rent</strong><br>Sell is preferred over living in Property A when the monthly imputed rent the heir could earn elsewhere (what-if input) is below the break-even rent computed by the model over 10 years, AND an independent market-rent estimate confirms that the heir's avoided housing cost is at or above that break-even. If no rent evidence exists, sell-versus-live is "not yet decidable".</td>
+                <td>Independent rent evidence on file; comparison at the 10-year horizon in the base case.</td>
+                <td>Not yet decidable.</td>
+                <td><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a> · <a class="source-link" href="https://www.irs.gov/taxtopics/tc701">IRS Topic 701 (home sale exclusion)</a></td>
+              </tr>
+              <tr>
+                <td>R5</td>
+                <td><strong>Mixed path needs a clear §121 and Prop. 19 benefit</strong><br>Live 2 years then sell, then stage, is preferred to a pure sell only if the two-year occupancy adds at least 3% of net proceeds to 10-year real wealth in the base case AND Prop. 19 status is verified. If Prop. 19 is not verified, the mixed path is shown but not preferred.</td>
+                <td>≥ +3% of proceeds, base case, 10-year horizon.</td>
+                <td>Pure sell path stands; mixed path shown for information.</td>
+                <td><a class="source-link" href="https://www.irs.gov/taxtopics/tc701">IRS Topic 701</a> · <a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a></td>
+              </tr>
+              <tr>
+                <td>R6</td>
+                <td><strong>Estate-level exposure overrides path ranking</strong><br>If the projected gross estate in the transfer year exceeds 90% of the federal basic exclusion amount for that year (2027 published: $15,480,000; later years indexed), the estate liquidity plan, the portability election and gift-history review are completed first. The path ranking is then secondary.</td>
+                <td>Gross estate &gt; 90% of the indexed basic exclusion in the transfer year.</td>
+                <td>Estate tasks first.</td>
+                <td><a class="source-link" href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts">IRS IR-2026-133</a> · <a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes">IRS estate-tax FAQ</a></td>
+              </tr>
+              <tr>
+                <td>R7</td>
+                <td><strong>High entry-risk flag</strong><br>Any path whose 5-year real loss in a 2008-type crash starting at transfer exceeds 40% of net proceeds is labelled "high entry risk". The flag does not change the ranking by itself but requires written owner sign-off before implementation.</td>
+                <td>5-year real loss &gt; 40% of net proceeds.</td>
+                <td>Owner sign-off required.</td>
+                <td><a class="source-link" href="https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions">NBER cycle dates</a> · <a class="source-link" href="blackswan.html">Black Swan staging test</a></td>
+              </tr>
+              <tr>
+                <td>R8</td>
+                <td><strong>Law changes count only after enactment</strong><br>A proposed or pending law changes a ranking only after it is enacted and effective. Proposals appear as sensitivity cases, not in the base case. Status is re-checked at least annually and before any irreversible step.</td>
+                <td>Enacted and effective.</td>
+                <td>Base case unchanged; sensitivity shown.</td>
+                <td><a class="source-link" href="sources.html#monitor">Official enacted-vs-proposed monitor</a></td>
+              </tr>
+              <tr>
+                <td>R9</td>
+                <td><strong>Rerun and record</strong><br>After every verified input change the model is rebuilt and the site regenerated. If the recommendation changes, the decision log records the date, the input that changed, and the reason. The recommendation is never changed by editing an assumption to fit a preferred outcome; assumption changes are logged separately from fact changes.</td>
+                <td>Dated log entry for every change.</td>
+                <td>Change is not accepted.</td>
+                <td><a class="source-link" href="review.html#decision-log">Decision-log template</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="blank-title">
+      <div class="container grid two">
+        <div>
+          <p class="eyebrow">Household thresholds — set privately</p>
+          <h2 id="blank-title">What the household still must sign.</h2>
+          <p>The numeric policy thresholds above (−10%, +5%, 3%, 40%, 90%) are starter rules written in advance; the household may tighten or loosen them only through a dated decision-log entry. Property-specific inputs — valuation, tax-rate area, rent, insurance, debt, capital plan — remain blank on the public site until independently verified.</p>
+          <div class="table-wrap" style="margin-top:1rem">
+            <table class="table-tight" data-source-table>
+              <caption>Blank until verified privately</caption>
+              <thead><tr><th>Input</th><th>Public value</th><th>Owner</th><th>Official route</th></tr></thead>
+              <tbody>
+                <tr><td>Date-of-death valuation of Property A</td><td>—</td><td>Independent appraiser</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td></tr>
+                <tr><td>Tax-rate area and current published rate</td><td>—</td><td>Assessor / tax collector</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
+                <tr><td>Written market rent for Property A</td><td>—</td><td>Independent rental appraisal</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a></td></tr>
+                <tr><td>Whole-estate value, prior gifts, portability position</td><td>—</td><td>CPA + estate attorney</td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706 instructions</a></td></tr>
+                <tr><td>Insurance quotes for both properties</td><td>—</td><td>Licensed broker</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI consumer guide</a></td></tr>
+                <tr><td>Property B lease / registration / ballot-measure status</td><td>—</td><td>Local counsel / manager</td><td><a class="source-link" href="https://www.sf.gov/rent-board-housing-inventory">Official rental inventory</a></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <aside class="card warning">
+          <span class="label">Machine-readable copy</span>
+          <h3>The same rules exist in code.</h3>
+          <p>The source of truth for this page is <code>data/decision-rules.mjs</code>, whose header records that the rules were written on 25 Nov 2026 before any model output existed. If the page and the file ever disagree, treat the file plus its dated decision-log entry as controlling and flag the difference on the <a href="flagged.html">Flagged for Review</a> page.</p>
+          <div class="buttons no-print"><a class="button secondary" href="review.html#decision-log">Decision log</a><a class="button secondary" href="flagged.html">Flagged for Review</a></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

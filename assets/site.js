@@ -10,7 +10,9 @@
     review: "review.html",
     figures: "figures.html",
     blackswan: "blackswan.html",
-    flagged: "flagged.html"
+    flagged: "flagged.html",
+    verification: "verification.html",
+    "decision-rules": "decision-rules.html"
   };
 
   const isCurrent = (key) => page === key ? " current" : "";
@@ -33,6 +35,7 @@
                 <a class="${isCurrent("questions")}" href="${pages.questions}">Questions &amp; private inventory</a>
                 <a class="${isCurrent("figures")}" href="${pages.figures}">Household figures &amp; thresholds</a>
                 <a class="${isCurrent("blackswan")}" href="${pages.blackswan}">Black Swan staging</a>
+                <a class="${isCurrent("decision-rules")}" href="${pages["decision-rules"]}">Pre-committed decision rules</a>
               </div>
             </div>
             <div class="nav-group">
@@ -43,6 +46,7 @@
                 <a class="${isCurrent("sources")}" href="${pages.sources}">Sources &amp; law monitor</a>
                 <a class="${isCurrent("review")}" href="${pages.review}">Flags &amp; suggestions</a>
                 <a class="${isCurrent("flagged")}" href="${pages.flagged}">Flagged for Review</a>
+                <a class="${isCurrent("verification")}" href="${pages.verification}">Verification register</a>
               </div>
             </div>
           </nav>
