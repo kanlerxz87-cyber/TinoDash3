@@ -1,0 +1,12 @@
+{
+  "name": "inheritance-decision-desk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Privacy-first static decision support site for an inherited home and an already-owned multi-unit home.",
+  "scripts": {
+    "check": "node scripts/check-site.mjs",
+    "privacy": "node scripts/privacy-scan.mjs",
+    "test": "npm run privacy && npm run check",
+    "serve": "python3 -m http.server 4173"
+  }
+}

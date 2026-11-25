@@ -1,52 +1,40 @@
-# Inheritance Decision Lab
+# Inheritance Decision Desk
 
-A privacy-first, static GitHub Pages decision dashboard for comparing paths for an inherited Cupertino-area home (`Property A`) alongside an already-owned San Francisco-area property (`Property B`).
+A privacy-first static GitHub Pages decision-support site for a future inherited California home (**Property A**) and a separately already-owned multi-unit home (**Property B**).
 
-## What is in the site
+## What it does
 
-- Executive summary with **what would change the answer** on the first screen.
-- Same-date, same-horizon comparison of live, rent, sell, phased Treasury-to-stocks, and mixed paths.
-- Black-swan entry-risk controls for 2008-style, 1929-style, and stagflation stress cases.
-- A 24–36 month 3M–2Y Treasury staging path with reinvestment risk displayed beside the headline.
-- Range-based model outputs rather than a single point forecast.
-- Separate estate-tax, income-tax-basis, and California property-tax-assessment explanations.
-- Official-source register, deadline timeline, glossary, one-page printable Attorney + CPA briefing sheet, suggestions backlog, and Flagged for Review page.
-- Public-data containment: no names, exact addresses, postal identifiers, APNs, trust identifiers, lease identifiers, contact details, or household-specific account data.
+- Puts **“what would change the answer”** before any outcome ranking.
+- Keeps estate tax, inherited income-tax basis, California property-tax assessment, rental operations, and investment decisions separate.
+- Compares sale, rent, live, and mixed paths at common transfer dates and 5-, 10-, 25-, and 50-year horizons.
+- Includes a Black Swan stress test with a 24–36 month 3M–2Y Treasury staging path before phased stock investing, with reinvestment risk displayed beside the headline.
+- Provides an official-source registry, enacted-versus-proposed law monitor, step-by-step timeline, missing-information register, five-year maintenance/capital template, suggestions board, and one-page printable attorney/CPA brief.
 
-## Privacy model
+## Privacy boundary
 
-The public website intentionally omits household-specific values. The model is normalized to `$1.00` of inherited-property value and its controls are clearly labeled illustrative sensitivities. Private appraisals, tax bills, leases, insurance declarations, utility bills, debt statements, trust documents, and estate inventory belong in a separate secure copy. The `.gitignore` protects common private filenames, but privacy still requires a release-time search and human review.
+This repository is public. It intentionally does **not** contain addresses, owner names, APNs, exact tax bills, historic assessment trails, leases, rent rolls, account data, trust documents, utility records, valuation reports, or exact household balances. Keep all evidence in an encrypted private workspace outside Git and use only `Property A` / `Property B` in public artifacts.
 
-Never add the following to this repository or the Pages artifact:
+The published calculator starts from a generic `$1.0M` normalized unit. It is a stress-test teaching tool, not a valuation, tax return, financial plan, or recommendation.
 
-- names, email addresses, phone numbers, exact addresses, ZIP codes, APNs, trust IDs, SSNs, account numbers, or unredacted legal documents;
-- exact household valuations, rents, tax bills, insurance premiums, debt balances, or bank/brokerage balances;
-- private source documents or data exports.
+## Local checks
 
-## Run locally
-
-This is a static site. From the repository root:
+No dependency install is required.
 
 ```bash
-python3 -m http.server 4173 --bind 0.0.0.0
+npm test
+# optional local preview
+npm run serve
 ```
 
-Open `http://localhost:4173/`. No package install or runtime API is required.
+`npm test` runs:
 
-## Verification
-
-- `node --check app.js`
-- Visit every `.html` page through the local server.
-- Confirm the model controls update all paths together.
-- Confirm the print button creates a one-page brief.
-- Search the repository for personal identifiers before release.
-- Check every research table row has an official or clearly labeled research source link.
-- Recheck all official links and enacted/proposal statuses before any household decision.
-
-## Source boundary
-
-The site links directly to IRS, California FTB, California BOE, county, City and County of San Francisco, California Department of Insurance, utility, U.S. Treasury, Federal Reserve, and NBER materials. A source link can establish a rule or method; it cannot verify an omitted private household fact. See `research.html` and `flagged.html`.
+1. a privacy scan for prohibited household identifiers; and
+2. a static link/source-table check across all pages.
 
 ## Deployment
 
-`.github/workflows/pages.yml` deploys the static root to GitHub Pages when the repository's Pages source is configured for GitHub Actions. The workflow does not upload a private data directory.
+`.github/workflows/pages.yml` publishes the repository root through GitHub Pages after a reviewed merge to `main` (or a manual workflow dispatch), when the repository Pages environment is enabled for GitHub Actions. `.nojekyll` keeps static assets predictable. See `COORDINATION.md` for the active task board, source verification log, and deployment record.
+
+## Important limitation
+
+Legal, tax, property, insurance, rent, and investment results depend on future law and private facts. Official links are supplied for manual review; refresh them at least annually, at the inheritance event, and before any irreversible action.
