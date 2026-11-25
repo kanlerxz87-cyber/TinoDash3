@@ -1,15 +1,25 @@
 # Coordination Board
 
-## Active Session
-- **Session ID**: `arena/960d22e6-tinodash3`
-- **Branch**: `arena/960d22e6-tinodash3`
-- **Status**: `in progress`
-- **Scope**: Full privacy-first dashboard, verified data tables, interactive financial/Black Swan models, Attorney & CPA Briefing Sheet, Flagged for Review page, and GitHub Pages deployment.
+> **Privacy rule for every session:** Do not place addresses, APNs, owner names, exact tax bills, leases, utility bills, account data, or identifiable property histories in tracked files or the published site. Use `Property A` (inherited home) and `Property B` (already-owned multi-unit home), broad non-identifying ranges, and source links only. Put unknowns on the Flagged for Review page rather than estimating them.
+>
+> **Branch rule:** Arena supplies the active branch for this session. Do not create or switch branches from this checkout. Before each push, run `git pull --rebase`; push only the active Arena branch.
 
-## Task Log
-| Task | Status | Session | Notes |
+| ID | Task | Status | Owner / session | File scope | Claimed (UTC) | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| T-001 | Build the privacy-first, static decision dashboard and integrate official-source research, printable brief, and Pages deployment | in progress | `arena/c9a0ca4a-tinodash3` | `COORDINATION.md`, `README.md`, `package.json`, `.gitignore`, `assets/**`, `scripts/**`, root `*.html` | 2026-11-25 | Current implementation uses generic normalized examples only. It supersedes conflicting public artifacts containing household/property identifiers; those must be removed or sanitized before deployment. |
+| T-002 | Independent legal/tax review of property-specific facts, date-of-death valuation, leases, insurance quotes, debt, trust, and estate inventory | needs review | Household counsel / CPA / licensed local professionals | No repository files; results must stay off the public site | 2026-11-25 | Cannot be completed from a public repository. The site provides private-only request checklists and official authority links. |
+| T-003 | Remove or permanently sanitize previously published property-specific records and identifiers | needs review | Repository owner / privacy counsel | Git history, Pages artifacts, search-engine/cache removal requests | 2026-11-25 | A separate prior merge added city/postal codes, valuations, rent, unit-count, utility, and assessment details. Do not repeat them here. Commit deletion/sanitization and use platform/cache-removal procedures as legally appropriate. |
+
+## Activity log
+
+| UTC date | Session | Action | Sources / verification / irregularities |
 | --- | --- | --- | --- |
-| Official source verification (IRS, FTB, BOE, SF, SCC) | done | `arena/960d22e6-tinodash3` | Verified 2026 Federal Estate Exclusion ($15M), Prop 19, Form 540 1% MHST, SF Tax Rate (1.18162182%), SF Transfer Tax, Rent Board Fee ($59/unit), CDI Insurance avg ($1,655). |
-| Privacy & $10-rounding anonymization | in progress | `arena/960d22e6-tinodash3` | All property figures rounded to nearest $10; placeholders Property A (95014) and Property B (94122). |
-| Dashboard UI, Models & Subpages | in progress | `arena/960d22e6-tinodash3` | Building static site in `index.html`, `styles.css`, `app.js`, `data.js`. |
-| GitHub Pages & PR Merge | pending | `arena/960d22e6-tinodash3` | Will open PR to `main` and merge after verification. |
+| 2026-11-25 | `arena/c9a0ca4a-tinodash3` | Created coordination board and claimed T-001 before implementation. | Repository inspection initially found only `README.md`; no property-specific public lookup was attempted because address/APN and identity are intentionally excluded. |
+| 2026-11-25 | `arena/c9a0ca4a-tinodash3` | Rebased to integrate intervening main changes and detected a privacy conflict. | `origin/main` contains exact geographic, financial, occupancy, and operating details contrary to this board’s publication rule. Those details are not copied into this implementation. T-003 is now open; public deployment must retain only sanitized content. |
+
+## Handoff and integration notes
+
+- No session may mark a tax, legal, insurance, rent, assessment, or projection value as verified merely because it appears in user-provided material. A published row needs an official source link; otherwise its value remains blank or explicitly labeled as a stress-test assumption.
+- `needs review` items are publishable on the site and do not block deployment only when the public artifact itself is privacy-safe.
+- Before closing T-001, record the build command, link check, official sources reviewed, open issues, commit/PR/deployment result, and date here.
+- Do not reintroduce the previous dashboard’s property-specific data into templates, examples, source files, commit messages, issue/PR text, browser titles, image metadata, or deployment logs.

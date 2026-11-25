@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Normalized mixed-path and black-swan stress testing for inheritance choices.">
+  <title>Paths & Stress Tests — Inheritance Decision Desk</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/site.js"></script>
+  <script defer src="assets/model.js"></script>
+</head>
+<body data-page="paths">
+  <div data-site-header></div>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Same dates · same horizons · different risks</p>
+          <h1>Test mixed paths before pretending the future is smooth.</h1>
+          <p class="lede">This normalized calculator deliberately uses uneven growth, inflation, Treasury, equity, and property paths. It shows why immediate investment, staged investment, renting, and living do not carry the same crash-entry, occupancy, liquidity, tax, or maintenance risk.</p>
+        </div>
+        <aside class="hero-callout">
+          <p class="eyebrow" style="color:#9edbd0">Privacy-preserving unit</p>
+          <h2>All values start at $1.0M.</h2>
+          <p>This is a generic scale factor, not either household’s value. Results are rounded to the nearest $10 and never use an address, parcel, rent roll, tax bill, or account balance.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section compact" aria-labelledby="test-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">What-if controls · local browser only</p>
+            <h2 id="test-title">Black Swan / baseline stress test</h2>
+            <p>Controls are optional and do not send, save, or request household data. The figures are transparent stress-test outputs, not market forecasts, appraisals, tax estimates, or personalized advice.</p>
+          </div>
+          <span class="status review">Assumption-driven</span>
+        </div>
+        <div class="controls no-print">
+          <div class="control">
+            <label for="scenarioSelect">Economic path</label>
+            <select id="scenarioSelect">
+              <option value="baseline">Irregular baseline</option>
+              <option value="crash1929">Early deep equity shock</option>
+              <option value="crisis2008">Liquidity / housing shock</option>
+              <option value="stagflation">Stagflation / rate reset</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="horizonSelect">Common horizon</label>
+            <select id="horizonSelect"><option value="5">5 years</option><option value="10" selected>10 years</option><option value="25">25 years</option><option value="50">50 years</option></select>
+          </div>
+          <div class="control">
+            <label for="stageSelect">Treasury parking</label>
+            <select id="stageSelect"><option value="24">24 months</option><option value="30" selected>30 months</option><option value="36">36 months</option></select>
+          </div>
+          <div class="control">
+            <label for="saleTiming">Sale timing test</label>
+            <select id="saleTiming"><option value="same-year" selected>Same tax year as inheritance</option><option value="later">Later sale / mixed use</option></select>
+          </div>
+          <div class="control">
+            <label for="imputedRange">Imputed rent for living paths</label>
+            <input id="imputedRange" type="range" min="0" max="6" step="0.5" value="0">
+            <div class="range-value"><span>Unverified input</span><strong id="imputedValue">0.0%</strong></div>
+          </div>
+          <div class="control">
+            <label>Primary-residence screen</label>
+            <div class="switch-control"><input id="primaryToggle" type="checkbox"><label for="primaryToggle" style="letter-spacing:0;text-transform:none;font-size:.86rem;font-weight:650">Flag for §121 review</label></div>
+          </div>
+          <div class="control" style="grid-column:span 2">
+            <label>Current state</label>
+            <div class="callout" style="padding:.55rem .7rem"><p id="scenarioDescription" style="font-size:.83rem"></p></div>
+          </div>
+        </div>
+        <div class="callout warning" style="margin-top:1rem"><strong id="saleTimingStatus"></strong><p id="primaryStatus"></p></div>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="outcomes-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Normalized outcomes</p>
+            <h2 id="outcomes-title"><span id="horizonLabel">10-year</span> comparison from the same Year 0</h2>
+            <p>All monetary outputs are nominal, normalized results per $1.0M starting value. They deliberately exclude unverified tax, debt, transaction, insurance, utility, lease, vacancy, and capital facts. Their purpose is to reveal sequence risk—not settle the decision.</p>
+          </div>
+        </div>
+        <div class="projection-grid" aria-live="polite">
+          <article class="projection-card"><span class="label" data-kind="sellStocks"></span><h3>Sell Year 0 → stocks</h3><span class="projection-number" data-result="sellStocks">—</span><p>Immediate market exposure from the common transfer date.</p><span class="risk">Risk: immediate sequence-of-returns exposure.</span></article>
+          <article class="projection-card"><span class="label" data-kind="sellStaged"></span><h3>Sell → Treasury ladder → stocks</h3><span class="projection-number" data-result="sellStaged">—</span><p>Hold 3M–2Y Treasuries for <span id="stageLabel">30 months</span>; phase purchases into stocks over the next year.</p><span class="risk">Reinvestment risk: future ladder maturities may reset at lower or higher yields.</span></article>
+          <article class="projection-card"><span class="label" data-kind="rentThenSell"></span><h3>Rent 5y → sell → staged</h3><span class="projection-number" data-result="rentThenSell">—</span><p>Illustrative net rental contribution only; it is not a rent estimate.</p><span class="risk">Risk: actual rent, capex, compliance, and recapture remain unknown.</span></article>
+          <article class="projection-card"><span class="label" data-kind="liveThenSell"></span><h3>Live 2y → sell → staged</h3><span class="projection-number" data-result="liveThenSell">—</span><p>Imputed-rent control is currently unverified; §121 benefit is never added automatically.</p><span class="risk">Risk: occupancy alone does not prove tax or property-tax eligibility.</span></article>
+          <article class="projection-card"><span class="label" data-kind="holdRental"></span><h3>Hold as rental</h3><span class="projection-number" data-result="holdRental">—</span><p>Property plus an illustrative net-rent contribution.</p><span class="risk">Risk: operating and local tenant-rule exposure persists.</span></article>
+          <article class="projection-card"><span class="label" data-kind="holdLive"></span><h3>Live long term</h3><span class="projection-number" data-result="holdLive">—</span><p>Property plus the unverified imputed-rent control.</p><span class="risk">Risk: liquidity and opportunity cost are not cash expenses.</span></article>
+        </div>
+        <div class="grid two" style="margin-top:1rem">
+          <div class="callout"><strong id="stagingDelta">—</strong><p id="stagingDeltaNote">—</p></div>
+          <div class="callout warning"><strong>Why this is not a recommendation</strong><p>Property taxes, federal and California taxes, debt, sale costs, insurance, maintenance, capital work, and actual rent are not known. Those omissions can reverse a ranking and must be filled with private evidence before any household decision.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="chart-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Outcome distribution view</p>
+            <h2 id="chart-title">A visual comparison, not probability theater</h2>
+            <p>The bars show the active stress-test scenario across all paths. No probability weights, confidence intervals, or “expected” return are claimed because no private evidence or validated forecast has been supplied.</p>
+          </div>
+          <span class="status review">Not a forecast</span>
+        </div>
+        <div class="chart-wrap"><svg id="distributionChart" role="img"></svg><p class="chart-note">The chart calls itself a distribution view because it compares a spread of choices; it is <strong>not</strong> an empirical probability distribution. Re-run after every validated private input change and use the result only with its missing-cost register.</p></div>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="compare-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Required apples-to-apples comparison</p>
+            <h2 id="compare-title">Each choice has the same start date; its constraints differ</h2>
+            <p>Property B remains owned under every row. Do not use its pre-existing value or rents to make Property A appear inherited, or to conceal its separate lease and local-rule work.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Comparison discipline before a private model is populated</caption>
+            <thead><tr><th>Path</th><th>Common transfer / horizon</th><th>Tax and basis treatment</th><th>Debt &amp; capital plan</th><th>Occupancy &amp; liquidity</th><th>Evidence</th></tr></thead>
+            <tbody>
+              <tr><td>Sell Year 0</td><td>Year 0 transfer; compare at selected 5–50 year horizon.</td><td>Gain cannot be calculated without date-of-death FMV, sale price, costs, entity/trust facts, and tax-return context.</td><td>Debt payoff, lien release, commissions, escrow, repairs, recording, and transfer taxes require a private closing estimate.</td><td>No occupancy; high liquidity after close.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS inherited basis</a></td></tr>
+              <tr><td>Sell → staged investing</td><td>Same Year 0 and selected horizon.</td><td>Same sale analysis; portfolio tax and Treasury-interest treatment are not modeled as a household rate.</td><td>Must reserve estate / tax / repair liquidity before investing.</td><td>No occupancy; liquidity staged by Treasury maturity.</td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202611">Treasury rates</a></td></tr>
+              <tr><td>Rent 5y → sell</td><td>Same Year 0; sale modeled after a fixed five-year bridge only for comparison.</td><td>Rental depreciation and eventual recapture must be calculated from actual records; no §121 result is presumed.</td><td>Five-year repairs, capital, insurance, vacancy, and management reserves must be funded.</td><td>Tenant occupancy; lower liquidity until sale.</td><td><a class="source-link" href="https://www.irs.gov/publications/p523">IRS Pub. 523</a></td></tr>
+              <tr><td>Live 2y → sell</td><td>Same Year 0; two years is a screening window, not a tax conclusion.</td><td>§121 must meet actual ownership, use, look-back, and depreciation facts. California treatment must also be reviewed.</td><td>Owner costs, moving costs, and capital reserve are unknown.</td><td>Owner occupancy; lower liquidity until sale.</td><td><a class="source-link" href="https://www.irs.gov/publications/p523">IRS primary-residence rules</a></td></tr>
+              <tr><td>Hold as rental</td><td>Same Year 0; compare at selected horizon.</td><td>Income, depreciation, expenses, basis adjustments, and potential recapture are private CPA work.</td><td>Full maintenance/capital, insurance, regulatory, and vacancy reserve required.</td><td>Tenant occupancy; low liquidity.</td><td><a class="source-link" href="https://www.sf.gov/learn-about-san-francisco-rental-laws">Official local rental rules</a></td></tr>
+              <tr><td>Live long term</td><td>Same Year 0; compare at selected horizon.</td><td>Property-tax exclusion is claimed only after the actual conditions and filing are verified; tax benefit not preloaded.</td><td>Owner maintenance, insurance, utilities, and capital plan required.</td><td>Owner occupancy; low liquidity; add verified imputed rent.</td><td><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="treasury-title">
+      <div class="container grid two">
+        <div>
+          <p class="eyebrow">Reinvestment risk beside the headline</p>
+          <h2 id="treasury-title">A Treasury ladder is a decision tool, not a return guarantee</h2>
+          <p>For the staged sale path, short bills and notes reduce immediate equity-entry exposure. They also create a known need to reinvest as securities mature. The future rate is unknown; a ladder cannot guarantee that today’s rate will be available later.</p>
+          <div class="table-wrap" style="margin-top:1rem">
+            <table class="table-tight" data-source-table>
+              <caption>Official rate snapshot — do not project it forward</caption>
+              <thead><tr><th>Published date</th><th>3-month par yield</th><th>2-year par yield</th><th>Use in this dashboard</th><th>Source</th></tr></thead>
+              <tbody><tr><td>24 Nov 2026</td><td>4.28%</td><td>4.63%</td><td>Illustrates the current yield curve only; stress controls use transparent, non-forecast paths.</td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value=202611">U.S. Treasury</a></td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        <aside class="card warning">
+          <span class="label">Investment-policy gate</span>
+          <h3>Write the policy before proceeds arrive.</h3>
+          <ul class="check-list pending">
+            <li>Set the liquidity reserve for tax, estate, repairs, and household needs.</li>
+            <li>Define allowable 3M–2Y Treasury maturities and custody/tax reporting.</li>
+            <li>Set 24–36 month hold and 12-month phase-in rules; specify what pauses or accelerates them.</li>
+            <li>Set equity allocation, rebalancing, concentration, and spending rules.</li>
+            <li>Record decision owner, date, review frequency, and conditions that override the policy.</li>
+          </ul>
+          <p class="disclosure">A documented policy avoids making a sequence-risk decision during grief, a market shock, or an urgent sale process.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section tint" id="method" aria-labelledby="method-title">
+      <div class="container">
+        <div class="section-header">
+          <div><p class="eyebrow">Methodology &amp; limits</p><h2 id="method-title">How to read the stress-test math</h2></div>
+        </div>
+        <div class="grid three">
+          <article class="card"><h3>What the numbers are</h3><p>Calculated nominal outcomes from a generic $1.0M start, uneven annual inputs, monthly compounding, and a staged path that parks proceeds for 24–36 months then phases stock purchases over 12 months.</p></article>
+          <article class="card"><h3>What the numbers are not</h3><p>They are not valuations, rent forecasts, property-tax bills, tax returns, historical reconstructions, expected returns, or individualized investment advice. No probability is assigned.</p></article>
+          <article class="card"><h3>What can reverse a result</h3><p>Basis, debt, tax rate area, estate size, marital/gift history, primary-residence facts, sale costs, local regulation, condition, insurance, actual market rent, vacancy, and capital work can all dominate the generic return difference.</p></article>
+        </div>
+        <div class="table-wrap" style="margin-top:1rem">
+          <table class="table-tight">
+            <caption>Auditable stress-test input ranges — assumptions, not official market facts</caption>
+            <thead><tr><th>Path</th><th>Equities</th><th>3M–2Y Treasury proxy</th><th>Property value</th><th>Illustrative net rent</th><th>Inflation</th></tr></thead>
+            <tbody>
+              <tr><td>Irregular baseline</td><td>−8.0% to 15.0%</td><td>3.2% to 4.2%</td><td>−2.5% to 4.5%</td><td>1.1% to 1.6%</td><td>2.0% to 2.9%</td></tr>
+              <tr><td>Early deep equity shock</td><td>−35.0% to 18.0%</td><td>2.9% to 4.1%</td><td>−13.0% to 3.0%</td><td>0.8% to 1.5%</td><td>−2.0% to 2.4%</td></tr>
+              <tr><td>Liquidity / housing shock</td><td>−37.0% to 22.0%</td><td>2.6% to 3.9%</td><td>−16.0% to 3.5%</td><td>0.9% to 1.5%</td><td>0.8% to 2.5%</td></tr>
+              <tr><td>Stagflation / rate reset</td><td>−12.0% to 9.0%</td><td>3.9% to 5.2%</td><td>−4.0% to 2.2%</td><td>1.3% to 1.6%</td><td>3.1% to 7.2%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="disclosure"><strong>Assumption disclosure:</strong> These ranges are intentionally irregular scenario settings coded in this page. They are not historical data, a public forecast, a valuation, or an independently confirmed property/rent input. Replace them only in a private, professionally reviewed model.</p>
+        <div class="callout danger" style="margin-top:1rem"><strong>Do not transfer numeric results into a legal filing, listing decision, or investment order.</strong><p>Use the calculator to select questions for professionals. Then rebuild a private model from independently verified evidence and current law. See the <a href="questions.html">missing-information register</a> and <a href="sources.html">source monitor</a>.</p></div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>

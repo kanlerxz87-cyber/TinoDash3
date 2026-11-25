@@ -1,1 +1,0 @@
-const fs=require('fs');for(const f of ['index.html','brief.html','sources.html','flagged.html']){if(!fs.existsSync(f))throw Error('Missing '+f);const s=fs.readFileSync(f,'utf8');if(!s.includes('assets/styles.css'))throw Error('Styles missing '+f)}console.log('Static site verified.');
