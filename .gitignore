@@ -1,0 +1,24 @@
+# Local/private household model files — never publish to GitHub Pages
+private/
+private-model.json
+*.private.json
+*.local.json
+household*/
+estate*/
+
+# Private evidence and exports
+.env
+.env.*
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.doc
+*.docx
+*.pdf
+*.zip
+*.log
+*.pem
+*.key
+
+.DS_Store
