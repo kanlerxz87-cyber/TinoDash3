@@ -9,7 +9,7 @@ A privacy-first static GitHub Pages decision-support site for a future inherited
 - Compares sale, rent, live, and mixed paths at common transfer dates and 5-, 10-, 25-, and 50-year horizons.
 - Includes a Black Swan stress test with a 24–36 month 3M–2Y Treasury staging path before phased stock investing, with reinvestment risk displayed beside the headline.
 - Provides an official-source registry, enacted-versus-proposed law monitor, step-by-step timeline, missing-information register, five-year maintenance/capital template, suggestions board, and one-page printable attorney/CPA brief.
-- Publishes household figures rounded to the nearest $10 under Property A / Property B labels (no identifiers), a dedicated Flagged for Review register, an official-source verification register, and pre-committed decision rules written before any model output existed.
+- Keeps household inputs private (gitignored `private/` only): the published figures page is generic and carries no household values, alongside a dedicated Flagged for Review register, an official-source verification register, and pre-committed decision rules written before any model output existed.
 
 ## Privacy boundary
 
@@ -31,7 +31,7 @@ npm run serve
 
 1. a privacy scan for prohibited household identifiers;
 2. a static link/source-table check across all pages; and
-3. the figures test suite (rounding to $10, projection arithmetic, official anchors, and privacy of published figure files).
+3. the engine, render and figures test suites (range/scenario arithmetic, page wiring, official anchors, and privacy of published figure files — household-specific checks run only when the gitignored `private/` inputs are present).
 
 ## Deployment
 

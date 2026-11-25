@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Timeline, tax separation, and official-rule checkpoints for an inherited home decision.">
-  <title>Transfer Timeline & Tax Map — Inheritance Decision Desk</title>
+  <meta name="description" content="Step-by-step inheritance process for a California home, the deadlines that bind, and the published property-tax, transfer-tax and recording-fee math.">
+  <title>Step-by-Step, Deadlines &amp; Tax Math — Inheritance Decision Desk</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/site.js"></script>
+  <script defer src="assets/engine.js"></script>
+  <script defer src="assets/model.js"></script>
 </head>
 <body data-page="process">
   <div data-site-header></div>
@@ -16,100 +18,388 @@
         <div>
           <p class="eyebrow">Transfer process · current-law snapshot</p>
           <h1>Start with the date-of-death file, not a rent-versus-sell guess.</h1>
-          <p class="lede">A trust distribution, income-tax basis, California property-tax assessment, federal estate tax, and rental compliance are different workflows. The timeline below puts irreversible deadlines before optional investment or marketing decisions.</p>
+          <p class="lede">A trust distribution, an income-tax basis, a California property-tax assessment, a federal estate return and a tenant-law file are five different workflows with five different deadlines. This page puts the irreversible ones first and shows the published arithmetic behind the numbers.</p>
         </div>
-        <aside class="hero-callout"><p class="eyebrow" style="color:#9edbd0">Rule for the file</p><h2>Record the decision and date.</h2><p>For every choice, write the evidence reviewed, decision owner, date, conditions, and next review date. A future reader should know why—not just what—was chosen.</p></aside>
+        <aside class="hero-callout">
+          <p class="eyebrow" style="color:#9edbd0">Rule for the file</p>
+          <h2>Record the decision and the date.</h2>
+          <p>For every choice, write the evidence reviewed, who decided, the date, the conditions, and what would reverse it. A future reader should know why, not just what.</p>
+        </aside>
       </div>
     </section>
 
     <section class="section" id="timeline" aria-labelledby="timeline-title">
       <div class="container">
-        <div class="section-header"><div><p class="eyebrow">Deadline timeline</p><h2 id="timeline-title">From pre-event planning through annual review</h2><p>Deadlines depend on facts, filing status, and future law. This page shows current official starting points, not legal instructions for a specific estate.</p></div><span class="status review">Recheck at event</span></div>
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Deadlines as a timeline</p>
+            <h2 id="timeline-title">From planning today to the annual recheck</h2>
+            <p>Every window below is a current rule with an official source. None of them can be extended by wishing, and two of them run before the family feels ready to decide anything.</p>
+          </div>
+          <span class="status review">Recheck at event</span>
+        </div>
         <div class="timeline">
-          <article class="timeline-item"><span class="timeline-dot">0</span><div class="timeline-body"><h3>Now — build a private evidence room</h3><p>Create a private inventory; preserve trust, title, mortgage, insurance, lease, utility, improvement, tax, and gift records outside this public repository. Ask for a written valuation plan and independent property/rent/condition work.</p><a class="source-link" href="questions.html#inventory">Private inventory checklist</a></div></article>
-          <article class="timeline-item warning"><span class="timeline-dot">DOD</span><div class="timeline-body"><h3>Date of death / change-in-ownership event</h3><p>Capture condition, valuation engagement, title/trust documents, occupancy facts, liabilities, and estate liquidity. For inherited property, IRS guidance generally uses date-of-death fair market value for basis; California BOE guidance treats an inheritance as a change in ownership unless an exclusion applies.</p><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a> · <a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">CA BOE assessment guide</a></div></article>
-          <article class="timeline-item"><span class="timeline-dot">30</span><div class="timeline-body"><h3>First 30 days — model a same-tax-year sale first</h3><p>Get a written date-of-death valuation and private preliminary closing statement. Compare probable sale price with inherited basis; separately list transfer/recording charges, debt payoff, estate liquidity, and repairs. Do not assume a same-year sale has no gain or no tax.</p><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate">Official recorder guidance</a></div></article>
-          <article class="timeline-item warning"><span class="timeline-dot">9m</span><div class="timeline-body"><h3>Generally within 9 months — estate return / tax and portability review</h3><p>The current Form 706 instructions state a nine-month filing and estate-tax due date, subject to extension rules. Ask immediately about prior taxable gifts, whole-estate value, liquidity, valuation elections, and portability. Do not wait for a property decision to ask.</p><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706 instructions</a></div></article>
-          <article class="timeline-item warning"><span class="timeline-dot">1y</span><div class="timeline-body"><h3>Within 1 year — Prop. 19 occupancy/exemption gate, if pursuing it</h3><p>For the current California family-home exclusion, the transferee must meet the primary-residence condition and file for the homeowners’ or disabled veterans’ exemption within one year for relief from the transfer date. Do not claim this path for a rental or short-term occupancy plan.</p><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a></div></article>
-          <article class="timeline-item"><span class="timeline-dot">3y</span><div class="timeline-body"><h3>Within 3 years / before third-party transfer — Prop. 19 claim window</h3><p>Current BOE summary guidance says the parent-child claim must be filed within three years of death/transfer or before a third-party transfer, whichever comes first. An assessor-specific exception may apply after a supplemental or escape assessment notice; ask counsel/assessor.</p><a class="source-link" href="https://www.boe.ca.gov/pdf/pub801.pdf">CA BOE Prop. 19 fact sheet</a></div></article>
-          <article class="timeline-item warning"><span class="timeline-dot">45/180</span><div class="timeline-body"><h3>If a §1031 exchange is genuinely wanted — before selling</h3><p>Current IRS guidance limits §1031 to qualifying real property held for investment or business, not a personal home. For a deferred exchange, the IRS Form 8824 instructions (2026) require replacement property to be identified within 45 days and received within 180 days, or by the due date of the tax return including extensions, whichever is earlier. Engage qualified tax and exchange counsel before a sale contract or receipt of proceeds.</p><a class="source-link" href="https://www.irs.gov/instructions/i8824">IRS Form 8824 instructions</a> · <a class="source-link" href="https://www.irs.gov/publications/p544">IRS Pub. 544</a></div></article>
-          <article class="timeline-item"><span class="timeline-dot">annual</span><div class="timeline-body"><h3>Each year — recheck evidence, law, and extreme scenarios</h3><p>Review the investment policy, tax-law monitor, insurance, rent rules, lease status, capital plan, source dates, and scenario outcomes. Record whether the recommendation moved and why.</p><a class="source-link" href="sources.html#monitor">Official-source monitor</a></div></article>
+          <article class="timeline-item done">
+            <span class="timeline-dot">0</span>
+            <div class="timeline-body">
+              <h3>Now — build a private evidence room and write the policy<span class="when">year 0</span></h3>
+              <p>Encrypted inventory outside this repository; a written investment policy for any future proceeds; pre-agreed thresholds for choosing each path. Ask the estate attorney now about portability, prior taxable gifts and liquidity.</p>
+              <a class="source-link" href="questions.html#agreement-title">Pre-commitment criteria</a>
+            </div>
+          </article>
+          <article class="timeline-item gate">
+            <span class="timeline-dot">DOD</span>
+            <div class="timeline-body">
+              <h3>Date of death — the day every clock starts<span class="when">day 0</span></h3>
+              <p>Freeze the facts: condition photographs, occupancy evidence, trust and deed copies, mortgage and lien statements, insurance, utility and improvement records. This is also the valuation date for basis unless an alternate valuation election is made.</p>
+              <a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a>
+            </div>
+          </article>
+          <article class="timeline-item warning">
+            <span class="timeline-dot">30</span>
+            <div class="timeline-body">
+              <h3>First 30 days — written valuation and same-tax-year sale test<span class="when">day 1–30</span></h3>
+              <p>Get an independent date-of-death appraisal and a preliminary closing estimate. Model the same-tax-year sale first: it is the cheapest tax case to test and it establishes the floor that every holding path has to beat.</p>
+              <a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate">County recorder</a>
+            </div>
+          </article>
+          <article class="timeline-item warning">
+            <span class="timeline-dot">90</span>
+            <div class="timeline-body">
+              <h3>First 90 days — property tax, insurance and utilities budgeted at the new assessment<span class="when">day 1–90</span></h3>
+              <p>The new bill is based on the post-transfer assessed value, not the deceased's bill. Request insurance quotes for the actual occupancy, and pull 24 months of utility and solar history.</p>
+              <a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">CA BOE assessment guide</a>
+            </div>
+          </article>
+          <article class="timeline-item gate">
+            <span class="timeline-dot">9m</span>
+            <div class="timeline-body">
+              <h3>Nine months — estate return, portability and payment calendar<span class="when">extendable 6 months</span></h3>
+              <p>Form 706 is due nine months after death; an automatic six-month extension is available by filing Form 4768 on time, and portability requires a timely return. This deadline runs whether or not the house is decided.</p>
+              <a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes">IRS estate-tax FAQs</a>
+            </div>
+          </article>
+          <article class="timeline-item gate">
+            <span class="timeline-dot">1y</span>
+            <div class="timeline-body">
+              <h3>One year — occupy the home and file the exemption, or give up the family-home exclusion<span class="when">hard gate</span></h3>
+              <p>Prop. 19 requires the property to become the transferee's principal residence within one year of the transfer, and requires a homeowners' or disabled veterans' exemption filing within that year. Miss it and the exclusion does not apply as of the transfer date.</p>
+              <a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot">3y</span>
+            <div class="timeline-body">
+              <h3>Three years — exclusion claim, or before any sale to a third party<span class="when">whichever is earlier</span></h3>
+              <p>The claim for the Prop. 19 exclusion must be filed within three years of the purchase or transfer, or prior to a transfer to a third party, or before the transferee no longer occupies the residence — whichever comes first. Selling early therefore shortens the claim window.</p>
+              <a class="source-link" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2">R&amp;TC §63.2</a>
+            </div>
+          </article>
+          <article class="timeline-item warning">
+            <span class="timeline-dot">45/180</span>
+            <div class="timeline-body">
+              <h3>If a §1031 exchange is wanted — decide before the sale contract<span class="when">45 / 180 days, or the return due date — whichever is earlier</span></h3>
+              <p>Like-kind treatment requires real property held for investment or business; a personal home does not qualify. The replacement property must be identified within 45 days and received within 180 days, <strong>or by the due date of the exchange year's return including extensions, whichever is earlier</strong> (IRS Form 8824 instructions). This decision cannot be made after the proceeds arrive.</p>
+              <a class="source-link" href="https://www.irs.gov/publications/p544">IRS Pub. 544</a>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot">2/5</span>
+            <div class="timeline-body">
+              <h3>Two of five years — the §121 use window for a later sale<span class="when">rolling test</span></h3>
+              <p>To exclude gain on a home sale, the home must have been owned and used as a main home for at least 24 months of the five years before the sale, and no exclusion may have been taken on another home in the prior two years. A short stay satisfies neither.</p>
+              <a class="source-link" href="https://www.irs.gov/publications/p523">IRS Pub. 523</a>
+            </div>
+          </article>
+          <article class="timeline-item">
+            <span class="timeline-dot">ann</span>
+            <div class="timeline-body">
+              <h3>Every year — recheck law, sources, insurance and extremes<span class="when">annual</span></h3>
+              <p>Re-verify every official source on the register, re-quote insurance, re-read the rent rules, update the capital plan and re-run the extreme scenarios. Record whether the recommendation moved and why.</p>
+              <a class="source-link" href="sources.html#monitor">Law monitor</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section tint" aria-labelledby="separate-title">
+    <section class="section tint" id="step-by-step" aria-labelledby="steps-title">
       <div class="container">
-        <div class="section-header"><div><p class="eyebrow">Do not combine these systems</p><h2 id="separate-title">Estate tax, income-tax basis, and property tax are separate calculations</h2><p>Keeping these columns apart is a high-value quality check for every private model and professional brief.</p></div></div>
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Step by step</p>
+            <h2 id="steps-title">What actually happens between the death and the first dollar invested</h2>
+          </div>
+        </div>
+        <div class="grid two">
+          <div>
+            <ol class="step-list">
+              <li><div><b>Confirm who has authority</b><span>Read the trust, any amendments, the deed and successor-trustee powers. Authority controls who can list, lease, borrow, claim and sign.</span></div></li>
+              <li><div><b>Establish the date-of-death value</b><span>Independent appraisal with retained comparables. This single number drives basis, gain, estate reporting and the same-year sale test.</span></div></li>
+              <li><div><b>Determine what actually passes and to whom</b><span>Specific bequest, residue, fractional shares, or a trust that continues. This decides who pays the tax and who holds title.</span></div></li>
+              <li><div><b>Measure the whole estate</b><span>Gross estate, deductions, prior taxable gifts, marital transfers and liquidity needs. A single house cannot answer the federal question.</span></div></li>
+              <li><div><b>Record the change in ownership with the county</b><span>Deed or trust transfer recorded, Preliminary Change of Ownership Report filed, assessor notified. Recording fees and any transfer tax are paid here.</span></div></li>
+              <li><div><b>Watch for the supplemental or escape assessment</b><span>Reassessment of inherited property runs from the date of death, not from distribution, and the supplemental bill arrives separately from the regular bill. Check the rate area, the value and any exclusion claimed, and diarise the 60-day appeal window that runs from the notice date.</span></div></li>
+            </ol>
+          </div>
+          <div>
+            <ol class="step-list" start="7">
+              <li><div><b>Decide the occupancy question honestly</b><span>Move in within the year and file the exemption, or accept that the family-home exclusion is gone. There is no partial version of this.</span></div></li>
+              <li><div><b>Price the carry</b><span>Property tax at the new assessed value, insurance at the actual occupancy, water, power, upkeep, and — if rented — management and compliance.</span></div></li>
+              <li><div><b>Get an independent rent opinion</b><span>Written, with comparables, days on market and concessions. Without it, the rental path is a floor, not an estimate.</span></div></li>
+              <li><div><b>Fund the five-year capital plan</b><span>Scope, bids, permits and contingency before the first tenant or the listing. Deferred work is the most common surprise in this decision.</span></div></li>
+              <li><div><b>Settle, reserve, then invest</b><span>Hold back tax and repair reserves before executing the ladder and the phase-in written in the policy.</span></div></li>
+              <li><div><b>Write down the decision and its review date</b><span>Owner, evidence version, date, dissent, and the condition that would reopen it.</span></div></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="separate-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Three systems, never merged</p>
+            <h2 id="separate-title">Estate tax, income-tax basis and property-tax assessment</h2>
+            <p>Combining these is the most common way a well-meaning projection becomes wrong. Each answers a different question, on a different date, at a different level.</p>
+          </div>
+        </div>
         <div class="table-wrap">
           <table data-source-table>
             <caption>Tax identity map</caption>
-            <thead><tr><th>Question</th><th>System</th><th>Private facts needed</th><th>Current verified rule / limit</th><th>Official source</th></tr></thead>
+            <thead><tr><th>Question</th><th>System</th><th>Who is taxed</th><th>Current verified rule</th><th>Official source</th></tr></thead>
             <tbody>
-              <tr><td>Could the estate owe federal transfer tax or need a return?</td><td>Federal estate / gift tax</td><td>Whole gross estate, deductions, marital/charitable transfers, prior taxable gifts, citizenship/residency, and spouse facts.</td><td>IRS lists a 2026 basic exclusion of $15,000,000. It is not an estimate for a future death year and does not replace return/portability advice.</td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax">IRS estate &amp; gift update</a></td></tr>
-              <tr><td>What gain is reported when Property A is sold?</td><td>Federal / California income tax</td><td>Date-of-death FMV, alternate-valuation election if any, sales proceeds, selling costs, post-death improvements, rental use, depreciation, entity/trust, and filing facts.</td><td>Inherited basis is generally FMV at death. California says capital gains are taxed as ordinary income; additional California taxes require return-level calculation.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a> · <a class="source-link" href="https://www.ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html">CA FTB</a></td></tr>
-              <tr><td>What happens to the property-tax bill?</td><td>California property-tax assessment</td><td>Private tax bill, parcel’s tax-rate area, assessed value, transferor occupancy, transferee occupancy, value limit, exemption filing, claim filing, and new construction.</td><td>Prop. 13 generally uses base-year/acquisition value; inheritance is generally a change in ownership unless an exclusion applies. Statewide 1% is plus locally voter-approved debt rates.</td><td><a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">CA BOE Pub. 800-10</a></td></tr>
-              <tr><td>Does California impose inheritance or gift tax on the recipient?</td><td>California transfer tax</td><td>Specific facts and potential federal estate/GST applicability.</td><td>FTB explains that California's estate "pick-up" tax equals the maximum federal estate-tax credit, which was repealed, so the pick-up tax is zero; FTB also states California does not conform to the federal gift tax. Do not confuse this with federal estate-tax or income-tax analysis.</td><td><a class="source-link" href="https://www.ftb.ca.gov/tax-pros/law/legislation/2019-2020/SB378-032519.pdf">FTB SB 378 analysis</a> · <a class="source-link" href="https://www.sco.ca.gov/ardtax_taxinfo_estate.html">State Controller estate tax</a></td></tr>
-              <tr><td>Does the California 1% Behavioral Health Services Tax apply?</td><td>California income tax</td><td>Complete tax-year taxable income, filing status, gains/losses, deductions, and other income.</td><td>2025 Form 540 instructions, line 62, calculate the Behavioral Health Services Tax at 1% of taxable income (line 19) exceeding $1,000,000 — a return-level tax, not a rate on sale proceeds. Do not apply it to sale proceeds or gross gain without a full return calculation.</td><td><a class="source-link" href="https://www.ftb.ca.gov/forms/2025/2025-540-instructions.html">CA FTB Form 540 instructions</a></td></tr>
+              <tr><td>Could the estate owe transfer tax or need a return?</td><td>Federal estate and gift tax</td><td>The estate, on the whole taxable estate</td><td>Filing threshold for 2026 deaths is $15,000,000; 2027 is $15,480,000. A return is also required to elect portability regardless of size.</td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes">IRS estate-tax FAQs</a></td></tr>
+              <tr><td>What gain is reported when Property A is sold?</td><td>Federal and California income tax</td><td>The heir, on realised gain</td><td>Basis is generally date-of-death fair market value. California taxes capital gains as ordinary income.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a> · <a class="source-link" href="https://www.ftb.ca.gov/file/personal/income-types/capital-gains-and-losses.html">CA FTB</a></td></tr>
+              <tr><td>What happens to the annual property-tax bill?</td><td>California property-tax assessment</td><td>The owner, on assessed value</td><td>Prop. 13 base year value set at change in ownership; growth capped at the lower of California CPI or 2%; 1% statewide plus local voter-approved debt.</td><td><a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">CA BOE Pub. 800-10</a></td></tr>
+              <tr><td>Does the recipient owe California inheritance tax?</td><td>California transfer tax</td><td>Nobody</td><td>FTB explains California's estate “pick-up” tax equals the maximum federal estate-tax credit, which was repealed, so the pick-up tax is zero; FTB also states California does not conform to the federal gift tax.</td><td><a class="source-link" href="https://www.ftb.ca.gov/tax-pros/law/legislation/2019-2020/SB378-032519.pdf">FTB SB 378 analysis</a></td></tr>
+              <tr><td>Does the Behavioral Health Services Tax (Form 540 line 62) apply?</td><td>California income tax</td><td>The filer, on taxable income</td><td>1% of taxable income (Form 540 line 19) in excess of $1,000,000, per the 2025 Form 540 instructions line 62. It is not a capital-gain rate.</td><td><a class="source-link" href="https://www.ftb.ca.gov/forms/2025/2025-540-instructions.html">FTB Form 540 instructions</a></td></tr>
+              <tr><td>Is there a federal surtax on investment income?</td><td>Federal net investment income tax</td><td>The filer, above MAGI thresholds</td><td>3.8% on the lesser of net investment income or the excess over $250,000 joint / $200,000 single.</td><td><a class="source-link" href="https://www.irs.gov/individuals/net-investment-income-tax">IRS NIIT</a></td></tr>
             </tbody>
           </table>
+        </div>
+        <div class="callout danger" style="margin-top:1rem">
+          <strong>Two ways these get confused.</strong>
+          <p>First: a low property-tax bill is not a low income tax. A home assessed at a decades-old base year value can still produce a large taxable gain on sale. Second: an estate that owes no federal tax can still need a Form 706, because a portability election requires a timely return regardless of size.</p>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="prop19-title">
+    <section class="section tint" id="prop19" aria-labelledby="prop19-title">
       <div class="container grid two">
         <div>
-          <p class="eyebrow">California family-home reassessment check</p>
-          <h2 id="prop19-title">Carry the Prop. 19 allowance forward as a formula—not today’s number</h2>
-          <p>For a qualifying family home, current BOE materials describe a value limit based on the transferor’s factored base-year value plus an amount adjusted on a schedule. The currently published amount is date-specific. A future model should pull the then-current BOE amount at the event date.</p>
+          <p class="eyebrow">California family-home reassessment</p>
+          <h2 id="prop19-title">Carry the Prop. 19 allowance as a formula, never as a number</h2>
+          <p>For a qualifying family home, the excludable amount is the transferor's factored base year value at transfer <em>plus</em> an allowance that the Board of Equalization adjusts every two years. The currently published allowance covers transfers from 16 February 2025 through 15 February 2027.</p>
           <div class="definition-list" style="margin-top:1rem">
-            <dt>Current formula</dt><dd>Qualifying family-home threshold = factored base-year value at transfer + then-current indexed allowance.</dd>
-            <dt>Current published allowance</dt><dd>$1,044,586 for qualifying transfers from 16 Feb 2025 through 15 Feb 2027. <strong>Do not carry this dollar amount into a future transfer year.</strong></dd>
-            <dt>Required facts</dt><dd>Transferor’s qualifying principal-residence facts; transferee’s primary-residence/occupancy facts; exemption filing; claim timing; market value; factored base-year value; and current BOE guidance.</dd>
-            <dt>Model setting today</dt><dd>Blank / not claimed. It only becomes active after the household commits to long-term occupancy and the factual/legal requirements are validated.</dd>
+            <dt>Formula</dt><dd>New taxable value = transferor's taxable value + (market value at transfer − transferor's taxable value − current allowance), floored at zero.</dd>
+            <dt>Current allowance</dt><dd>$1,044,586. Do not carry this into a 2040–2050 transfer; the next adjustment has not been published.</dd>
+            <dt>Occupancy test</dt><dd>The home must become the transferee's principal residence within one year of the transfer.</dd>
+            <dt>Exemption test</dt><dd>A homeowners' or disabled veterans' exemption must be filed within one year of the transfer, and the exclusion ends when eligibility ends.</dd>
+            <dt>Claim window</dt><dd>Within three years of the transfer, before a third-party transfer, or before the transferee stops occupying — whichever is earliest.</dd>
+            <dt>What it is not</dt><dd>It is not an income-tax benefit, it does not reduce the federal estate, and it does not apply to rental or investment use.</dd>
           </div>
-          <p class="disclosure" style="margin-top:.8rem"><a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm">BOE indexed-allowance release</a> · <a class="source-link" href="https://www.boe.ca.gov/prop19/">BOE Prop. 19 overview</a></p>
+          <p class="disclosure" style="margin-top:.8rem"><a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm">BOE allowance release</a> · <a class="source-link" href="https://www.boe.ca.gov/prop19/">BOE Prop. 19</a> · <a class="source-link" href="https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=RTC&sectionNum=63.2">R&amp;TC §63.2</a></p>
         </div>
-        <aside class="card warning">
-          <span class="label">Do not use an occupancy story to get a tax answer</span>
-          <h3>Claim this exclusion only if the heir will actually occupy long term.</h3>
-          <p>The current rule is not a strategy for a rental or quick-sale path. The owner must be prepared to establish and continue a primary residence, complete the homeowners’ or disabled veterans’ exemption within the applicable deadline, and file the required claim.</p>
-          <ul class="check-list pending"><li>Validate that the transferor’s home was eligible.</li><li>Validate transferee relationship and primary-residence facts.</li><li>Get the county assessor’s form and process at the event date.</li><li>Record move-in and exemption filing dates privately.</li><li>Recheck indexed allowance and any legislative change.</li></ul>
+        <aside class="stack">
+          <article class="card warning">
+            <span class="label">A worked shape, not a household number</span>
+            <h3>Why the allowance rarely protects a long-held California home</h3>
+            <p>Suppose the transferor's taxable value is a small fraction of current value — typical after decades of 2% caps. Even with the allowance added, the market value is usually far above the protected amount, and only the <em>excess</em> is added to the base. That is still a very large increase in annual property tax, but it is not the same as reassessing to full market value, and the difference is worth six figures over time.</p>
+          </article>
+          <article class="card danger">
+            <span class="label">Do not dress a rental up as a residence</span>
+            <h3>Claim the exclusion only if the heir will genuinely occupy</h3>
+            <p>The statute ties the exclusion to actual principal residence, and ends it when eligibility ends. A short move-in followed by renting out is exactly the pattern that triggers reassessment and, at the extreme, penalty exposure. Occupancy is an intent decision that has to be made before the tax decision, not after.</p>
+          </article>
         </aside>
       </div>
     </section>
 
-    <section class="section tint" aria-labelledby="cost-title">
+    <section class="section" id="salecosts" aria-labelledby="cost-title">
       <div class="container">
-        <div class="section-header"><div><p class="eyebrow">Sell-path costs</p><h2 id="cost-title">Price published transfer charges; leave unverified costs blank</h2><p>The known county formula and fee schedule are included below. Commission, escrow, title, repair, debt, lien, and city-specific items stay blank until independently documented.</p></div></div>
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Published transaction items</p>
+            <h2 id="cost-title">Price the statutory sale costs from the official schedule</h2>
+            <p>These are exact, formula-based charges from the Santa Clara County Clerk-Recorder. Commission, escrow, title, repairs and staging are negotiated and stay blank.</p>
+          </div>
+          <a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/resources/fee-schedule">County fee schedule</a>
+        </div>
+        <div class="grid two">
+          <div data-engine="fees">
+            <div class="controls no-print" style="grid-template-columns:1fr">
+              <div class="control">
+                <label for="feePrice">Consideration or value conveyed (illustrative)</label>
+                <input id="feePrice" type="number" min="250000" max="12500000" step="2500" value="2000000">
+                <div class="range-value"><span>rounded illustrative figure</span><strong id="feePriceValue">$2,000,000</strong></div>
+              </div>
+              <div class="control">
+                <label>City conveyance tax</label>
+                <div class="switch-control"><input id="feeCity" type="checkbox"><label for="feeCity" class="plain-label">Property is in San Jose, Palo Alto or Mountain View</label></div>
+              </div>
+            </div>
+            <div class="table-wrap" style="margin-top:.8rem">
+              <table data-source-table>
+                <caption>Statutory items at the illustrative consideration</caption>
+                <thead><tr><th>Item</th><th class="num">Amount</th></tr></thead>
+                <tbody id="feeOutput"></tbody>
+              </table>
+            </div>
+            <p class="table-note">The county rate is applied per $500 or fractional portion, so the number of units is rounded up. Recording is $92 on page one because the deed pays documentary transfer tax, which removes the $10 fraud-prevention fee; a document that pays no transfer tax is $102 — that first-page fee includes the $75 SB 2 housing-fund fee and the $2 AB 1466 digital-mapping fee, with $3 for each additional page (county fee schedule, dated; fees may change). If a Preliminary Change of Ownership Report is required and missing, add the $20 penalty. City conveyance tax applies only inside the three named cities. Any additional city tier (for example San Jose Measure E or Mountain View Measure G above their thresholds) must be checked for the specific municipality on the linked county pages.</p>
+          </div>
+          <div>
+            <div class="table-wrap">
+              <table data-source-table>
+                <caption>Private items that stay blank until quoted</caption>
+                <thead><tr><th>Item</th><th>Typical basis</th><th>Status</th><th>Route</th></tr></thead>
+                <tbody>
+                  <tr><td>Broker commission</td><td>Negotiated percentage of price</td><td><span class="status blocked">Quote required</span></td><td><a class="source-link" href="questions.html#inventory">Private workbook</a></td></tr>
+                  <tr><td>Escrow and title</td><td>Escrow fee schedule plus title premium</td><td><span class="status blocked">Quote required</span></td><td><a class="source-link" href="questions.html#inventory">Private workbook</a></td></tr>
+                  <tr><td>Repairs, staging, inspections</td><td>Written scopes and bids</td><td><span class="status blocked">Scope required</span></td><td><a class="source-link" href="questions.html#five-year-plan">Capital plan</a></td></tr>
+                  <tr><td>Debt payoff, liens, estate costs</td><td>Payoff statements and estate accounting</td><td><span class="status blocked">Statements required</span></td><td><a class="source-link" href="brief.html">Professional brief</a></td></tr>
+                  <tr><td>City transfer tax above a high-value threshold</td><td>Municipal ordinance, if any</td><td><span class="status review">Municipality-specific</span></td><td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate/measure-e">County Measure E page</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-note">Do not insert a round percentage for these into a decision ranking. They are large enough to change the answer and specific enough to be quoted exactly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tint" id="proptax" aria-labelledby="tax-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Property-tax projection</p>
+            <h2 id="tax-title">Assessed value after transfer, at published mechanics</h2>
+            <p>Starting from an index of 1.00 at the transfer-date assessment, two growth variants bracket the statutory cap: the 2% maximum and a 1.5% lower-CPI case. Tax is shown at two rate bands so the reader can see how much the parcel's actual rate area matters.</p>
+          </div>
+          <a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">CA BOE Pub. 800-10</a>
+        </div>
+        <div class="table-wrap" data-engine="proptax">
+          <table data-source-table>
+            <caption>Index and annual tax per 1.00 unit of post-transfer assessed value</caption>
+            <thead><tr><th class="num">Years after transfer</th><th class="num">Assessed index at 2.0% cap</th><th class="num">Assessed index at 1.5%</th><th class="num">Annual tax at 1.10%</th><th class="num">Annual tax at 1.25%</th></tr></thead>
+            <tbody id="propTaxRows"></tbody>
+          </table>
+        </div>
+        <div class="grid three" style="margin-top:1.2rem">
+          <article class="card"><h3>Why the rate band is a band</h3><p>The statewide basic rate is 1%, plus rates for locally voter-approved bonded indebtedness. Direct charges and parcel taxes are not part of the 1% and are added separately on the bill. A parcel's rate area fixes the combination, and a postal code does not.</p></article>
+          <article class="card"><h3>Why the growth is not fixed</h3><p>The annual factor is the change in the California CPI, capped at 2%. When CPI runs above 2%, the cap binds; when it runs below, the factor is lower. Over 25 years that difference is material, which is why two variants are shown.</p></article>
+          <article class="card"><h3>Why market value still matters</h3><p>Under Prop. 8 mechanics the assessor enrolls the lower of the factored base year value or market value. A sustained decline can temporarily reduce the bill, and the value can then rise faster than 2% until it returns to the factored base year value.</p></article>
+        </div>
+        <div class="callout warning" style="margin-top:1rem">
+          <strong>What is deliberately absent.</strong>
+          <p>The actual rate area, any direct charges, any Mello-Roos special tax and any city parcel tax. All four are parcel-specific and private. Substitute the real figures in the private workbook and re-run the model.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="estate-title">
+      <div class="container grid two">
+        <div>
+          <p class="eyebrow">Estate-level questions the house cannot answer</p>
+          <h2 id="estate-title">Inheritance tax: what exists, what does not, and what is unknown</h2>
+          <div class="fact"><span class="label">Fact</span><p>California imposes no inheritance tax and no gift tax. The recipient owes California nothing merely for receiving the property.</p></div>
+          <div class="fact"><span class="label">Fact</span><p>There is no federal inheritance tax on the recipient either. The federal transfer tax is imposed on the <em>estate</em>, above the basic exclusion, on the whole taxable estate plus adjusted taxable gifts.</p></div>
+          <div class="fact"><span class="label">Fact</span><p>The federal exclusion is $15,000,000 for deaths in 2026 and $15,480,000 for deaths in 2027. It is indexed after that, and it is law, not a forecast.</p></div>
+          <div class="fact unknown"><span class="label">Unknown</span><p>Whether this estate is near either threshold. That depends on the whole balance sheet, prior gifts, marital status and any deductions — none of which can be assessed from one property.</p></div>
+          <div class="fact assumption"><span class="label">Not modelled</span><p>Any projective estimate of the 2040–2050 exclusion. The model shows today's published amounts and stops. Projecting a specific future exclusion would be a forecast disguised as a fact.</p></div>
+          <p class="disclosure">A useful rule: the exclusion has risen faster than house prices in most recent years, but it has also been cut by statute before. Treat it as a monitoring item, not a constant.</p>
+        </div>
+        <aside class="stack">
+          <article class="card info">
+            <span class="label">What to ask now</span>
+            <h3>Five estate questions with deadlines attached</h3>
+            <ul class="check-list pending">
+              <li>Has portability already been used, and by whom?</li>
+              <li>What prior taxable gifts exist, and are the returns complete?</li>
+              <li>Is there liquidity outside the house for the estate tax and administration?</li>
+              <li>Does the trust direct the outcome, or does a beneficiary choose?</li>
+              <li>Is the surviving spouse's exclusion at risk because no return will be filed?</li>
+            </ul>
+          </article>
+          <article class="card warning">
+            <span class="label">The expensive silence</span>
+            <h3>Portability needs a timely return — even with no tax due.</h3>
+            <p>An estate below the filing threshold can still file a timely Form 706 to elect portability. If nobody does, the unused exclusion is simply lost. That is a deadline question, not a house question, and it belongs on the calendar in the first week.</p>
+            <p><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/frequently-asked-questions-on-estate-taxes">IRS portability FAQs</a></p>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section tint" id="tax-rate-area" aria-labelledby="tra-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Tax-rate area · published rate · projection method</p><h2 id="tra-title">How the property-tax number is built—and why the exact rate stays blank here</h2><p>Santa Clara County is divided into more than 800 tax rate areas. Each parcel's bill combines a base 1% with voter-approved bonds and special assessments, so the composite rate varies by area. A postal area is not a tax-rate area, and the specific Property A rate is deliberately left blank to keep the property non-identifiable; it must be read from the private tax bill / assessor record.</p></div><span class="status review">Rate left blank — private</span></div>
         <div class="table-wrap">
           <table data-source-table>
-            <caption>Officially published transaction items and private evidence gates</caption>
-            <thead><tr><th>Cost / input</th><th>Published formula or amount</th><th>Use in private sale model</th><th>Status</th><th>Official source</th></tr></thead>
+            <caption>Published Santa Clara County tax-rate-area structure (general, official)</caption>
+            <thead><tr><th>Component</th><th>Official published finding</th><th>Use for the private Property A model</th><th>Status</th><th>Source</th></tr></thead>
             <tbody>
-              <tr><td>County documentary transfer tax</td><td>$0.55 per $500, or fraction, of applicable consideration/value (approximately $1.10 per $1,000 before rounding rules).</td><td>Calculate from the private closing consideration and applicable liens/exemptions; do not estimate from a web valuation.</td><td><span class="status ready">Published</span></td><td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate">County recorder</a></td></tr>
-              <tr><td>Standard recording fee</td><td>$102 first page; $3 each additional page. The published schedule states the first-page fee includes a $10 fraud-prevention fee, the $75 SB 2 Building Homes &amp; Jobs Act fee and the $2 AB 1466 restrictive-covenant fee (with $10 subtracted for documents subject to documentary transfer tax), plus a $20 fee when a required PCOR is missing. Verified against the official fee schedule on 25 Nov 2026.</td><td>Use actual document count and current schedule; confirm any exemption or additional fee.</td><td><span class="status ready">Published</span></td><td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/resources/fee-schedule">County fee schedule</a></td></tr>
-              <tr><td>Municipal conveyance / real-property transfer tax</td><td>County rate is $0.55 per $500. San Jose, Palo Alto and Mountain View add $1.65 per $500. The recorder also publishes San Jose Measure E (transfers from $2,300,000 since 1 Jul 2025: 0.75% / 1% / 1.5% tiers on full consideration, adjusted every five years) and Mountain View Measure G (transfers from $6,000,000: $15 per $1,000 of sale price). Verified against official recorder pages on 25 Nov 2026.</td><td>Do not infer from a postal area. Verify municipality at the private property record, then apply only that city's current official schedule — a city measure applies only if the property is in that city.</td><td><span class="status ready">Published — municipality pending</span></td><td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate">County recorder transfer tax</a> · <a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate/measure-e">San Jose Measure E</a> · <a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/measure-g">Mountain View Measure G</a></td></tr>
-              <tr><td>Broker, escrow, title, inspections, repairs, staging</td><td>—</td><td>Use written proposals / preliminary closing statement; do not insert a round-percent assumption into a decision ranking.</td><td><span class="status blocked">Private quotes required</span></td><td><a class="source-link" href="questions.html#five-year-plan">Private evidence checklist</a></td></tr>
-              <tr><td>Debt payoff, prepayment, liens, estate costs</td><td>—</td><td>Obtain current payoff / lien statements and trust-administration estimate; reserve cash before investing proceeds.</td><td><span class="status blocked">Private statements required</span></td><td><a class="source-link" href="brief.html">Attorney &amp; CPA brief</a></td></tr>
+              <tr><td>Base rate</td><td>1% maximum ad valorem rate on net assessed value (Prop. 13; Revenue &amp; Taxation Code §51).</td><td>Apply to the private assessed value only after the parcel's area and exemptions are confirmed.</td><td><span class="status ready">Published</span></td><td><a class="source-link" href="https://files.santaclaracounty.gov/exjcpb1521/2024-11/assessment_information_booklet.pdf">County assessor booklet</a></td></tr>
+              <tr><td>Voter-approved bonds / special assessments</td><td>County, city, school, and special-district bond levies and direct assessments are added above the 1%; each tax-rate area has a unique combination.</td><td>Read the line-by-line rates on the private bill; do not assume a single composite percentage.</td><td><span class="status ready">Published</span></td><td><a class="source-link" href="https://files.santaclaracounty.gov/exjcpb1521/2024-11/assessment_information_booklet.pdf">County assessor booklet</a></td></tr>
+              <tr><td>Illustrative composite (not a property rate)</td><td>A typical tax-rate-area example shows $1.1488 per $100 of assessed value (≈$11,488 on a $1,000,000 assessed value), before the $7,000 homeowners' exemption.</td><td>Example only. Do not apply it to Property A; obtain the parcel's actual rate area and rate privately.</td><td><span class="status review">Illustrative</span></td><td><a class="source-link" href="https://files.santaclaracounty.gov/exjcpb1521/2024-11/assessment_information_booklet.pdf">County assessor booklet</a></td></tr>
+              <tr><td>Tax-rate-area identifier</td><td>Each bill shows a tax-rate-area code; a postal code alone does not identify the area.</td><td>Record the private bill's tax-rate-area code and published rate; do not infer from a zip code.</td><td><span class="status blocked">Private bill required</span></td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
+              <tr><td>Property A published rate</td><td>—</td><td>Read from the private tax bill / assessor record at the event; kept blank here for privacy.</td><td><span class="status blocked">Unverified / suppressed</span></td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="grid two" style="margin-top:1rem">
+          <div>
+            <p class="eyebrow">Projection method (inputs blank)</p>
+            <ul class="check-list pending">
+              <li>Start from the private base-year / factored base-year value, not market value.</li>
+              <li>Apply the annual inflation adjustment within the Prop. 13 growth limit, then voter-approved debt-rate changes from elections and bonds.</li>
+              <li>Apply Prop. 8 only if a verified decline-in-value review establishes a lower factored base-year value.</li>
+              <li>For a qualifying family home, carry the Prop. 19 formula forward: factored base-year value + the then-current indexed allowance.</li>
+              <li>Projected dollar outputs are rounded to the nearest $10; percentages and rates are shown as published.</li>
+            </ul>
+          </div>
+          <aside class="card info"><span class="label">Rounding rule</span><h3>Rounded outputs are not rounded inputs.</h3><p>The nearest-$10 rule applies to displayed dollar results so the site cannot be traced to a source property. Inputs, rates, and the private tax bill keep their published precision; do not round a rate or basis to force anonymity.</p><p><a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">BOE assessment guidance</a></p></aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="operating-costs" aria-labelledby="costs-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Operating-cost evidence</p><h2 id="costs-title">Insurance, utilities, and maintenance: collect evidence, don't guess</h2><p>Property-specific operating costs stay private. The table below gives the official route for each cost type and clearly labels any third-party market context as unverified, not an official quote. Actual premiums, tariffs, and scopes must come from written private sources.</p></div><span class="status review">Private evidence required</span></div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Operating-cost inputs and the route to verify them</caption>
+            <thead><tr><th>Cost</th><th>Official / general route</th><th>Market context (unverified, rounded to $10)</th><th>Status</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>Property A homeowners insurance</td><td>Compare coverage, deductibles, and exclusions with a licensed broker; the state provides comparison tools, not individual quotes.</td><td>Third-party aggregator estimates for Cupertino primary-residence coverage cluster roughly $930–$1,480 per year depending on coverage and source. Not an official rate.</td><td><span class="status review">Unverified context</span></td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI guide</a> · <a class="source-link" href="https://www.gethomeinsurancequotes.com/california/cupertino-homeowners-insurance.php">Market context</a></td></tr>
+              <tr><td>Property B rental / multi-unit insurance</td><td>Landlord and multi-unit coverage, liability, and loss-of-rent provisions require property-specific written quotes.</td><td>No official state premium is published; obtain like-for-like broker quotes. Third-party context is not a substitute.</td><td><span class="status blocked">Quote required</span></td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI guide</a></td></tr>
+              <tr><td>Water, electricity, solar credits</td><td>Collect 24 months of private utility statements and the current tariff / net-metering terms; solar-credit treatment depends on the utility and account.</td><td>The household's specific utility and solar-credit figures are private and are not published here.</td><td><span class="status blocked">Private statements required</span></td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a></td></tr>
+              <tr><td>Repairs, maintenance, and capital work</td><td>Independent inspection, written scope, bids, permits, and a five-year reserve; a generic percentage reserve is not a verified substitute.</td><td>—</td><td><span class="status blocked">Scope required</span></td><td><a class="source-link" href="questions.html#five-year-plan">Five-year plan template</a></td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="assessment-title">
-      <div class="container grid two">
-        <div>
-          <p class="eyebrow">Property-tax rate area</p>
-          <h2 id="assessment-title">Property A’s exact tax rate is intentionally blank.</h2>
-          <p>A postal area does not uniquely establish a tax-rate area. No address or parcel number is placed in this public site and no public property lookup was performed. The private model must read the published rate attached to the property’s private tax bill / assessor record.</p>
-          <div class="table-wrap" style="margin-top:1rem"><table class="table-tight" data-source-table><caption>Assessment inputs to collect privately</caption><thead><tr><th>Required field</th><th>Public-site value</th><th>Why it changes the result</th><th>Official route</th></tr></thead><tbody><tr><td>Tax rate area and published rate</td><td>—</td><td>Base 1% plus voter-approved rates varies by area.</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr><tr><td>Current assessed / factored base-year value</td><td>—</td><td>Needed for assessment path and Prop. 19 formula.</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/online-services/assessment-look-up/notification-of-assessed-value">Assessment lookup</a></td></tr><tr><td>Private tax bill charges</td><td>—</td><td>Shows voter-approved bonds, special charges, and payment schedule.</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessment authority</a></td></tr></tbody></table></div>
+    <section class="section tint" id="estate-exclusion" aria-labelledby="exclusion-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">Federal exclusion · projection · law monitor</p><h2 id="exclusion-title">The inheritance threshold is a moving, law-dependent number</h2><p>The federal basic exclusion applies to the whole taxable estate plus prior taxable gifts, not to one home. The target inheritance window is roughly 2040–2050, so today's threshold is a monitoring reference, not an estimate for the future event. California imposes no state inheritance or gift tax.</p></div><span class="status info">Monitoring reference</span></div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Federal exclusion and California death-tax status</caption>
+            <thead><tr><th>Item</th><th>Current verified finding</th><th>How to use it in the private model</th><th>Status</th><th>Source</th></tr></thead>
+            <tbody>
+              <tr><td>Federal basic exclusion (2026)</td><td>$15,000,000 for decedents dying in calendar year 2026, set by Public Law 119-21; the scheduled sunset was removed.</td><td>Monitoring reference only. A 2040–2050 transfer uses the then-current year's law and indexed amount.</td><td><span class="status ready">Published</span></td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax">IRS estate &amp; gift update</a></td></tr>
+              <tr><td>Future indexing / law changes</td><td>Later years are inflation-adjusted and subject to future legislation; no forecast is made here.</td><td>Recheck the IRS page each tax year and at the event date; record the amount and source date privately.</td><td><span class="status review">Recheck annually</span></td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/whats-new-estate-and-gift-tax">IRS estate &amp; gift update</a></td></tr>
+              <tr><td>California inheritance / gift tax</td><td>FTB explains the estate “pick-up” tax equals the maximum federal credit, which was repealed, so it is zero; FTB also states California does not conform to the federal gift tax.</td><td>Keep this separate from federal estate-tax and income-tax analysis; do not assume a state death tax.</td><td><span class="status ready">Published</span></td><td><a class="source-link" href="https://www.ftb.ca.gov/tax-pros/law/legislation/2019-2020/SB378-032519.pdf">FTB SB 378 analysis</a></td></tr>
+              <tr><td>Estate liquidity plan</td><td>If the whole estate may exceed the then-current exclusion, a liquidity plan, return review, and portability election are needed.</td><td>Ask now about portability and prior taxable gifts; calendar filing deadlines with counsel.</td><td><span class="status blocked">Private facts required</span></td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706</a></td></tr>
+            </tbody>
+          </table>
         </div>
-        <aside class="card info"><span class="label">Prop. 13 model guardrail</span><h3>Do not project taxes as a flat percentage of market value.</h3><p>California BOE explains that assessed value and market value can diverge materially. The statewide basic rate is 1% plus rates for local voter-approved indebtedness; assessment growth is subject to rules and can differ during a Prop. 8 decline-in-value period.</p><p><a class="source-link" href="https://boe.ca.gov/pdf/pub800-10.pdf">Read BOE assessment guidance</a></p></aside>
       </div>
     </section>
+
   </main>
   <div data-site-footer></div>
 </body>

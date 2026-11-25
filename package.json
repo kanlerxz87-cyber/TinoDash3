@@ -6,8 +6,8 @@
   "scripts": {
     "check": "node scripts/check-site.mjs",
     "privacy": "node scripts/privacy-scan.mjs",
-    "figures": "node tests/figures.test.mjs",
-    "test": "npm run privacy && npm run check && npm run figures",
-    "serve": "python3 -m http.server 4173"
+    "test": "npm run privacy && npm run check && npm run test:engine",
+    "serve": "python3 -m http.server 4173",
+    "test:engine": "node --test \"tests/*.test.mjs\""
   }
 }

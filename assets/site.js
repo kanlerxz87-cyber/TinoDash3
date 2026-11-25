@@ -2,12 +2,14 @@
   const page = document.body.dataset.page || "home";
   const pages = {
     home: "index.html",
-    process: "process.html",
     paths: "paths.html",
+    assumptions: "assumptions.html",
+    process: "process.html",
     questions: "questions.html",
-    brief: "brief.html",
     sources: "sources.html",
+    glossary: "glossary.html",
     review: "review.html",
+    brief: "brief.html",
     figures: "figures.html",
     blackswan: "blackswan.html",
     flagged: "flagged.html",
@@ -15,7 +17,8 @@
     "decision-rules": "decision-rules.html"
   };
 
-  const isCurrent = (key) => page === key ? " current" : "";
+  const current = (key) => (page === key ? " current" : "");
+
   const header = `
     <a class="skip-link" href="#main">Skip to main content</a>
     <header class="site-header">
@@ -25,32 +28,43 @@
         </a>
         <div class="header-actions">
           <nav class="nav" aria-label="Primary navigation">
-            <a class="${isCurrent("home")}" href="${pages.home}">Overview</a>
+            <a class="${current("home")}" href="${pages.home}">Overview</a>
             <div class="nav-group">
-              <button type="button" aria-expanded="false">Decision work <span aria-hidden="true">⌄</span></button>
+              <button type="button" aria-expanded="false">Model <span aria-hidden="true">⌄</span></button>
               <div class="nav-panel">
-                <small>Compare before deciding</small>
-                <a class="${isCurrent("paths")}" href="${pages.paths}">Paths &amp; stress tests</a>
-                <a class="${isCurrent("process")}" href="${pages.process}">Transfer timeline &amp; tax map</a>
-                <a class="${isCurrent("questions")}" href="${pages.questions}">Questions &amp; private inventory</a>
-                <a class="${isCurrent("figures")}" href="${pages.figures}">Household figures &amp; thresholds</a>
-                <a class="${isCurrent("blackswan")}" href="${pages.blackswan}">Black Swan staging</a>
-                <a class="${isCurrent("decision-rules")}" href="${pages["decision-rules"]}">Pre-committed decision rules</a>
+                <small>Numbers &amp; what moves them</small>
+                <a class="${current("paths")}" href="${pages.paths}">Paths, ranges &amp; crash tests</a>
+                <a class="${current("blackswan")}" href="${pages.blackswan}">Black Swan staging</a>
+                <a class="${current("assumptions")}" href="${pages.assumptions}">Assumptions register</a>
+                <a class="${current("process")}" href="${pages.process}">Tax &amp; transaction math</a>
+                <a class="${current("figures")}" href="${pages.figures}">Figures &amp; thresholds</a>
               </div>
             </div>
             <div class="nav-group">
-              <button type="button" aria-expanded="false">Review &amp; export <span aria-hidden="true">⌄</span></button>
+              <button type="button" aria-expanded="false">Evidence <span aria-hidden="true">⌄</span></button>
               <div class="nav-panel">
-                <small>Professional review</small>
-                <a class="${isCurrent("brief")}" href="${pages.brief}">Attorney &amp; CPA brief</a>
-                <a class="${isCurrent("sources")}" href="${pages.sources}">Sources &amp; law monitor</a>
-                <a class="${isCurrent("review")}" href="${pages.review}">Flags &amp; suggestions</a>
-                <a class="${isCurrent("flagged")}" href="${pages.flagged}">Flagged for Review</a>
-                <a class="${isCurrent("verification")}" href="${pages.verification}">Verification register</a>
+                <small>What is still missing</small>
+                <a class="${current("questions")}" href="${pages.questions}">Questions &amp; gates</a>
+                <a class="${current("process")}" href="${pages.process}#timeline">Step-by-step &amp; deadlines</a>
+                <a class="${current("review")}" href="${pages.review}">Flags &amp; suggestions</a>
+                <a class="${current("flagged")}" href="${pages.flagged}">Flagged for review</a>
+                <a href="${pages.questions}#inventory">Private inventory</a>
               </div>
             </div>
+            <div class="nav-group">
+              <button type="button" aria-expanded="false">Reference <span aria-hidden="true">⌄</span></button>
+              <div class="nav-panel">
+                <small>Check it, do not trust it</small>
+                <a class="${current("sources")}" href="${pages.sources}">Sources &amp; law monitor</a>
+                <a class="${current("verification")}" href="${pages.verification}">Verification register</a>
+                <a class="${current("decision-rules")}" href="${pages["decision-rules"]}">Pre-committed decision rules</a>
+                <a class="${current("glossary")}" href="${pages.glossary}">Glossary</a>
+                <a class="${current("review")}" href="${pages.review}">Flags &amp; suggestions</a>
+              </div>
+            </div>
+            <a class="${current("brief")}" href="${pages.brief}">Brief</a>
           </nav>
-          <button class="button subtle" type="button" data-open-glossary>Glossary</button>
+          <button class="button subtle no-print" type="button" data-open-glossary>Glossary</button>
           <button class="menu-button" type="button" data-menu-toggle aria-expanded="false">Menu</button>
         </div>
       </div>
@@ -61,41 +75,40 @@
       <div class="footer-inner">
         <div>
           <div class="footer-title">Private by design</div>
-          <p>This public site deliberately contains no address, name, parcel number, exact tax bill, lease, account, or household balance. It uses Property A (inherited home) and Property B (already-owned multi-unit home).</p>
+          <p>This public site contains no address, name, parcel number, tax bill, lease, account balance or utility account. It publishes rates, formulas and normalised results only. Exact figures belong in an encrypted private workbook.</p>
         </div>
         <div>
           <div class="footer-title">Decision boundary</div>
-          <p>Educational decision support, not legal, tax, investment, appraisal, insurance, or tenancy advice. Do not act until the missing facts and current rules are reviewed with licensed professionals.</p>
+          <p>Educational decision support. Not legal, tax, investment, appraisal, insurance or tenancy advice. No path should be executed until the missing facts and current rules have been reviewed with licensed professionals.</p>
         </div>
         <div>
-          <div class="footer-title">Build snapshot</div>
-          <p>Official-source review snapshot: 25 Nov 2026. Recheck before every irreversible action and at least annually.</p>
-          <p><a href="sources.html">Source registry &amp; status</a></p>
+          <div class="footer-title">Snapshot</div>
+          <p>Official-source review: 25 Nov 2026. Recheck before every irreversible action and at least annually.</p>
+          <p><a href="${pages.sources}">Source register</a> · <a href="${pages.assumptions}">Assumption register</a></p>
         </div>
       </div>
     </footer>`;
 
   const glossary = `
     <div class="dialog-backdrop" data-glossary-backdrop></div>
-    <aside class="glossary-dialog" aria-modal="true" role="dialog" aria-labelledby="glossary-title" data-glossary-dialog>
-      <div class="dialog-top"><h2 id="glossary-title">Plain-language glossary</h2><button class="dialog-close" type="button" data-close-glossary>Close</button></div>
+    <aside class="glossary-dialog" aria-modal="true" role="dialog" aria-labelledby="glossary-dialog-title" data-glossary-dialog>
+      <div class="dialog-top"><h2 id="glossary-dialog-title">Quick glossary</h2><button class="dialog-close" type="button" data-close-glossary>Close</button></div>
       <dl>
-        <dt>Basis</dt><dd>The tax starting value used to calculate gain or loss. For inherited property it is generally date-of-death fair market value, subject to exceptions and estate-tax elections.</dd>
-        <dt>Factored base year value (FBYV)</dt><dd>California’s assessed-value track after annual inflation adjustments; it is not the same as market value or federal income-tax basis.</dd>
-        <dt>Prop 19 exclusion</dt><dd>A California reassessment exclusion with strict family-home, occupancy, filing, and value-limit conditions. It is not an automatic inheritance benefit.</dd>
-        <dt>Imputed rent</dt><dd>The estimated housing value of living in a home instead of paying rent elsewhere. It is a decision comparison item, not cash income.</dd>
-        <dt>Recapture</dt><dd>Tax treatment that can apply to prior depreciation when rental or business property is sold. A CPA must calculate it from records.</dd>
-        <dt>Reinvestment risk</dt><dd>The risk that proceeds parked in short-term instruments must be reinvested at future yields that may be lower or higher than today’s yield.</dd>
-        <dt>Tax rate area (TRA)</dt><dd>A local geography that determines the combination of property-tax rates. A postal area alone is not enough to identify a TRA.</dd>
-        <dt>DSUE / portability</dt><dd>Deceased Spousal Unused Exclusion. A federal estate-tax election may transfer unused exclusion to a surviving spouse if filing rules are met.</dd>
+        <dt>Basis</dt><dd>The tax starting value for measuring gain. For inherited property it is generally date-of-death fair market value, with exceptions and elections.</dd>
+        <dt>Factored base year value (FBYV)</dt><dd>California's assessed value after annual inflation adjustments, capped at 2% per year. It is not market value and not income-tax basis.</dd>
+        <dt>Prop. 19 exclusion</dt><dd>A California reassessment exclusion for an eligible family home, with occupancy, exemption-filing and value-limit conditions.</dd>
+        <dt>Imputed rent</dt><dd>The housing value of living in a home instead of paying rent elsewhere. It is a comparison item, not cash income.</dd>
+        <dt>Recapture</dt><dd>Tax on previously claimed depreciation when rental property is sold, generally at a capped rate.</dd>
+        <dt>Reinvestment risk</dt><dd>The risk that cash parked in short instruments must be reinvested later at an unknown yield.</dd>
+        <dt>Sequence risk</dt><dd>The risk that the order of returns, not the average, determines the outcome.</dd>
+        <dt>Tax rate area (TRA)</dt><dd>A local geography that fixes the property-tax rate. A postal code does not identify one.</dd>
+        <dt>DSUE / portability</dt><dd>Deceased spousal unused exclusion: a federal election that can pass unused exclusion to a surviving spouse.</dd>
       </dl>
-      <p class="disclosure">Definitions are simplified. Open the <a href="sources.html">source registry</a> for authorities and review facts with counsel.</p>
+      <p class="disclosure">Simplified definitions. See the <a href="${pages.glossary}">full glossary</a> and the <a href="${pages.sources}">source register</a>.</p>
     </aside>`;
 
-  const headerSlot = document.querySelector("[data-site-header]");
-  const footerSlot = document.querySelector("[data-site-footer]");
-  if (headerSlot) headerSlot.innerHTML = header;
-  if (footerSlot) footerSlot.innerHTML = footer;
+  document.querySelector("[data-site-header]")?.insertAdjacentHTML("afterbegin", header);
+  document.querySelector("[data-site-footer]")?.insertAdjacentHTML("afterbegin", footer);
   document.body.insertAdjacentHTML("beforeend", glossary);
 
   const nav = document.querySelector(".nav");
@@ -131,6 +144,5 @@
 
   document.querySelectorAll("[data-print]").forEach((button) => button.addEventListener("click", () => window.print()));
 
-  const todaySlots = document.querySelectorAll("[data-build-date]");
-  todaySlots.forEach((node) => { node.textContent = "25 Nov 2026"; });
+  document.querySelectorAll("[data-build-date]").forEach((node) => { node.textContent = "25 Nov 2026"; });
 })();

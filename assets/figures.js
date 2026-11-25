@@ -1,8 +1,8 @@
 /*
  * Household figures and projection engine (T-013).
  *
- * PRIVACY: every household figure is stored ROUNDED TO THE NEAREST $10 and
- * no raw source value is kept in this file. Figures are user-supplied
+ * PRIVACY: household values are not in this file. They come from the private,
+ * gitignored private/household-inputs.js (Node only). Published outputs round to $10. Figures are user-supplied
  * (unverified) unless a row states otherwise. Property A / Property B only.
  *
  * Pure functions: no DOM access, so tests can run under Node.
@@ -41,57 +41,26 @@
     prop13CapCeiling: 0.02 // Cal. Const. art. XIII A, 2% ceiling on annual assessed-value growth (statute text, see flags)
   };
 
-  // ---------- Property A (user-supplied, rounded to $10) ----------
-  // [year, property tax (usd), tax change, assessed value (usd), assessed change]
-  const PROP_A_HISTORY = [
-    [2026, null, null, 550540, "+2% (projected)"],
-    [2025, 7210, "+2.9%", 539740, "+2%"],
-    [2024, 7000, "+1.2%", 529160, "+2%"],
-    [2023, 6920, "+2.4%", 518790, "+2%"],
-    [2022, 6760, "+1.4%", 508610, "+2%"],
-    [2021, 6660, "+1.5%", 498640, "+1%"],
-    [2020, 6570, null, 493530, "+2%"],
-    [2019, 6570, "+2.8%", 483850, "+2%"],
-    [2018, 6380, null, 474370, "+2%"],
-    [2017, 6380, "−0.5%", 465070, "+2%"],
-    [2016, 6410, "+4.6%", 455950, "+1.5%"],
-    [2015, 6130, "+2.8%", 449100, "+2%"],
-    [2014, 5970, "+0.5%", 440310, null]
-  ];
-
-  // ---------- Property B (user-supplied, rounded to $10) ----------
-  const PROP_B_HISTORY = [
-    [2025, 2440, "+5.3%", 114250, "+2%"],
-    [2024, 2320, "+6.2%", 112010, "+2%"],
-    [2023, 2180, "+3.4%", 109810, "+2%"],
-    [2022, 2110, "+2%", 107660, "+2%"],
-    [2021, 2070, "−5.9%", 105600, "+1%"],
-    [2020, 2200, "+3%", 104510, "+2%"],
-    [2019, 2130, "+3.5%", 102470, "+2%"],
-    [2018, 2060, "+18.4%", 100460, "+2%"],
-    [2017, 1740, "+3.9%", 98_490, "+2%"],
-    [2016, 1680, "+1.6%", 96_560, "+1.5%"]
-  ];
-
-  // ---------- Current estimates and operating inputs (user-supplied, unverified) ----------
-  const INPUTS = {
-    propA_marketValueNov2026: 3100000, // user estimate; no written appraisal yet
-    propA_baseAssessedValue2026: 550540, // rounded projection (2% cap applied to 2025 roll)
-    propA_taxLast: 7210, // 2025 bill, rounded
-    propA_assessedLast: 539740, // 2025 roll, rounded
-    propA_water_month: [100, 150], // range
-    propA_solarNet_month: [-20, -10], // negative = credit to household (user estimate)
-    propB_marketValueNov2026: 1800000,
-    propB_rentMonthly: 7150, // two rented units, combined
-    propB_water_month: [330, 400], // three livable units, combined
-    propB_electric_month: [30, 70], // combined range
-    propA_insurance_year: null, // not verified — leave blank
-    propB_insurance_year: null // not verified — leave blank
+  // Household inputs are NOT stored in this public file. In Node they load from the
+  // gitignored private/household-inputs.js. Without it, household outputs are blank.
+  let HH = null;
+  if (typeof module !== "undefined" && module.exports) {
+    try { HH = require("../private/household-inputs.js"); } catch (e) { HH = null; }
+  }
+  const HAS_PRIVATE_INPUTS = HH !== null;
+  const PROP_A_HISTORY = HH ? HH.PROP_A_HISTORY : [];
+  const PROP_B_HISTORY = HH ? HH.PROP_B_HISTORY : [];
+  const INPUTS = HH ? HH.INPUTS : {
+    propA_marketValueNov2026: null, propA_baseAssessedValue2026: null, propA_taxLast: null,
+    propA_assessedLast: null, propA_water_month: null, propA_solarNet_month: null,
+    propB_marketValueNov2026: null, propB_rentMonthly: null, propB_water_month: null,
+    propB_electric_month: null, propA_insurance_year: null, propB_insurance_year: null
   };
 
   // Derived (not official): implied non-ad-valorem charge on Property A
   // (2025 tax minus 1% of 2025 assessed value). Used only as a proxy.
   function propAOtherCharges2026() {
+    if (!HAS_PRIVATE_INPUTS) return null;
     return r10(INPUTS.propA_taxLast - 0.01 * INPUTS.propA_assessedLast);
   }
 
@@ -245,6 +214,7 @@
     pct,
     OFFICIAL,
     INPUTS,
+    HAS_PRIVATE_INPUTS,
     ASSUME,
     PROP_A_HISTORY,
     PROP_B_HISTORY,

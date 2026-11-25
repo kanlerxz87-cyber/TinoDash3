@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Flagged review items, decision-improvement suggestions, and dated decision log template.">
-  <title>Flagged Review & Suggestions — Inheritance Decision Desk</title>
+  <meta name="description" content="Open flags, the suggestions register for review before implementation, the privacy standard, and the decision log for this build.">
+  <title>Flags, Suggestions &amp; Decision Log — Inheritance Decision Desk</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/site.js"></script>
 </head>
@@ -14,74 +14,212 @@
     <section class="hero">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">Flagged for review · does not block publication</p>
-          <h1>Make uncertainty visible before it becomes a hidden assumption.</h1>
-          <p class="lede">This page is the shared “needs review” register. It separates a missing fact from a judgment call, gives it an owner and source route, and prevents a clean-looking dashboard from implying a false conclusion.</p>
+          <p class="eyebrow">Review before implementation</p>
+          <h1>Proposed changes, open flags, and the record of what was decided.</h1>
+          <p class="lede">This page exists so that nothing is silently changed. Suggestions sit here with their rationale and their risk until someone with the household's authority accepts or rejects them. Every accepted change is logged with what it altered in the model.</p>
         </div>
-        <aside class="hero-callout"><p class="eyebrow" style="color:#9edbd0">Decision discipline</p><h2>Unresolved is an acceptable answer.</h2><p>Do not close a flag by inserting a plausible round number. Close it only with dated evidence, a source, and a documented decision on how the evidence changes the model.</p></aside>
+        <aside class="hero-callout">
+          <p class="eyebrow" style="color:#9edbd0">Reading rule</p>
+          <h2>A suggestion is not a recommendation.</h2>
+          <p>It is a candidate improvement to the site or the analysis. It becomes part of the model only after review, and the review is recorded below.</p>
+        </aside>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="flags-title">
+    <section class="section" id="suggestions" aria-labelledby="sug-title">
       <div class="container">
-        <div class="section-header"><div><p class="eyebrow">Flagged for review</p><h2 id="flags-title">Published omissions and irregularities</h2><p>These items are intentionally not resolved from public data. They do not block the site, but they block a trustworthy household recommendation.</p></div><span class="status review">Needs review</span></div>
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Suggestions register</p>
+            <h2 id="sug-title">Six proposals to review before they are built</h2>
+            <p>Each one is written so it can be rejected without undoing anything already published. None of them has been implemented.</p>
+          </div>
+          <span class="status review">Awaiting review</span>
+        </div>
         <div class="table-wrap">
           <table data-source-table>
-            <caption>Open evidence / legal / privacy flags</caption>
-            <thead><tr><th>Flag</th><th>Why it matters</th><th>Safe current answer</th><th>Resolution owner / action</th><th>Official source</th></tr></thead>
+            <caption>Proposed changes — status, rationale, risk</caption>
+            <thead><tr><th>#</th><th>Proposal</th><th>Why it would help</th><th>Risk if adopted blindly</th><th>Status</th></tr></thead>
             <tbody>
-              <tr><td>Property A tax-rate area and published rate</td><td>Property-tax projection cannot be credible without the property-specific rate area, voter-approved rates, and current bill.</td><td>—</td><td>Assessor/tax collector: private tax bill and property record; do not infer from postal area.</td><td><a class="source-link" href="https://asr.santaclaracounty.gov/home">County assessor</a></td></tr>
-              <tr><td>Date-of-death written valuation</td><td>Inherited basis, estate reporting, and same-year sale analysis depend on a supported valuation.</td><td>—</td><td>Independent appraiser: written valuation and retained work file.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">IRS Pub. 559</a></td></tr>
-              <tr><td>Prop. 19 eligibility / durable occupancy</td><td>Property-tax outcome can change materially, but only if all family-home/occupancy/filing conditions are met.</td><td>Not claimed.</td><td>Estate attorney + county assessor: validate before an occupancy or rental commitment.</td><td><a class="source-link" href="https://www.boe.ca.gov/prop19/">CA BOE Prop. 19</a></td></tr>
-              <tr><td>Whole-estate liquidity / portability / prior gifts</td><td>Estate-tax and portability decisions depend on the whole estate, not one home.</td><td>Not independently verified.</td><td>Executor + CPA + estate attorney: private inventory, return screen, cash calendar.</td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">IRS Form 706</a></td></tr>
-              <tr><td>Property A independent market rent</td><td>A rental-path ranking without actual rent, vacancy, management, and costs is not evidence-based.</td><td>—</td><td>Independent rental appraisal / manager: written analysis and assumptions.</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS rental guide</a></td></tr>
-              <tr><td>Insurance availability, coverage, and premium</td><td>Coverage/deductibles/perils can matter more than a generic annual premium.</td><td>—</td><td>Licensed broker: like-for-like written quotes for actual occupancy and rebuilding scope.</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI guide</a></td></tr>
-              <tr><td>Five-year maintenance / capital scope</td><td>Deferred work can reverse cash-flow comparisons and affect rentability, insurance, sale timing, and safety.</td><td>—</td><td>Independent inspector / specialists: scope, bids, permits, prioritization, contingency.</td><td><a class="source-link" href="questions.html#five-year-plan">Private planning template</a></td></tr>
-              <tr><td>Property B leases, unit coverage, and rent-board compliance</td><td>Property B is already owned, but its continuing legal/operating profile affects household liquidity and risk.</td><td>Not independently verified.</td><td>Local counsel / manager: lease-by-lease and portal-status review.</td><td><a class="source-link" href="https://www.sf.gov/rent-board-housing-inventory">Official local rent board</a></td></tr>
-              <tr><td>Depreciation / recapture records</td><td>Rental/mixed paths need actual schedules; ordinary/gain treatment cannot be inferred from rent receipts.</td><td>—</td><td>CPA: rebuild fixed-asset/depreciation and improvement history privately.</td><td><a class="source-link" href="https://www.irs.gov/publications/p527">IRS Pub. 527</a></td></tr>
-              <tr><td>Conditional local ballot measure / Prop. H result and implementation</td><td>Property B cost sensitivity requires enacted result, final implementation, parcel type, and building area.</td><td>Not loaded into model.</td><td>Annual reviewer: confirm official certification/effective terms before calculating.</td><td><a class="source-link" href="https://www.sf.gov/qualified-ballot-measures">Official elections materials</a></td></tr>
-              <tr><td>§1031 intent and eligibility</td><td>A post-close decision may be too late; personal use may make §1031 unavailable.</td><td>No exchange assumed.</td><td>Tax attorney + qualified intermediary before listing/contract/proceeds.</td><td><a class="source-link" href="https://www.irs.gov/publications/p544">IRS Pub. 544</a></td></tr>
-              <tr><td>Prior public-data exposure</td><td>Exact property history plus location can be searchable even with names removed.</td><td>Public site uses placeholders and generic normalized values only.</td><td>Privacy counsel / household: locate, assess retention, remove/redact lawfully, and improve access control.</td><td><a class="source-link" href="#privacy">Privacy control policy</a></td></tr>
+              <tr>
+                <td class="num">S1</td>
+                <td>Add a “holding-cost stress” path: insurance non-renewal at year 3 forcing a sale in a bad market.</td>
+                <td>Insurability is the least modelled and most likely single cause of a forced sale in a high-fire-score area. It interacts badly with sequence risk.</td>
+                <td>A forced-sale path can be read as a prediction. It must be labelled as a stress test, not a forecast, and it needs a defensible premium trajectory that no public source provides.</td>
+                <td><a class="source-link" href="index.html#gates">Gate 6 — insurance</a></td>
+              </tr>
+              <tr>
+                <td class="num">S2</td>
+                <td>Model a sibling buy-out as an explicit sub-path with a note and Deed of Trust, rather than as an informal assumption inside the occupancy path.</td>
+                <td>Buying out another beneficiary is the most common way an occupancy decision actually happens, and the financing cost is usually ignored.</td>
+                <td>Requires a household-specific note rate and term. Any published figure would leak financial detail, so the path would have to run on a normalised rate band.</td>
+                <td><a class="source-link" href="paths.html#outcomes-title">Paths model</a></td>
+              </tr>
+              <tr>
+                <td class="num">S3</td>
+                <td>Split the §121 decision into “qualify by occupancy” and “preserve the exclusion by not renting too early”.</td>
+                <td>The exclusion is lost by a nonqualified-use calculation, not by a single wrong choice. A timing calendar would make it operational.</td>
+                <td>Nonqualified-use rules are fact-specific; a simplified calendar can create false confidence about a 24-of-60-month test.</td>
+                <td><a class="source-link" href="paths.html#s121">§121 screen</a></td>
+              </tr>
+              <tr>
+                <td class="num">S4</td>
+                <td>Replace the single “concentration” warning with a measured exposure band for the combined estate, including Property B equity.</td>
+                <td>Property B is usually most of the estate. Treating Property A alone as the concentrated asset understates the exposure.</td>
+                <td>The band would require household equity figures to be meaningful, which conflicts with the no-personal-data rule. A multiples-only version would be less useful but publishable.</td>
+                <td><a class="source-link" href="index.html#assets">A ≠ B distinction</a></td>
+              </tr>
+              <tr>
+                <td class="num">S5</td>
+                <td>Add a “do nothing for 12 months” path with an explicit decision deadline and a written default.</td>
+                <td>Inaction is the most likely real outcome in the first year, and it is currently not a modelled path. Defaults decide more cases than analysis does.</td>
+                <td>A default path can be mistaken for an endorsement of delay; it must state the cost of delay explicitly (carry, insurance gap, vacancy, deferred maintenance).</td>
+                <td><a class="source-link" href="process.html#timeline">Timeline</a></td>
+              </tr>
+              <tr>
+                <td class="num">S6</td>
+                <td>Publish a dated “assumption change log” on the assumptions page so that a later reader can see what the model believed on any date.</td>
+                <td>Without it, a six-year-old projection looks current. With it, drift is visible.</td>
+                <td>Adds maintenance burden, and a stale log looks worse than no log. It needs an owner and a review trigger.</td>
+                <td><a class="source-link" href="assumptions.html">Assumptions</a></td>
+              </tr>
             </tbody>
           </table>
+        </div>
+        <div class="callout" style="margin-top:1.2rem">
+          <strong>How to accept a proposal.</strong>
+          <p>Record the decision in the decision log below with the date, the reviewer, the specific change, and what it did to the modelled output. If it changes any published number, regenerate the ranges and robustness counts rather than editing the text.</p>
         </div>
       </div>
     </section>
 
-    <section class="section tint" id="suggestions" aria-labelledby="suggestions-title">
+    <section class="section tint" aria-labelledby="flags-title">
       <div class="container">
-        <div class="section-header"><div><p class="eyebrow">Suggestions review board</p><h2 id="suggestions-title">Choose improvements before implementing them</h2><p>These suggestions improve decision quality and privacy. None requires publishing private facts. The selection columns remain blank until a reviewer explicitly records a choice and date in the private decision file.</p></div><span class="status info">Candidate improvements</span></div>
-        <div class="table-wrap">
-          <table data-source-table>
-            <caption>Site / model improvement candidates</caption>
-            <thead><tr><th>Suggestion</th><th>Decision-making benefit</th><th>Privacy / control effect</th><th>Implement only after</th><th>Selection / date</th><th>Basis</th></tr></thead>
-            <tbody>
-              <tr><td>Encrypted private-input companion workbook</td><td>Lets verified valuation, tax, debt, rent, and capex facts flow into calculations without contaminating the public repository.</td><td>High benefit if access controls, encryption, retention, and export rules are documented.</td><td>Counsel approves storage, access, backup, and deletion policy.</td><td>—</td><td><a class="source-link" href="#privacy">Privacy-control policy</a></td></tr>
-              <tr><td>Evidence versioning and model-change ledger</td><td>Shows exactly which input/source changed a recommendation; prevents silent drift.</td><td>Store document hashes / labels, not documents or identifiers, in public-facing records.</td><td>Private document taxonomy and reviewer roles are agreed.</td><td>—</td><td><a class="source-link" href="#decision-log">Decision-log method</a></td></tr>
-              <tr><td>Independent valuation and rent-review upload checklist</td><td>Prevents web estimates from being promoted into a recommendation.</td><td>Checklist can remain public; reports remain private.</td><td>Appraiser / manager scope is selected.</td><td>—</td><td><a class="source-link" href="questions.html">Evidence register</a></td></tr>
-              <tr><td>Tax-aware private sensitivity engine</td><td>Separates federal income tax, California income tax, estate tax, property tax, depreciation, recapture, debt, and transfer costs.</td><td>Do not deploy until private inputs, tax-year law, and professional review controls are in place.</td><td>CPA signs off on formulas and limitations.</td><td>—</td><td><a class="source-link" href="process.html">Tax separation map</a></td></tr>
-              <tr><td>Scenario audit / annual extreme-event review</td><td>Tests 1929-style, 2008-style, rate-reset, insurance, vacancy, and capital shocks on a set schedule.</td><td>Use generic or privately held scenario data; publish only methods and limitations.</td><td>Household agrees triggers and review frequency.</td><td>—</td><td><a class="source-link" href="paths.html#method">Stress-test method</a></td></tr>
-              <tr><td>Decision threshold agreement</td><td>Prevents a preferred path from being chosen after selectively viewing projections.</td><td>No private values need be public; retain signed agreement privately.</td><td>Household and advisers agree selection criteria before figures arrive.</td><td>—</td><td><a class="source-link" href="questions.html#agreement-title">Pre-commitment criteria</a></td></tr>
-              <tr><td>Automated official-source freshness check</td><td>Highlights changes to forms, legal pages, local rates, and proposed/enacted status.</td><td>Store only source URL, access date, content title, and review result.</td><td>Reviewer defines false-positive process and legal-review escalation.</td><td>—</td><td><a class="source-link" href="sources.html#monitor">Source monitor</a></td></tr>
-              <tr><td>Professional-review pack generator</td><td>Produces a dated attorney/CPA pack with open questions, evidence list, calculations, assumptions, and change log.</td><td>Generate only in private storage; public brief must remain anonymized.</td><td>Attorney/CPA template and redaction standard are approved.</td><td>—</td><td><a class="source-link" href="brief.html">Current printable brief</a></td></tr>
-            </tbody>
-          </table>
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Open flags</p>
+            <h2 id="flags-title">What is unconfirmed, and what it blocks</h2>
+            <p>These are left visible on purpose. A blank field with a reason is more useful than a plausible number with no source.</p>
+          </div>
+          <span class="status review">Ten open</span>
+        </div>
+        <div class="grid two">
+          <div>
+            <div class="table-wrap">
+              <table data-source-table>
+                <caption>Unconfirmed items carried forward</caption>
+                <thead><tr><th>Flag</th><th>What is unconfirmed</th><th>Blocks</th><th>Route</th></tr></thead>
+                <tbody>
+                  <tr><td>F1</td><td>Next Prop. 19 indexed allowance, for transfers after 15 Feb 2027.</td><td>Any occupancy claim during 2040–2050.</td><td><a class="source-link" href="sources.html#monitor">Monitor</a></td></tr>
+                  <tr><td>F2</td><td>Whether Measure H is certified, and the operative text and effective schedule.</td><td>Property B net income.</td><td><a class="source-link" href="sources.html#monitor">Monitor</a></td></tr>
+                  <tr><td>F3</td><td>Property A tax rate area, and therefore its exact bill.</td><td>Carry-cost precision.</td><td><a class="source-link" href="questions.html#inventory">Inventory</a></td></tr>
+                  <tr><td>F4</td><td>Insurability and premium at the event, including any state residual programme requirement.</td><td>Holding versus selling.</td><td><a class="source-link" href="index.html#gates">Gate 6</a></td></tr>
+                  <tr><td>F5</td><td>Date-of-death value and appraisal method.</td><td>Basis, gain and every range.</td><td><a class="source-link" href="https://www.irs.gov/pub/irs-pdf/p559.pdf">Pub. 559</a></td></tr>
+                  <tr><td>F6</td><td>Whether the §121 two-of-five test can be met after a short rental period.</td><td>Living-then-selling path.</td><td><a class="source-link" href="https://www.irs.gov/publications/p523">Pub. 523</a></td></tr>
+                  <tr><td>F7</td><td>Whether a §1031 replacement exists at a defensible price and financing.</td><td>Exchange gate.</td><td><a class="source-link" href="https://www.irs.gov/publications/p544">Pub. 544</a></td></tr>
+                  <tr><td>F8</td><td>Actual imputed rent for the occupancy comparison.</td><td>Living path comparison.</td><td><a class="source-link" href="questions.html#missing">Discovery plan</a></td></tr>
+                  <tr><td>F9</td><td>Whether any lifetime gifts or prior transfers used part of the exclusion.</td><td>Estate tax exposure.</td><td><a class="source-link" href="https://www.irs.gov/instructions/i706">Form 706</a></td></tr>
+                  <tr><td>F10</td><td>Whether a city high-value transfer-tax tier applies, and at which threshold on the transfer date (San Jose Measure E re-adjusts every five years; Mountain View Measure G starts at $6,000,000).</td><td>Net sale proceeds in the top price band.</td><td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate/measure-e">Measure E</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <aside class="stack">
+            <article class="card warning">
+              <span class="label">Interpretation</span>
+              <h3>F1 alone means the occupancy path cannot be assumed.</h3>
+              <p>The allowance is re-indexed every other year, and it covers transfers only through a published window. Any projection that carries today's allowance into the 2040s is a projection of a formula, not of a number — and the formula may itself change.</p>
+            </article>
+            <article class="card">
+              <span class="label">Two figures not used</span>
+              <h3>Proposed and preliminary items stay out.</h3>
+              <p>The 10% rent-increase limitation is proposed and the parcel-tax result is preliminarily reported. Neither appears in a Property B calculation, and neither should be quoted to a lender or an appraiser as a fact.</p>
+              <p><a class="source-link" href="sources.html#monitor">Status register</a></p>
+            </article>
+          </aside>
         </div>
       </div>
     </section>
 
     <section class="section" id="privacy" aria-labelledby="privacy-title">
-      <div class="container grid two">
-        <div><p class="eyebrow">Privacy control policy</p><h2 id="privacy-title">Publication rules for every future improvement</h2><ul class="check-list"><li>Use only Property A / Property B labels on public pages.</li><li>Do not publish direct identifiers or combinations that make a property readily searchable.</li><li>Use formulas, rounded generic examples, and normalized units for public explanations.</li><li>Keep private documents outside Git, use access-limited storage, and log sharing.</li><li>Run a content scan before every deployment and have a human review any new table, chart, image, filename, alt text, URL parameter, or metadata.</li></ul></div>
-        <aside class="card danger"><span class="label">Public-data containment rule</span><h3>Removing a name is not enough.</h3><p>Unique dates, values, assessment trails, unit counts, rental figures, solar patterns, and location clues can recombine into identification. When in doubt, remove the detail from the public artifact and keep it in the private evidence room.</p></aside>
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Privacy standard</p>
+            <h2 id="privacy-title">Nothing identifying is published, including in the build itself</h2>
+            <p>The site is public and the repository history is public. Both are treated the same way.</p>
+          </div>
+          <span class="status ready">Enforced by build check</span>
+        </div>
+        <div class="grid two">
+          <div class="stack">
+            <article class="card">
+              <span class="label">Rule 1 — placeholders only</span>
+              <h3>“Property A” and “Property B”, never an address.</h3>
+              <p>No street, postal area, parcel number, assessor number, owner name, sibling name, employer, or date of a family event appears anywhere in the published pages, the repository, or this build's notes.</p>
+            </article>
+            <article class="card">
+              <span class="label">Rule 2 — no traceable amounts</span>
+              <h3>Rates, formulas and multiples; no household dollars.</h3>
+              <p>The model runs on a normalised starting value of 1.00 and reports multiples. Where a dollar figure is shown — fees, exemptions, thresholds — it is a published statutory amount, not a household amount, and dollar output is rounded to the nearest $10 so it cannot be matched against a source document.</p>
+            </article>
+            <article class="card">
+              <span class="label">Rule 3 — combination risk</span>
+              <h3>Removing a name is not anonymisation.</h3>
+              <p>An exact valuation plus a unit count plus an assessed-value trail plus a solar or roof detail can re-identify a property even with every name stripped. The defence is to publish the structure of the decision and withhold the inputs.</p>
+            </article>
+          </div>
+          <aside class="stack">
+            <article class="card danger">
+              <span class="label">Known residual issue</span>
+              <h3>Identifiers exist in historical commit blobs.</h3>
+              <p>Earlier versions of this repository contained a postal area, a city name, a district name, an exact valuation and an assessment figure in committed files. The current tree is clean and the scanner passes, but the earlier objects remain reachable in the public history.</p>
+              <p>The remediation options are a history rewrite or a fresh public repository seeded from the current tree. The rewrite was documented and deliberately not executed, because it invalidates every clone and fork without the household's instruction to do so.</p>
+            </article>
+            <article class="card">
+              <span class="label">What is checked automatically</span>
+              <h3>Build fails on a postal-like number or a private name.</h3>
+              <ul class="check-list pending">
+                <li>Five-digit postal-like numbers anywhere in the markup.</li>
+                <li>A blocklist of private place and person terms.</li>
+                <li>Every source-table row must carry a link.</li>
+                <li>Every internal link and anchor must resolve.</li>
+                <li>No tracking scripts, no third-party fonts, no analytics.</li>
+              </ul>
+            </article>
+          </aside>
+        </div>
       </div>
     </section>
 
     <section class="section tint" id="decision-log" aria-labelledby="log-title">
       <div class="container">
-        <div class="section-header"><div><p class="eyebrow">Private decision log template</p><h2 id="log-title">Write the decision and its date beside the evidence</h2><p>Keep the completed version privately. This blank template is a process aid, not a request to submit personal information.</p></div></div>
-        <div class="table-wrap"><table class="table-tight"><caption>Decision record — leave public copy blank</caption><thead><tr><th>Decision item</th><th>Private answer / choice</th><th>Evidence version & source date</th><th>Owner</th><th>Decision date</th><th>Next review / what changes it</th></tr></thead><tbody><tr><td>Property A path selected</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Prop. 19 treatment</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Same-year sale conclusion</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Investment policy adopted</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Property B compliance review</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr><tr><td>Annual law / scenario recheck</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr></tbody></table></div>
-        <p class="disclosure" style="margin-top:.7rem">Template basis: documented decision governance. It contains no external factual assertion and is intentionally not a public record of household choices.</p>
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Decision log</p>
+            <h2 id="log-title">What was decided, when, and what it changed</h2>
+            <p>Chronological, newest last. Each entry names the change and its effect on the published numbers.</p>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Build decisions</caption>
+            <thead><tr><th>Date</th><th>Decision</th><th>Effect</th><th>Record</th></tr></thead>
+            <tbody>
+              <tr><td>Nov 2026</td><td>Adopt a normalised unit of 1,000,000 for the published model.</td><td>Every published result is a multiple; no household value enters the site or the engine.</td><td><a class="source-link" href="paths.html#method">Method</a></td></tr>
+              <tr><td>Nov 2026</td><td>Report eight paths rather than three, including two mixed paths.</td><td>Adds partial sell-and-hold and rent-then-sell, which dominate the middle of the horizon range.</td><td><a class="source-link" href="paths.html#outcomes-title">Paths</a></td></tr>
+              <tr><td>Nov 2026</td><td>Show robustness counts instead of a single recommended path.</td><td>No page names a winner; the count of top-two finishes replaces a point estimate.</td><td><a class="source-link" href="index.html#summary-title">Summary</a></td></tr>
+              <tr><td>Nov 2026</td><td>Stage Treasury maturities at 24, 30 and 36 months rather than a single length.</td><td>The 30-month schedule wins the 1929 case; the result is presented as a range, not a rule.</td><td><a class="source-link" href="paths.html#crash-entry">Crash entry</a></td></tr>
+              <tr><td>Nov 2026</td><td>Exclude proposed and preliminary items from all calculations.</td><td>No Property B figure depends on the proposed rent limitation or the uncertified parcel tax.</td><td><a class="source-link" href="sources.html#monitor">Monitor</a></td></tr>
+              <tr><td>Nov 2026</td><td>Leave household discovery to a private file, not to the site.</td><td>The public site states what is unknown; the answers live outside the repository.</td><td><a class="source-link" href="questions.html#inventory">Inventory</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="buttons no-print" style="margin-top:1.2rem">
+          <a class="button secondary" href="questions.html#agreement-title">Pre-commitment sheet</a>
+          <a class="button secondary" href="brief.html">Attorney &amp; CPA brief</a>
+          <a class="button" href="sources.html">Source register</a>
+        </div>
       </div>
     </section>
   </main>
