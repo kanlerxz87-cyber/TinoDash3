@@ -12,7 +12,9 @@
     brief: "brief.html",
     figures: "figures.html",
     blackswan: "blackswan.html",
-    flagged: "flagged.html"
+    flagged: "flagged.html",
+    verification: "verification.html",
+    "decision-rules": "decision-rules.html"
   };
 
   const current = (key) => (page === key ? " current" : "");
@@ -54,6 +56,8 @@
               <div class="nav-panel">
                 <small>Check it, do not trust it</small>
                 <a class="${current("sources")}" href="${pages.sources}">Sources &amp; law monitor</a>
+                <a class="${current("verification")}" href="${pages.verification}">Verification register</a>
+                <a class="${current("decision-rules")}" href="${pages["decision-rules"]}">Pre-committed decision rules</a>
                 <a class="${current("glossary")}" href="${pages.glossary}">Glossary</a>
                 <a class="${current("review")}" href="${pages.review}">Flags &amp; suggestions</a>
               </div>
