@@ -155,7 +155,8 @@ test("process page: fee calculator and property-tax projection render", () => {
 
   const fees = document.elements.get("feeOutput");
   assert.equal(rowCount(fees.innerHTML), 4, "four fee lines");
-  assert.match(fees.innerHTML, /\$2,200/, "county transfer tax on a 2,000,000 consideration");
+  const countyTax = "$" + Math.round((2000000 / 500) * 0.55).toLocaleString("en-US");
+  assert.ok(fees.innerHTML.includes(countyTax), "county transfer tax on a 2,000,000 consideration");
   assert.match(fees.innerHTML, /\$6,600/, "city conveyance tax at the published rate");
   assert.ok(!/NaN|undefined/.test(fees.innerHTML), "no placeholder text in the fee table");
   assert.match(document.elements.get("feePriceValue").textContent, /\$2,000,000/);
