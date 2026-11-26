@@ -184,7 +184,7 @@ test("published figure files contain no postal codes, place names, or parcel ide
 
 console.log(`\n${passed} figure tests passed${PT ? "" : " (private household checks skipped)"}.`);
 
-// ---------- T-028: every published staging row equals the model output, row for row ----------
+// ---------- T-029: every published staging row equals the model output, row for row ----------
 test("Black Swan staging table: all 24 published rows equal the model output at the official anchor", () => {
   const page = fs.readFileSync(path.join(root, "blackswan.html"), "utf8");
   const published = page.match(/<tr><td>(?:1929|2007|No crash)[^\n]*?mo cash, then 12 mo buys[^\n]*?<\/tr>/g) || [];
