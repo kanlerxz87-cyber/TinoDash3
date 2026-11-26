@@ -26,6 +26,6 @@ Across the full 4-scenario × 4-horizon grid (16 cells), the overall leader chan
 
 ## Verification
 
-- `npm test` passed on 26 Nov 2026: privacy scan clean across 35 text files; static check passed for 16 pages; all 26 Node test entries passed (20 engine tests, 1 figures-test wrapper, and 5 render tests). The 12 figure assertions passed; private household checks were skipped because `private/` is absent. `git diff --check` also passed.
+- After rebasing onto `bc932c8` on 26 Nov 2026, `npm test` passed: privacy scan clean across 35 text files; static check passed for 16 pages; all 28 Node test entries passed (22 engine tests, 1 figures-test wrapper, and 5 render tests). The 12 figure assertions passed; private household checks were skipped because `private/` is absent. `git diff --check` also passed.
 - Engine tests pin the official date/rates, the baseline no-leader-change case, the 2007–2009-style 10-year leader change, the staged-value decrease, and the unaffected immediate-equity path. Render tests change the live selector from the 4.34% proxy to the 2.00% stress and verify the leader and displayed rank update.
 - Render tests exercise the actual `paths.html`/`assets/model.js` wiring, change the yield control, and verify the ranked table and leader-movement message update.
