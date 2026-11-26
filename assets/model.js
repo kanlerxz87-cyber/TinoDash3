@@ -16,6 +16,7 @@
     return new Intl.NumberFormat("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(rounded);
   };
   const fmtIndex = (units) => units.toFixed(3);
+  const fmtSignedIndex = (units) => `${units > 0 ? "+" : ""}${fmtIndex(units)}`;
   const fmtPct = (value, digits = 1) => `${(value * 100).toFixed(digits)}%`;
 
   /* ---------------- paths page ---------------- */
@@ -26,6 +27,7 @@
       scenario: document.querySelector("#scenarioSelect"),
       horizon: document.querySelector("#horizonSelect"),
       stage: document.querySelector("#stageSelect"),
+      cashYield: document.querySelector("#stagingYieldSelect"),
       taxes: document.querySelector("#taxSelect"),
       imputed: document.querySelector("#imputedRange"),
       vacancy: document.querySelector("#vacancyRange"),
@@ -36,8 +38,15 @@
     };
 
     const readState = () => {
+      const yieldMode = controls.cashYield.value;
+      const stagingCashYield = yieldMode === "snapshot"
+        ? Engine.CASH_YIELD_REFERENCE.treasury3M
+        : yieldMode === "stress"
+          ? Engine.CASH_YIELD_REFERENCE.stress
+          : null;
       const assumptions = Engine.mergeAssumptions({
         stageMonths: Number(controls.stage.value),
+        stagingCashYield,
         capGainsRate: Number(controls.taxes.value),
         recaptureRate: Number(controls.taxes.value) ? 0.25 : 0,
         imputedRent: Number(controls.imputed.value) / 100,
@@ -63,11 +72,18 @@
       const state = readState();
       const a = state.assumptions;
       const rows = Engine.evaluate(state);
+      const yieldMode = controls.cashYield.value;
+      const yieldLabel = yieldMode === "snapshot"
+        ? `Fixed 3M ${fmtPct(Engine.CASH_YIELD_REFERENCE.treasury3M, 2)} proxy · ${Engine.CASH_YIELD_REFERENCE.date}`
+        : yieldMode === "stress"
+          ? `Fixed ${fmtPct(Engine.CASH_YIELD_REFERENCE.stress, 2)} stress on staged sale proceeds`
+          : "Designed scenario Treasury series (not a forecast)";
 
       setText("#horizonLabel", `${state.horizon}-year`);
       setText("#scenarioNote", Engine.SCENARIOS[state.scenario].note);
       setText("#valueMode", a.showReal ? "inflation-adjusted (today's money)" : "nominal");
       setText("#stageLabel", `${a.stageMonths} months`);
+      setText("#stagingYieldLabel", yieldLabel);
       setText("#imputedValue", `${Number(controls.imputed.value).toFixed(1)}%`);
       setText("#vacancyValue", `${Number(controls.vacancy.value).toFixed(0)}%`);
       setText("#rentValue", `${Number(controls.rent.value).toFixed(1)}%`);
@@ -132,6 +148,37 @@
           <td class="num">${cell.breakEven.unmatched ? "n/a" : fmtPct(cell.breakEven.rate, 2)}</td>
         </tr>`).join("");
       }
+      setText("#stageCaption", `Designed entry sequences under ${yieldLabel}; normalized multiples, not a forecast.`);
+
+      // Fixed-yield sensitivity: same selected scenario and horizon, two cash cases.
+      const yieldResult = Engine.cashYieldSensitivity(state);
+      const yieldBody = document.querySelector("#yieldRows");
+      if (yieldBody) {
+        const yieldCases = [
+          { key: "snapshot", result: yieldResult.snapshot, movement: "Reference" },
+          { key: "stress", result: yieldResult.stress, movement: yieldResult.leaderMoved ? "Leader changes" : "Leader holds" }
+        ];
+        yieldBody.innerHTML = yieldCases.map((item) => `<tr>
+          <td>${item.key === "snapshot"
+            ? `<a class="source-link" href="${Engine.CASH_YIELD_REFERENCE.sourceUrl}">Treasury 3-month par-yield snapshot · ${Engine.CASH_YIELD_REFERENCE.date} (${fmtPct(item.result.rate, 2)})</a>`
+            : `${fmtPct(item.result.rate, 2)} fixed stress assumption (not an official rate)`}</td>
+          <td><strong>${item.result.winner}</strong></td>
+          <td class="num">${fmtIndex(item.result.winnerValue)}</td>
+          <td class="num">${item.result.stagedRank} / 8</td>
+          <td class="num">${fmtIndex(item.result.stagedValue)}</td>
+          <td class="num">${fmtSignedIndex(item.result.stagedMinusImmediate)}</td>
+          <td>${item.movement}</td>
+        </tr>`).join("");
+      }
+      setText("#yieldContext", `${Engine.SCENARIOS[state.scenario].label} · ${state.horizon} years · ${a.stageMonths}-month selected ladder`);
+      const yieldLeaderMovement = document.querySelector("#yieldLeaderMovement");
+      if (yieldLeaderMovement) {
+        yieldLeaderMovement.className = `status ${yieldResult.leaderMoved ? "review" : "ready"}`;
+        yieldLeaderMovement.textContent = yieldResult.leaderMoved
+          ? `Leader moves from ${yieldResult.snapshot.winner} at 4.34% to ${yieldResult.stress.winner} at 2.00%.`
+          : `Leader holds as ${yieldResult.snapshot.winner} at both 4.34% and 2.00%.`;
+      }
+      setText("#yieldStagedMovement", `The selected ladder's rank is ${yieldResult.snapshot.stagedRank} / 8 at 4.34% and ${yieldResult.stress.stagedRank} / 8 at 2.00%; its normalized ending value changes by ${fmtSignedIndex(yieldResult.stagedValueDelta)} units per 1.00 starting unit.`);
 
       // robustness
       const robustBody = document.querySelector("#robustRows");

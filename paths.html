@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Normalised range model: eight exit-and-hold paths, four designed economic scenarios, four horizons, sequence variants and a sensitivity table showing which assumption changes the leader.">
+  <meta name="description" content="Normalised range model: eight exit-and-hold paths, four designed economic scenarios, sequence variants, and a Treasury 3-month snapshot versus 2% staged-cash-yield sensitivity showing whether the leader moves.">
   <title>Paths, Ranges &amp; Crash Tests — Inheritance Decision Desk</title>
   <link rel="stylesheet" href="assets/styles.css">
   <script defer src="assets/site.js"></script>
@@ -57,6 +57,14 @@
             <select id="stageSelect"><option value="24">24 months</option><option value="30" selected>30 months</option><option value="36">36 months</option></select>
           </div>
           <div class="control">
+            <label for="stagingYieldSelect">Cash yield on staged sale proceeds</label>
+            <select id="stagingYieldSelect">
+              <option value="scenario" selected>Designed scenario Treasury rates</option>
+              <option value="snapshot">25 Nov 2026 3M snapshot proxy · 4.34%</option>
+              <option value="stress">2.00% fixed-yield stress</option>
+            </select>
+          </div>
+          <div class="control">
             <label for="taxSelect">Capital-gains rate</label>
             <select id="taxSelect"><option value="0" selected>Off (0%)</option><option value="0.15">15% federal only</option><option value="0.238">23.8% incl. NIIT</option><option value="0.33">33% blended federal + California</option></select>
           </div>
@@ -93,9 +101,13 @@
             <div class="callout" style="padding:.55rem .7rem"><p id="scenarioNote" style="font-size:.83rem"></p></div>
           </div>
         </div>
+        <div class="callout info" style="margin-top:1rem">
+          <strong>Dated Treasury reference — not a forecast.</strong>
+          <p>The U.S. Treasury's official daily par-yield curve shows 3-month <strong>4.34%</strong> and 2-year <strong>4.61%</strong> on <strong>25 Nov 2026</strong> (<a href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611">official November 2026 curve</a>). Select the 3-month row as a frozen cash-yield proxy, or stress it to 2.00%; the 2-year rate is reference-only and is not applied as a simulated ladder schedule. The proxy is nominal and before any tax on Treasury interest (interest tax is not modeled). These dated observations are not projected 2040–2050 yields or guaranteed returns. The override affects sale proceeds while awaiting equity purchases; rental cash and owner-carry cash retain their designed scenario rates. This control changes only the interactive paths model; the separate static Black Swan simulation is not recalculated and its outputs are not directly comparable (<a href="flagged.html">flag F-27</a>).</p>
+        </div>
         <div class="callout warning" style="margin-top:1rem">
           <strong>Current settings</strong>
-          <p><span id="horizonLabel">10-year</span> results, <span id="valueMode">nominal</span>, ladder held <span id="stageLabel">30 months</span>. <span id="primaryStatus"></span></p>
+          <p><span id="horizonLabel">10-year</span> results, <span id="valueMode">nominal</span>, ladder held <span id="stageLabel">30 months</span>. Staged-cash yield: <span id="stagingYieldLabel">Designed scenario Treasury series (not a forecast)</span>. <span id="primaryStatus"></span></p>
         </div>
       </div>
     </section>
@@ -165,6 +177,20 @@
             <p class="chart-note">These are designed model outputs, not observed returns or probability intervals. The 20 rotations receive equal weight only to expose sequence sensitivity; no likelihood is assigned to any outcome.</p>
           </div>
         </div>
+
+        <div class="callout info" id="cash-yield-sensitivity" style="margin-top:1.3rem">
+          <strong>Same scenario and horizon: 4.34% dated snapshot proxy versus 2.00% cash-yield stress</strong>
+          <p>The table below reruns all eight paths twice, changing only the fixed yield on staged sale proceeds. <span id="yieldContext">Selected scenario · 10 years · 30-month ladder</span>. The snapshot is not a forecast; the stress is a sensitivity, not a prediction. These are model outputs, not empirical probabilities.</p>
+          <div class="table-wrap" style="margin-top:.8rem">
+            <table class="table-tight">
+              <caption>Fixed-rate sensitivity · outcomes per 1.00 starting unit</caption>
+              <thead><tr><th>Cash-yield case</th><th>Overall leader</th><th class="num">Leader multiple</th><th class="num">Staged-path rank</th><th class="num">Staged multiple</th><th class="num">Staged minus equities now</th><th>Leader vs 4.34% reference</th></tr></thead>
+              <tbody id="yieldRows"><tr><td colspan="7">Loading yield comparison…</td></tr></tbody>
+            </table>
+          </div>
+          <p style="margin-top:.8rem"><span id="yieldLeaderMovement" class="status ready">Leader movement will appear after the model loads.</span></p>
+          <p id="yieldStagedMovement" class="table-note">The selected staged path's rank and value change will appear after the model loads.</p>
+        </div>
       </div>
     </section>
 
@@ -180,7 +206,7 @@
         </div>
         <div class="table-wrap">
           <table data-source-table>
-            <caption>Staging comparison across designed sequences (normalised multiples)</caption>
+            <caption id="stageCaption">Staging comparison across designed sequences (normalised multiples)</caption>
             <thead><tr><th>Sequence</th><th class="num">Horizon</th><th class="num">Equities now</th><th class="num">12-month entry</th><th class="num">24-month ladder</th><th class="num">30-month ladder</th><th class="num">36-month ladder</th><th class="num">Break-even ladder yield</th></tr></thead>
             <tbody id="stageRows"></tbody>
           </table>
