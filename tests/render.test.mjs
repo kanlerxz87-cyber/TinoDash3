@@ -123,6 +123,7 @@ test("paths page: every modelled table fills and no placeholder text leaks", () 
     rangeRows: 8,
     flipRows: 8,
     stageRows: 12,
+    yieldRows: 2,
     robustRows: 8,
     s121Rows: 8
   };
@@ -146,11 +147,34 @@ test("paths page: every modelled table fills and no placeholder text leaks", () 
   assert.match(rangeChart.innerHTML, /25th percentile.*median.*75th percentile/s, "tooltips carry the five-number summary");
   assert.match(rangeChart.attributes["aria-label"], /real, inflation-adjusted terms/i, "range chart reflects the real-value toggle");
 
-  for (const id of ["horizonLabel", "scenarioNote", "valueMode", "stageLabel", "primaryStatus", "imputedValue", "vacancyValue", "rentValue", "saleValue"]) {
+  for (const id of ["horizonLabel", "scenarioNote", "valueMode", "stageLabel", "stagingYieldLabel", "yieldContext", "yieldLeaderMovement", "yieldStagedMovement", "primaryStatus", "imputedValue", "vacancyValue", "rentValue", "saleValue"]) {
     const element = document.elements.get(id);
     assert.ok(element.textContent && element.textContent.trim().length > 0, `#${id} must be written`);
   }
   assert.match(document.elements.get("primaryStatus").textContent, /OFF/i, "exclusion starts off");
+});
+
+test("paths page: fixed Treasury snapshot and 2% stress controls rebuild ranks and report movement", () => {
+  const document = runPage("paths.html", {
+    scenarioSelect: "crisis2008",
+    horizonSelect: "10",
+    stageSelect: "30",
+    stagingYieldSelect: "snapshot"
+  });
+  const firstRow = () => document.elements.get("pathRows").innerHTML.split("</tr>")[0];
+
+  assert.match(firstRow(), /Sell → 3M–2Y ladder → phase in/, "the 4.34% proxy leaves the ladder path first in this cell");
+  const control = document.elements.get("stagingYieldSelect");
+  control.value = "stress";
+  control.listeners.find((listener) => listener.type === "input").handler();
+
+  assert.match(firstRow(), /Sell → 12-month equity entry/, "the 2% stress changes the selected-cell leader");
+  assert.match(document.elements.get("stagingYieldLabel").textContent, /Fixed 2.00% stress/);
+  assert.match(document.elements.get("yieldRows").innerHTML, /4.34%/);
+  assert.match(document.elements.get("yieldRows").innerHTML, /2.00%/);
+  assert.match(document.elements.get("yieldRows").innerHTML, /home\.treasury\.gov/);
+  assert.match(document.elements.get("yieldLeaderMovement").textContent, /moves from Sell → 3M–2Y ladder → phase in at 4.34% to Sell → 12-month equity entry at 2.00%/);
+  assert.match(document.elements.get("yieldStagedMovement").textContent, /1 \/ 8 at 4.34% and 2 \/ 8 at 2.00%/);
 });
 
 test("paths page: the section 121 toggle changes the screened status text", () => {

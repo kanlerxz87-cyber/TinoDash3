@@ -9,6 +9,16 @@
   "use strict";
 
   var SCENARIO_LENGTH = 20; // years of designed sequence; beyond this the cycle repeats (documented).
+  // Official Treasury observation, fetched 26 Nov 2026 from the 25 Nov row.
+  // The 3M value is an optional fixed proxy for staged cash; 2Y is reference only.
+  // Neither rate is a 2040–2050 forecast or a promised future reinvestment yield.
+  var CASH_YIELD_REFERENCE = Object.freeze({
+    date: "25 Nov 2026",
+    treasury3M: 0.0434,
+    treasury2Y: 0.0461,
+    stress: 0.02,
+    sourceUrl: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&field_tdr_date_value_month=202611"
+  });
 
   function seq(values) {
     if (values.length !== SCENARIO_LENGTH) {
@@ -80,11 +90,20 @@
     return Math.pow(1 + annual, 1 / 12) - 1;
   }
 
+  // Only cash awaiting equity purchases from a sale uses this override. Rental
+  // proceeds and owner-carry cash keep their designed scenario Treasury series.
+  function stagingCashRate(scenario, year, fixedYield) {
+    return fixedYield === null || fixedYield === undefined
+      ? annualRateAt(scenario, "treasury", year)
+      : fixedYield;
+  }
+
   /* ---------- cost / tax inputs (all optional, all documented defaults) ---------- */
 
   var DEFAULT_ASSUMPTIONS = {
     stageMonths: 30,            // 24–36 month Treasury parking
     phaseMonths: 12,            // linear equity phase-in after the ladder
+    stagingCashYield: null,     // null = designed scenario path; number = fixed staged-cash proxy/stress only
     rentBridgeMonths: 60,       // rent-then-sell bridge
     liveBridgeMonths: 24,       // live-then-sell screening window
     imputedRent: 0,             // annual % of property value; 0 = unverified
@@ -141,7 +160,7 @@
       }
       year = Math.floor(month / 12);
       equity *= 1 + monthlyRate(annualRateAt(scenario, "equity", year));
-      treasury *= 1 + monthlyRate(annualRateAt(scenario, "treasury", year));
+      treasury *= 1 + monthlyRate(stagingCashRate(scenario, year, opts.stagingCashYield));
     }
     return equity + treasury;
   }
@@ -281,13 +300,13 @@
 
     switch (key) {
       case "sellStocks":
-        return { nominal: invest(afterTaxProceeds(start, a.saleCostRatio, basis, 0, a), months, scenario, { stageMonths: 0, phaseMonths: 1 }) };
+        return { nominal: invest(afterTaxProceeds(start, a.saleCostRatio, basis, 0, a), months, scenario, { stageMonths: 0, phaseMonths: 1, stagingCashYield: a.stagingCashYield }) };
 
       case "sellStage36":
-        return { nominal: invest(afterTaxProceeds(start, a.saleCostRatio, basis, 0, a), months, scenario, { stageMonths: a.stageMonths, phaseMonths: a.phaseMonths }) };
+        return { nominal: invest(afterTaxProceeds(start, a.saleCostRatio, basis, 0, a), months, scenario, { stageMonths: a.stageMonths, phaseMonths: a.phaseMonths, stagingCashYield: a.stagingCashYield }) };
 
       case "sellDca12":
-        return { nominal: invest(afterTaxProceeds(start, a.saleCostRatio, basis, 0, a), months, scenario, { stageMonths: 0, phaseMonths: 12 }) };
+        return { nominal: invest(afterTaxProceeds(start, a.saleCostRatio, basis, 0, a), months, scenario, { stageMonths: 0, phaseMonths: 12, stagingCashYield: a.stagingCashYield }) };
 
       case "rentThenSell": {
         rentMonths = Math.min(months, a.rentBridgeMonths);
@@ -295,7 +314,7 @@
         proceeds = afterTaxProceeds(held.value, a.saleCostRatio, basis, held.depreciation, a);
         remaining = months - rentMonths;
         if (remaining <= 0) return { nominal: proceeds + held.cash };
-        return { nominal: held.cash + invest(proceeds, remaining, scenario, { stageMonths: a.stageMonths, phaseMonths: a.phaseMonths }) };
+        return { nominal: held.cash + invest(proceeds, remaining, scenario, { stageMonths: a.stageMonths, phaseMonths: a.phaseMonths, stagingCashYield: a.stagingCashYield }) };
       }
 
       case "liveThenSell": {
@@ -307,7 +326,7 @@
         remaining = months - liveMonths;
         var liveNet = held.imputed - held.carryOpportunity;
         if (remaining <= 0) return { nominal: proceeds + liveNet, imputed: liveNet };
-        return { nominal: liveNet + invest(proceeds, remaining, scenario, { stageMonths: a.stageMonths, phaseMonths: a.phaseMonths }), imputed: liveNet };
+        return { nominal: liveNet + invest(proceeds, remaining, scenario, { stageMonths: a.stageMonths, phaseMonths: a.phaseMonths, stagingCashYield: a.stagingCashYield }), imputed: liveNet };
       }
 
       case "partialSell": {
@@ -318,8 +337,8 @@
         var soldNow = afterTaxProceeds(start * sellShare, a.saleCostRatio, basis * sellShare, 0, a);
         var soldLater = afterTaxProceeds(held.value, a.saleCostRatio, basis * rentShare, held.depreciation, a);
         remaining = months - rentMonths;
-        var front = invest(soldNow, months, scenario, { stageMonths: a.stageMonths, phaseMonths: a.phaseMonths });
-        var back = remaining <= 0 ? soldLater : invest(soldLater, remaining, scenario, { stageMonths: a.stageMonths, phaseMonths: a.phaseMonths });
+        var front = invest(soldNow, months, scenario, { stageMonths: a.stageMonths, phaseMonths: a.phaseMonths, stagingCashYield: a.stagingCashYield });
+        var back = remaining <= 0 ? soldLater : invest(soldLater, remaining, scenario, { stageMonths: a.stageMonths, phaseMonths: a.phaseMonths, stagingCashYield: a.stagingCashYield });
         return { nominal: front + back + held.cash };
       }
 
@@ -450,7 +469,7 @@
         }
         yr = Math.floor(month / 12);
         equity *= 1 + monthlyRate(helper("equity", yr));
-        treasury *= 1 + monthlyRate(helper("treasury", yr));
+        treasury *= 1 + monthlyRate(a.stagingCashYield === null || a.stagingCashYield === undefined ? helper("treasury", yr) : a.stagingCashYield);
       }
       return equity + treasury;
     }
@@ -639,13 +658,57 @@
           local.stageMonths = dep.stage;
           local.phaseMonths = dep.phase;
           var start = afterTaxProceeds(1, local.saleCostRatio, 1, 0, local);
-          return { key: dep.key, label: dep.label, value: start === 0 ? 0 : invest(start, horizon * 12, scenario, { stageMonths: dep.stage, phaseMonths: dep.phase }) };
+          return { key: dep.key, label: dep.label, value: start === 0 ? 0 : invest(start, horizon * 12, scenario, { stageMonths: dep.stage, phaseMonths: dep.phase, stagingCashYield: a.stagingCashYield }) };
         });
         var be = breakEvenTreasuryRate({ scenario: scenario, horizon: horizon, assumptions: mergeAssumptions(base) });
         out.push({ scenario: scenario, label: SCENARIOS[scenario].label, horizon: horizon, values: values, breakEven: be });
       });
     });
     return out;
+  }
+
+  // Compare the official dated 3-month snapshot proxy with a fixed 2% cash-yield
+  // stress under the same selected scenario, horizon, tax and staging assumptions.
+  // These are controlled sensitivities, not forecasts or historical replay.
+  function cashYieldSensitivity(state) {
+    var base = {
+      scenario: state.scenario,
+      horizon: state.horizon,
+      assumptions: mergeAssumptions(state.assumptions)
+    };
+
+    function summarize(label, rate) {
+      var assumptions = mergeAssumptions(base.assumptions);
+      assumptions.stagingCashYield = rate;
+      var rows = evaluate({
+        scenario: base.scenario,
+        horizon: base.horizon,
+        assumptions: assumptions
+      });
+      var staged = rows.filter(function (row) { return row.key === "sellStage36"; })[0];
+      var immediate = rows.filter(function (row) { return row.key === "sellStocks"; })[0];
+      return {
+        label: label,
+        rate: rate,
+        winnerKey: rows[0].key,
+        winner: rows[0].name,
+        winnerValue: rows[0].value,
+        stagedRank: staged.rank,
+        stagedValue: staged.value,
+        immediateValue: immediate.value,
+        stagedMinusImmediate: staged.value - immediate.value
+      };
+    }
+
+    var snapshot = summarize("Treasury 3-month snapshot proxy", CASH_YIELD_REFERENCE.treasury3M);
+    var stress = summarize("2.00% fixed cash-yield stress", CASH_YIELD_REFERENCE.stress);
+    return {
+      snapshot: snapshot,
+      stress: stress,
+      leaderMoved: snapshot.winnerKey !== stress.winnerKey,
+      stagedRankMoved: snapshot.stagedRank !== stress.stagedRank,
+      stagedValueDelta: stress.stagedValue - snapshot.stagedValue
+    };
   }
 
   // Normalised property-tax projection. Uses only published Prop. 13 mechanics:
@@ -721,6 +784,7 @@
   var api = {
     SCENARIOS: SCENARIOS,
     SCENARIO_LENGTH: SCENARIO_LENGTH,
+    CASH_YIELD_REFERENCE: CASH_YIELD_REFERENCE,
     PATH_META: PATH_META,
     DEFAULT_ASSUMPTIONS: DEFAULT_ASSUMPTIONS,
     mergeAssumptions: mergeAssumptions,
@@ -731,6 +795,7 @@
     robustness: robustness,
     section121Sweep: section121Sweep,
     stagingComparison: stagingComparison,
+    cashYieldSensitivity: cashYieldSensitivity,
     propertyTaxProjection: propertyTaxProjection,
     officialFees: officialFees,
     OFFICIAL_FEES: OFFICIAL_FEES,
@@ -739,8 +804,8 @@
     winnerTable: winnerTable,
     sensitivity: sensitivity,
     cumulativeInflation: cumulativeInflation,
-    invest: function (start, months, scenario, stageMonths, phaseMonths) {
-      return invest(start, months, scenario, { stageMonths: stageMonths, phaseMonths: phaseMonths });
+    invest: function (start, months, scenario, stageMonths, phaseMonths, stagingCashYield) {
+      return invest(start, months, scenario, { stageMonths: stageMonths, phaseMonths: phaseMonths, stagingCashYield: stagingCashYield });
     },
     afterTaxProceeds: afterTaxProceeds
   };

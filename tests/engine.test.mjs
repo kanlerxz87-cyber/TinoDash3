@@ -127,6 +127,47 @@ test("ladder comparison ranks 30-month best in the 1929 ten-year cell", () => {
   }
 });
 
+test("dated Treasury yield reference is separate from the 2% stress input", () => {
+  assert.equal(engine.CASH_YIELD_REFERENCE.date, "25 Nov 2026");
+  assert.equal(engine.CASH_YIELD_REFERENCE.treasury3M, 0.0434);
+  assert.equal(engine.CASH_YIELD_REFERENCE.treasury2Y, 0.0461);
+  assert.equal(engine.CASH_YIELD_REFERENCE.stress, 0.02);
+  assert.match(engine.CASH_YIELD_REFERENCE.sourceUrl, /home\.treasury\.gov/);
+});
+
+test("fixed staged-cash yields reduce the staged outcome and report leader movement", () => {
+  const baseline = engine.cashYieldSensitivity(state("baseline", 10));
+  assert.equal(baseline.snapshot.rate, 0.0434);
+  assert.equal(baseline.stress.rate, 0.02);
+  assert.equal(baseline.snapshot.winnerKey, "rentThenSell");
+  assert.equal(baseline.stress.winnerKey, "rentThenSell");
+  assert.equal(baseline.leaderMoved, false, "the 10-year baseline leader holds");
+  assert.equal(baseline.snapshot.stagedRank, 6);
+  assert.equal(baseline.stress.stagedRank, 7, "the staged path falls one place");
+  near(baseline.snapshot.stagedValue, 1.2439, 0.001, "baseline stage at 4.34%");
+  near(baseline.stress.stagedValue, 1.1633, 0.001, "baseline stage at 2%");
+  assert.ok(baseline.stagedValueDelta < 0);
+
+  const crisis = engine.cashYieldSensitivity(state("crisis2008", 10));
+  assert.equal(crisis.snapshot.winnerKey, "sellStage36");
+  assert.equal(crisis.stress.winnerKey, "sellDca12");
+  assert.equal(crisis.leaderMoved, true, "the 10-year 2008-style sequence leader moves");
+  assert.equal(crisis.snapshot.stagedRank, 1);
+  assert.equal(crisis.stress.stagedRank, 2);
+  near(crisis.snapshot.stagedValue, 1.4810, 0.001, "crisis stage at 4.34%");
+  near(crisis.stress.stagedValue, 1.3850, 0.001, "crisis stage at 2%");
+
+  const snapshotRows = engine.evaluate(state("crisis2008", 10, { stagingCashYield: 0.0434 }));
+  const stressRows = engine.evaluate(state("crisis2008", 10, { stagingCashYield: 0.02 }));
+  assert.equal(snapshotRows[0].key, crisis.snapshot.winnerKey);
+  assert.equal(stressRows[0].key, crisis.stress.winnerKey);
+  for (const key of ["sellStocks", "holdRental", "holdLive"]) {
+    assert.equal(snapshotRows.find((row) => row.key === key).value, stressRows.find((row) => row.key === key).value,
+      `${key} does not use the staged-sale cash-yield override`);
+  }
+  assert.ok(stressRows.find((row) => row.key === "sellStage36").value < snapshotRows.find((row) => row.key === "sellStage36").value);
+});
+
 test("break-even ladder yield: baseline ~4.95% and the crash case is unmatched or negative", () => {
   const baseline = engine.breakEvenTreasuryRate(state("baseline", 10));
   near(baseline.rate, 0.0495, 0.002, "baseline break-even");
