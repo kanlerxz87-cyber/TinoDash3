@@ -10,6 +10,7 @@ function walk(directory) {
   for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
     if (excludedDirectories.has(entry.name)) continue;
     const full = path.join(directory, entry.name);
+    if (path.relative(root, full) === path.join("scripts", "privacy-scan.mjs")) continue; // the scanner lists the names it blocks
     if (entry.isDirectory()) walk(full);
     else if (include.includes(path.extname(entry.name))) files.push(full);
   }
@@ -21,6 +22,10 @@ walk(root);
 const prohibited = [
   { label: "Five-digit postal-like identifier", pattern: /(?<![#A-Fa-f0-9])\d{5}(?:-\d{4})?(?![A-Fa-f0-9])/g },
   { label: "Email address", pattern: /\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/gi },
+  // Case-specific place names of Property A and Property B (T-022). Labels only: never echo the matched text.
+  { label: "Property A city name", pattern: /\bCupertino\b/gi },
+  { label: "Property B neighbourhood name", pattern: /\b(?:Outer\s+)?Sunset\b/g },
+  { label: "Third-party insurance-quote site", pattern: /\bgethome\w*quotes|\binsurancequotes\.com/gi },
   { label: "North-American phone-like identifier", pattern: /(?<!\d)(?:\+?1[ .-]?)?(?:\(\d{3}\)|\d{3})[ .-]\d{3}[ .-]\d{4}(?!\d)/g }
 ];
 

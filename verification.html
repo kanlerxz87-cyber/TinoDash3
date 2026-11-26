@@ -115,7 +115,7 @@
       <div class="container">
         <div class="section-header">
           <div>
-            <p class="eyebrow">Section D · San Francisco (Property B)</p>
+            <p class="eyebrow">Section D · Property B: jurisdiction-specific rules</p>
             <h2 id="sf-title">Rent Board fee, Measure H, and voter-pamphlet figures</h2>
             <p>Property B’s own tax, insurance, and lease terms are private and are not checked on this public page.</p>
           </div>
@@ -179,6 +179,40 @@
           <li><div><b>7. Prop 19 continuing-use and multi-unit rules</b><span>Add the continuing-use rule and the one-occupied-unit rule from BOE FAQ 2026/026 to the living-path and multi-unit notes.</span></div></li>
           <li><div><b>8. Public-history exposure (not resolved here)</b><span>Earlier public commits contain case-specific material. That incident is tracked as T-003 and in issue #3. This page does not repeat any of it. Owner-level remediation is still open.</span></div></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="recheck-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Recheck log · 26 Nov 2026 · Task T-022</p>
+            <h2 id="recheck-title">Live rechecks against official pages, and audit change requests C-2 to C-5</h2>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Recheck results, 26 Nov 2026 (fetched live; enacted law separated from proposals)</caption>
+            <thead><tr><th>Claim</th><th>What the official page says</th><th>Official link (manual review)</th><th>Status</th><th>Site action</th></tr></thead>
+            <tbody>
+<tr><td>Federal basic exclusion: $15,480,000 for decedents dying in 2027; $15,000,000 for 2026</td><td>IRS IR-2026-133 (5 Nov 2026), section “Estate Tax Exclusion”.</td><td><a class="source-link" href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts">IRS IR-2026-133</a></td><td><span class="status ready">Verified · applied</span></td><td>Flag F-05 closed; figures page and assumptions already carry the figure.</td></tr>
+<tr><td>Annual gift exclusion: $20,000 for 2027, up from $19,000 for 2026</td><td>IRS IR-2026-133, section “Annual Exclusion for Gifts”.</td><td><a class="source-link" href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts">IRS IR-2026-133</a></td><td><span class="status ready">Verified · applied</span></td><td>Flag F-06 closed.</td></tr>
+<tr><td>Treasury par yields: 3-month 4.36% and 2-year 4.63% on 24 Nov 2026</td><td>Treasury daily par yield curve table, row 11/24/2026 (the same table shows 25 Nov 2026 at 4.34% and 4.61%; the site keeps the dated 24 Nov figures).</td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611">U.S. Treasury daily par yield curve</a></td><td><span class="status ready">Verified · applied</span></td><td>No change; the date is stated wherever the rates appear.</td></tr>
+<tr><td>California has no gift tax or inheritance tax</td><td>CA Tax Service Center: “California does not have a gift tax or an inheritance tax.”</td><td><a class="source-link" href="https://taxes.ca.gov/income-tax/special-circumstances/">CA Tax Service Center</a></td><td><span class="status ready">Verified (official)</span></td><td>Flag F-07 narrowed to “verified in part” for the pick-up tax only.</td></tr>
+<tr><td>California pick-up tax is zero</td><td>The same CA Tax Service Center page still says California “does still impose a death tax equal to the federal credit”, which is legacy wording. The FTB analysis of SB 378 (2019, not enacted) says the pick-up tax is zero because the federal credit was repealed.</td><td><a class="source-link" href="https://www.ftb.ca.gov/tax-pros/law/legislation/2019-2020/SB378-032519.pdf">FTB SB 378 analysis</a> · <a class="source-link" href="https://taxes.ca.gov/income-tax/special-circumstances/">CA Tax Service Center</a></td><td><span class="status review">Verified in part · flag F-21</span></td><td>Site cites the FTB analysis for the zero position and labels the bill as not enacted. CPA or State Controller to confirm.</td></tr>
+<tr><td>San Jose Measure E threshold: $2,300,000 from 1 Jul 2025, with 0.75%, 1% and 1.5% tiers</td><td>County Measure E page (applies only in San Jose).</td><td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate/measure-e">County Measure E page</a></td><td><span class="status ready">Verified · applied</span></td><td>Conflict with the fee schedule (which still says $2,000,000) recorded as flag F-20.</td></tr>
+<tr><td>County recording and transfer-tax schedule: $0.55 per $500 county tax; $102 first page, $92 when documentary transfer tax is paid; $3 each additional page; $20 PCOR penalty if required and missing</td><td>County Clerk-Recorder fee schedule (the linked PDF is dated in its title). City conveyance tax of $1.65 per $500 is listed for San Jose, Palo Alto and Mountain View only.</td><td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/resources/fee-schedule">County fee schedule</a></td><td><span class="status ready">Verified · applied</span></td><td>Rechecked 26 Nov 2026; figures already on process and sources pages.</td></tr>
+<tr><td>Prop 19 parent-child: child must occupy as principal residence within one year and file the homeowners’ exemption within one year; value limit is the current taxable value plus the indexed amount</td><td>LA County Assessor, Proposition 19 page (official county).</td><td><a class="source-link" href="https://assessor.lacounty.gov/homeowners/proposition-19/3">LA County Assessor</a></td><td><span class="status review">Verified in part · flag F-04</span></td><td>Eligibility timing confirmed. The taxable-value formula matches the model; the BOE primary text was not retrieved.</td></tr>
+<tr><td>Homeowners insurance premiums (Properties A and B)</td><td>CA DOI residential insurance guide (Form 401, revised January 2026) explains coverage and shopping. It contains no premium figures.</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI residential guide</a></td><td><span class="status blocked">Blank — unverified</span></td><td>No premium is shown. Third-party aggregator figures were removed from the public process page (flag F-09).</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="check-list" style="margin-top:.8rem">
+          <li><b>C-2 closed.</b> No session-parameter URL remains; the stable DOI guide link is used.</li>
+          <li><b>C-3 partly closed.</b> The “notification” deep link is gone; the assessor root page is used. Its deep link could not be machine-checked (the assessor site blocks automated checks).</li>
+          <li><b>C-4 closed.</b> The $20 PCOR penalty and the Measure E and G rows are on the process and sources pages.</li>
+          <li><b>C-5 answered, not closed.</b> The Tax Service Center page still carries legacy pick-up-tax wording; recorded as flag F-21.</li>
+        </ul>
       </div>
     </section>
 
