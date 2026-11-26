@@ -32,9 +32,9 @@
     federalBasicExclusion2026: 15000000, // IRS estate-tax page, filing threshold table, 2026
     federalExclusion2025: 13990000, // IRS estate-tax page, 2025
     annualGiftExclusion2026: 19_000, // reported by secondary sources only; official check pending (flagged)
-    treasury3M: 0.0436, // Treasury Daily Par Yield Curve, 24 Nov 2026 (3 Mo)
-    treasury2Y: 0.0463, // Treasury Daily Par Yield Curve, 24 Nov 2026 (2 Yr)
-    treasuryDate: "24 Nov 2026",
+    treasury3M: 0.0434, // Treasury Daily Par Yield Curve, 25 Nov 2026 (3 Mo)
+    treasury2Y: 0.0461, // Treasury Daily Par Yield Curve, 25 Nov 2026 (2 Yr)
+    treasuryDate: "25 Nov 2026",
     recession1929: { peak: "Aug 1929", trough: "Mar 1933", months: 43 }, // NBER
     recession2008: { peak: "Dec 2007", trough: "Jun 2009", months: 18 }, // NBER
     fedInflationTarget: 0.02, // Federal Reserve FAQ (PCE 2% longer run)
