@@ -115,7 +115,7 @@
       <div class="container">
         <div class="section-header">
           <div>
-            <p class="eyebrow">Section D · San Francisco (Property B)</p>
+            <p class="eyebrow">Section D · Property B: jurisdiction-specific rules</p>
             <h2 id="sf-title">Rent Board fee, Measure H, and voter-pamphlet figures</h2>
             <p>Property B’s own tax, insurance, and lease terms are private and are not checked on this public page.</p>
           </div>
@@ -148,7 +148,7 @@
             <caption>Unverified inputs — blank until checked</caption>
             <thead><tr><th>Input</th><th>Why it is blank</th><th>Official starting point</th><th>Status</th><th>What closes it</th></tr></thead>
             <tbody>
-              <tr><td>Property A tax rate area and published rate</td><td>The exact rate area is a private parcel-level fact printed on the bill (“TAX RATE AREA” line) and is not published here. The lookup path and county structural facts were published on 26 Nov 2026 (process page rate-area section; flagged F-20): 816 rate areas in FY2025-26, first two digits identify the city, rate = 1% plus voter-approved bonds.</td><td><a class="source-link" href="https://payments.sccgov.org/PropertyTaxAllocation/Home">County “Where My Taxes Go” lookup</a></td><td><span class="status info">Exact value unverified · path published</span></td><td>Private bill or assessor notice, reviewed by the CPA.</td></tr>
+              <tr><td>Property A tax rate area and published rate</td><td>The exact rate area is a private parcel-level fact printed on the bill (“TAX RATE AREA” line) and is not published here. The lookup path and county structural facts were published on 26 Nov 2026 (process page rate-area section; flagged F-26): 816 rate areas in FY2025-26, first two digits identify the city, rate = 1% plus voter-approved bonds.</td><td><a class="source-link" href="https://payments.sccgov.org/PropertyTaxAllocation/Home">County “Where My Taxes Go” lookup</a></td><td><span class="status info">Exact value unverified · path published</span></td><td>Private bill or assessor notice, reviewed by the CPA.</td></tr>
               <tr><td>Property insurance premiums (both properties)</td><td>No property-specific quote. The state publishes market averages, not a quote.</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CDI homeowners guide</a></td><td><span class="status info">Unverified</span></td><td>Written quotes from licensed insurers for each property and use.</td></tr>
               <tr><td>Treasury yields and state tax on Treasury interest</td><td>Yields were re-verified 26 Nov 2026: the official 24 Nov 2026 curve row matches the published anchors exactly (3-month 4.36%, 2-year 4.63%). The California tax treatment of Treasury interest was still not checked on an official page.</td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates">U.S. Treasury yield data</a></td><td><span class="status review">Yields verified · state tax unverified</span></td><td>Check the FTB treatment of Treasury interest before any policy is written.</td></tr>
               <tr><td>Historical 1929 and 2008 stress-test series</td><td>Peak-to-trough depths were verified 26 Nov 2026 against Federal Reserve History (Dow 381.17 → 41.22, 89% below peak; S&amp;P 500 fell 57% from the October 2007 peak to the March 2009 trough). The raw index-provider series was not downloaded for replay, and recovery months remain modelled.</td><td><a class="source-link" href="https://www.federalreservehistory.org/essays/stock-market-crash-of-1929">Federal Reserve History</a></td><td><span class="status review">Depths verified · series not downloaded</span></td><td>Download series IDs, dates, and licensing only if a replay is ever shown.</td></tr>
@@ -160,12 +160,12 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="recheck-title">
+    <section class="section" aria-labelledby="recheck-f-title">
       <div class="container">
         <div class="section-header">
           <div>
-            <p class="eyebrow">Section F · Recheck pass</p>
-            <h2 id="recheck-title">Re-verified 26 November 2026</h2>
+            <p class="eyebrow">Section F · Recheck pass · Task T-025</p>
+            <h2 id="recheck-f-title">Re-verified 26 November 2026</h2>
             <p>Every open verification target and every dated figure on the site was read again against its official page. Rows below record the result and the site action taken; rows already verified on 25 Nov are only listed where they were re-read.</p>
           </div>
           <span class="status ready">Recheck complete</span>
@@ -188,7 +188,7 @@
               <tr><td>Behavioral Health Services Tax: 1% of taxable income above $1,000,000</td><td>FTB 2025 Form 540 instructions, line 62, re-confirmed 26 Nov 2026: computed on Form 540 taxable income (line 19), not on gross proceeds.</td><td><a class="source-link" href="https://www.ftb.ca.gov/forms/2025/2025-540-instructions.html">FTB 2025 Form 540 instructions</a></td><td><span class="status ready">Verified · re-confirmed</span></td><td>Matches figures.html and sources.html. Recheck when the 2026 instructions post.</td></tr>
               <tr><td>BOE FAQ 2026/026 continuing-use and multi-unit rules</td><td>Read 26 Nov 2026: exclusion removed when the home stops qualifying unless another eligible transferee occupies within one year (continual-use section, Q8); only the occupied unit of a multi-unit property qualifies and each unit must qualify on its own (Q5, Q15).</td><td><a class="source-link" href="https://www.boe.ca.gov/proptaxes/pdf/lta26026.pdf">BOE FAQ 2026/026</a></td><td><span class="status ready">Verified · applied</span></td><td>Published on figures.html and process.html (see the Section B applied rows).</td></tr>
               <tr><td>Same-tax-year sale test is disclosed before any holding path</td><td>Site-content check 26 Nov 2026: the test appears on index.html and in the process timeline (first 30 days). No external source needed.</td><td><a class="source-link" href="process.html#timeline">Process timeline</a></td><td><span class="status ready">Present · no change</span></td><td>No edit required.</td></tr>
-              <tr><td>Property A rate-area lookup path and county structure</td><td>County sources read 26 Nov 2026: FY2025-26 rate book lists 816 rate areas, first two digits identify the city; bills print a “TAX RATE AREA” line; “Where My Taxes Go” resolves an address or code. The exact Property A rate stays blank (private bill).</td><td><a class="source-link" href="https://controller.santaclaracounty.gov/property-tax-distribution/property-tax-rate-book">County tax rate book</a></td><td><span class="status ready">Path published · exact value blank</span></td><td>process.html rate-area section upgraded; sources.html row added; flag F-20 opened.</td></tr>
+              <tr><td>Property A rate-area lookup path and county structure</td><td>County sources read 26 Nov 2026: FY2025-26 rate book lists 816 rate areas, first two digits identify the city; bills print a “TAX RATE AREA” line; “Where My Taxes Go” resolves an address or code. The exact Property A rate stays blank (private bill).</td><td><a class="source-link" href="https://controller.santaclaracounty.gov/property-tax-distribution/property-tax-rate-book">County tax rate book</a></td><td><span class="status ready">Path published · exact value blank</span></td><td>process.html rate-area section upgraded; sources.html row added; flag F-26 opened (renumbered from F-20 after merging main, where F-20 was already used).</td></tr>
               <tr><td>Privacy and source irregularities found during the recheck</td><td>(a) process.html carried a place-named third-party insurance aggregator estimate; removed 26 Nov 2026. (b) Flag F-12 linked the San Francisco utility for a Santa Clara County property; corrected to the county water agency.</td><td><a class="source-link" href="flagged.html">Flagged register</a></td><td><span class="status ready">Fixed</span></td><td>Both corrected in this pass; recorded in the task log.</td></tr>
             </tbody>
           </table>
@@ -216,6 +216,40 @@
           <li><div><b>8. Public-history exposure (not resolved here)</b><span>Earlier public commits contain case-specific material. That incident is tracked as T-003 and in issue #3. This page does not repeat any of it. Owner-level remediation is still open.</span></div></li>
           <li><div><b>9. Black Swan page crash-depth labels (cross-scope)</b><span>The depths (89% and 57%) were verified 2026-11-26 against Federal Reserve History. blackswan.html still carries “Secondary only — official check pending” and two lede sentences saying the depths are unverified. Its owner should update those three labels and keep the recovery months labelled as modelled.</span></div></li>
         </ol>
+      </div>
+    </section>
+
+    <section class="section tint" aria-labelledby="recheck-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Recheck log · 26 Nov 2026 · Task T-023</p>
+            <h2 id="recheck-title">Live rechecks against official pages, and audit change requests C-2 to C-5</h2>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table data-source-table>
+            <caption>Recheck results, 26 Nov 2026 (fetched live; enacted law separated from proposals)</caption>
+            <thead><tr><th>Claim</th><th>What the official page says</th><th>Official link (manual review)</th><th>Status</th><th>Site action</th></tr></thead>
+            <tbody>
+<tr><td>Federal basic exclusion: $15,480,000 for decedents dying in 2027; $15,000,000 for 2026</td><td>IRS IR-2026-133 (5 Nov 2026), section “Estate Tax Exclusion”.</td><td><a class="source-link" href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts">IRS IR-2026-133</a></td><td><span class="status ready">Verified · applied</span></td><td>Flag F-05 closed; figures page and assumptions already carry the figure.</td></tr>
+<tr><td>Annual gift exclusion: $20,000 for 2027, up from $19,000 for 2026</td><td>IRS IR-2026-133, section “Annual Exclusion for Gifts”.</td><td><a class="source-link" href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2027-taxpayers-continue-to-benefit-from-the-working-families-tax-cuts">IRS IR-2026-133</a></td><td><span class="status ready">Verified · applied</span></td><td>Flag F-06 closed.</td></tr>
+<tr><td>Treasury par yields: 3-month 4.36% and 2-year 4.63% on 24 Nov 2026</td><td>Treasury daily par yield curve table, row 11/24/2026 (the same table shows 25 Nov 2026 at 4.34% and 4.61%; the site keeps the dated 24 Nov figures).</td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611">U.S. Treasury daily par yield curve</a></td><td><span class="status ready">Verified · applied</span></td><td>No change; the date is stated wherever the rates appear.</td></tr>
+<tr><td>California has no gift tax or inheritance tax</td><td>CA Tax Service Center: “California does not have a gift tax or an inheritance tax.”</td><td><a class="source-link" href="https://taxes.ca.gov/income-tax/special-circumstances/">CA Tax Service Center</a></td><td><span class="status ready">Verified (official)</span></td><td>Flag F-07 closed as verified (official) after the State Controller re-read; the page’s legacy wording is tracked as F-21.</td></tr>
+<tr><td>California pick-up tax is zero</td><td>The same CA Tax Service Center page still says California “does still impose a death tax equal to the federal credit”, which is legacy wording. The FTB analysis of SB 378 (2019, not enacted) says the pick-up tax is zero because the federal credit was repealed.</td><td><a class="source-link" href="https://www.ftb.ca.gov/tax-pros/law/legislation/2019-2020/SB378-032519.pdf">FTB SB 378 analysis</a> · <a class="source-link" href="https://taxes.ca.gov/income-tax/special-circumstances/">CA Tax Service Center</a></td><td><span class="status review">Verified in part · flag F-21</span></td><td>Site cites the FTB analysis for the zero position and labels the bill as not enacted. CPA or State Controller to confirm.</td></tr>
+<tr><td>San Jose Measure E threshold: $2,300,000 from 1 Jul 2025, with 0.75%, 1% and 1.5% tiers</td><td>County Measure E page (applies only in San Jose).</td><td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/recording-documents/recording-real-estate/measure-e">County Measure E page</a></td><td><span class="status ready">Verified · applied</span></td><td>Conflict with the fee schedule (which still says $2,000,000) recorded as flag F-20.</td></tr>
+<tr><td>County recording and transfer-tax schedule: $0.55 per $500 county tax; $102 first page, $92 when documentary transfer tax is paid; $3 each additional page; $20 PCOR penalty if required and missing</td><td>County Clerk-Recorder fee schedule (the linked PDF is dated in its title). City conveyance tax of $1.65 per $500 is listed for San Jose, Palo Alto and Mountain View only.</td><td><a class="source-link" href="https://clerkrecorder.santaclaracounty.gov/resources/fee-schedule">County fee schedule</a></td><td><span class="status ready">Verified · applied</span></td><td>Rechecked 26 Nov 2026; figures already on process and sources pages.</td></tr>
+<tr><td>Prop 19 parent-child: child must occupy as principal residence within one year and file the homeowners’ exemption within one year; value limit is the current taxable value plus the indexed amount</td><td>LA County Assessor, Proposition 19 page (official county).</td><td><a class="source-link" href="https://assessor.lacounty.gov/homeowners/proposition-19/3">LA County Assessor</a></td><td><span class="status review">Verified in part · flag F-04</span></td><td>Eligibility timing confirmed. The taxable-value formula matches the model; the BOE primary text was not retrieved.</td></tr>
+<tr><td>Homeowners insurance premiums (Properties A and B)</td><td>CA DOI residential insurance guide (Form 401, revised January 2026) explains coverage and shopping. It contains no premium figures.</td><td><a class="source-link" href="https://www.insurance.ca.gov/01-consumers/105-type/95-guides/03-res/res-ins-guide.cfm">CA DOI residential guide</a></td><td><span class="status blocked">Blank — unverified</span></td><td>No premium is shown. Third-party aggregator figures were removed from the public process page (flag F-09).</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="check-list" style="margin-top:.8rem">
+          <li><b>C-2 closed.</b> No session-parameter URL remains; the stable DOI guide link is used.</li>
+          <li><b>C-3 partly closed.</b> The “notification” deep link is gone; the assessor root page is used. Its deep link could not be machine-checked (the assessor site blocks automated checks).</li>
+          <li><b>C-4 closed.</b> The $20 PCOR penalty and the Measure E and G rows are on the process and sources pages.</li>
+          <li><b>C-5 answered, not closed.</b> The Tax Service Center page still carries legacy pick-up-tax wording; recorded as flag F-21.</li>
+        </ul>
       </div>
     </section>
 
