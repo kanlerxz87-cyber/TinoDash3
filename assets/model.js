@@ -92,23 +92,22 @@
         }).join("");
       }
 
-      // range view for the two liquid entries and one property path
+      // Five-number range summary across all 20 unweighted sequence rotations.
+      const rangeData = Engine.PATH_META.map((meta) => ({
+        ...meta,
+        ...Engine.evaluateRange(state, meta.key, 20)
+      })).sort((left, right) => right.median - left.median);
       const rangeBody = document.querySelector("#rangeRows");
       if (rangeBody) {
-        ["sellStocks", "sellStage36", "rentThenSell", "holdRental"].forEach(() => {});
-        rangeBody.innerHTML = ["sellStocks", "sellStage36", "rentThenSell", "holdRental"].map((key) => {
-          const r = Engine.evaluateRange(state, key, 20);
-          const name = Engine.PATH_META.find((m) => m.key === key).name;
-          return `<tr>
-            <td><strong>${name}</strong></td>
-            <td class="num">${fmtIndex(r.min)}</td>
-            <td class="num">${fmtIndex(r.p25)}</td>
-            <td class="num">${fmtIndex(r.median)}</td>
-            <td class="num">${fmtIndex(r.p75)}</td>
-            <td class="num">${fmtIndex(r.max)}</td>
-            <td class="num">${(r.max - r.min).toFixed(3)}</td>
-          </tr>`;
-        }).join("");
+        rangeBody.innerHTML = rangeData.map((row) => `<tr>
+          <td><strong>${row.name}</strong><small>${row.kind}</small></td>
+          <td class="num">${fmtIndex(row.min)}</td>
+          <td class="num">${fmtIndex(row.p25)}</td>
+          <td class="num">${fmtIndex(row.median)}</td>
+          <td class="num">${fmtIndex(row.p75)}</td>
+          <td class="num">${fmtIndex(row.max)}</td>
+          <td class="num">${(row.max - row.min).toFixed(3)}</td>
+        </tr>`).join("");
       }
 
       // sensitivity / flip table
@@ -160,7 +159,7 @@
       }
 
       // chart
-      const chart = document.querySelector("#distributionChart");
+      const chart = document.querySelector("#outcomeChart");
       if (chart) {
         const width = 940;
         const height = 330;
@@ -193,9 +192,59 @@
             `<text x="${x + barWidth / 2}" y="${height - 58}" text-anchor="middle" fill="#526767" font-size="10">${label}</text></g>`;
         }).join("");
         chart.setAttribute("viewBox", `0 0 ${width} ${height}`);
-        chart.innerHTML = `<title>Normalised outcome by path</title><desc>Ranked outcomes per 1.00 starting unit for the selected stress scenario and horizon. Not a probability distribution.</desc>` +
+        chart.innerHTML = `<title>Point outcome by path</title><desc>Ranked outcomes per 1.00 starting unit for the selected stress scenario and horizon. This single-sequence bar chart is not a probability distribution.</desc>` +
           `${grid}<text x="${padding.left}" y="18" fill="#526767" font-size="12" font-weight="700">${Engine.SCENARIOS[state.scenario].label} · ${state.horizon} years · ${fmtMoney(1)} start</text>` +
           `${bars}<line x1="${padding.left}" y1="${padding.top}" x2="${padding.left}" y2="${padding.top + ch}" stroke="#90a3a2"/>`;
+      }
+
+      // Range plot across all 20 unweighted sequence rotations: whisker = min/max,
+      // box = P25/P75, centre line = median. No probability is assigned.
+      const rangeChart = document.querySelector("#rangeDistributionChart");
+      if (rangeChart) {
+        const width = 1060;
+        const rowHeight = 38;
+        const padding = { top: 58, right: 30, bottom: 48, left: 260 };
+        const height = padding.top + rangeData.length * rowHeight + padding.bottom;
+        const plotRight = width - padding.right;
+        const plotWidth = plotRight - padding.left;
+        const plotBottom = padding.top + rangeData.length * rowHeight;
+        const observedMax = Math.max(...rangeData.map((row) => row.max), 1);
+        const axisMax = observedMax * 1.08;
+        const x = (value) => padding.left + (Math.max(0, Math.min(axisMax, value)) / axisMax) * plotWidth;
+        const ticks = [0, 0.25, 0.5, 0.75, 1];
+        const grid = ticks.map((fraction) => {
+          const tickX = padding.left + plotWidth * fraction;
+          const tickValue = axisMax * fraction;
+          return `<line x1="${tickX}" y1="${padding.top}" x2="${tickX}" y2="${plotBottom}" stroke="#dce4e2"/>` +
+            `<text x="${tickX}" y="${plotBottom + 22}" text-anchor="middle" fill="#667a7b" font-size="11">${tickValue.toFixed(2)}</text>`;
+        }).join("");
+        const marks = rangeData.map((row, index) => {
+          const y = padding.top + index * rowHeight + rowHeight / 2;
+          const minX = x(row.min);
+          const p25X = x(row.p25);
+          const medianX = x(row.median);
+          const p75X = x(row.p75);
+          const maxX = x(row.max);
+          const boxWidth = Math.max(2, p75X - p25X);
+          const summary = `${row.name}: minimum ${fmtIndex(row.min)}, 25th percentile ${fmtIndex(row.p25)}, median ${fmtIndex(row.median)}, 75th percentile ${fmtIndex(row.p75)}, maximum ${fmtIndex(row.max)}; 20 unweighted rotations.`;
+          return `<g role="listitem" tabindex="0"><title>${summary}</title>` +
+            `<text x="12" y="${y + 4}" fill="#334b4b" font-size="12">${row.name}</text>` +
+            `<line x1="${minX}" y1="${y}" x2="${maxX}" y2="${y}" stroke="#526767" stroke-width="2"/>` +
+            `<line x1="${minX}" y1="${y - 7}" x2="${minX}" y2="${y + 7}" stroke="#526767" stroke-width="2"/>` +
+            `<rect x="${p25X}" y="${y - 9}" width="${boxWidth}" height="18" rx="4" fill="#89c5b8" stroke="#2d7770"/>` +
+            `<line x1="${medianX}" y1="${y - 12}" x2="${medianX}" y2="${y + 12}" stroke="#153f3b" stroke-width="3"/>` +
+            `<line x1="${maxX}" y1="${y - 7}" x2="${maxX}" y2="${y + 7}" stroke="#526767" stroke-width="2"/>` +
+            `</g>`;
+        }).join("");
+        const mode = a.showReal ? "real, inflation-adjusted terms" : "nominal terms";
+        rangeChart.setAttribute("viewBox", `0 0 ${width} ${height}`);
+        rangeChart.setAttribute("aria-label", `Five-number range plot for ${Engine.SCENARIOS[state.scenario].label}, ${state.horizon} years, ${mode}; 20 unweighted sequence rotations.`);
+        rangeChart.innerHTML = `<title>Outcome ranges across sequence rotations</title>` +
+          `<desc>For each of eight paths, whiskers show the minimum and maximum, the box shows the 25th to 75th percentile, and a vertical line marks the median. Rotations are unweighted designed sequences, not empirical probabilities.</desc>` +
+          `<text x="${padding.left}" y="22" fill="#526767" font-size="13" font-weight="700">${Engine.SCENARIOS[state.scenario].label} · ${state.horizon} years · ${mode}</text>` +
+          `${grid}${marks}` +
+          `<line x1="${padding.left}" y1="${plotBottom}" x2="${plotRight}" y2="${plotBottom}" stroke="#90a3a2"/>` +
+          `<text x="${padding.left + plotWidth / 2}" y="${height - 4}" text-anchor="middle" fill="#526767" font-size="11">${a.showReal ? "Inflation-adjusted outcome multiple" : "Nominal outcome multiple"} (1.00 starting unit)</text>`;
       }
     };
 

@@ -114,12 +114,13 @@ test("paths page: every modelled table fills and no placeholder text leaks", () 
     stageSelect: "30",
     taxSelect: "0.33",
     imputedRange: "2",
-    vacancyRange: "8"
+    vacancyRange: "8",
+    realToggle: true
   });
 
   const expectations = {
     pathRows: 8,
-    rangeRows: 4,
+    rangeRows: 8,
     flipRows: 8,
     stageRows: 12,
     robustRows: 8,
@@ -133,10 +134,17 @@ test("paths page: every modelled table fills and no placeholder text leaks", () 
     assert.ok(!/NaN|undefined|null/.test(element.innerHTML), `#${id} must not contain NaN/undefined/null`);
   }
 
-  const chart = document.elements.get("distributionChart");
+  const chart = document.elements.get("outcomeChart");
   assert.equal(chart.attributes.viewBox, "0 0 940 330");
-  assert.equal((chart.innerHTML.match(/<rect/g) || []).length, 8, "one bar per path");
+  assert.equal((chart.innerHTML.match(/<rect/g) || []).length, 8, "one point-outcome bar per path");
   assert.match(chart.innerHTML, /crash1929|1929/, "chart title names the selected sequence");
+
+  const rangeChart = document.elements.get("rangeDistributionChart");
+  assert.equal(rangeChart.attributes.viewBox, "0 0 1060 410");
+  assert.equal((rangeChart.innerHTML.match(/<rect/g) || []).length, 8, "one interquartile box per path");
+  assert.equal((rangeChart.innerHTML.match(/role=\"listitem\"/g) || []).length, 8, "one accessible summary per path");
+  assert.match(rangeChart.innerHTML, /25th percentile.*median.*75th percentile/s, "tooltips carry the five-number summary");
+  assert.match(rangeChart.attributes["aria-label"], /real, inflation-adjusted terms/i, "range chart reflects the real-value toggle");
 
   for (const id of ["horizonLabel", "scenarioNote", "valueMode", "stageLabel", "primaryStatus", "imputedValue", "vacancyValue", "rentValue", "saleValue"]) {
     const element = document.elements.get(id);

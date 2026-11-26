@@ -235,11 +235,28 @@ test("evaluateRange reports an ordered distribution of sequence variants", () =>
   assert.ok(range.min > 0 && range.max < 100, "distribution stays in a sane band");
 });
 
+test("range quartiles use linear interpolation for even or small samples", () => {
+  const range = engine.evaluateRange(state("baseline", 10), "sellStage36", 2);
+  const spread = range.max - range.min;
+  near(range.p25, range.min + spread * 0.25, 1e-12, "P25 interpolation");
+  near(range.median, range.min + spread * 0.5, 1e-12, "median interpolation");
+  near(range.p75, range.min + spread * 0.75, 1e-12, "P75 interpolation");
+});
+
 test("real terms are never larger than nominal terms with positive inflation", () => {
   const nominal = engine.resultFor("sellStocks", state("baseline", 25, { showReal: false }));
   const real = engine.resultFor("sellStocks", state("baseline", 25, { showReal: true }));
   assert.ok(real.value < nominal.value, "deflated result must be smaller");
   near(nominal.value, nominal.nominal, 1e-12, "real switch off leaves nominal untouched");
+});
+
+test("sequence-rotation range summaries honor the real/nominal toggle", () => {
+  const nominal = engine.evaluateRange(state("baseline", 10, { showReal: false }), "sellStage36", 20);
+  const real = engine.evaluateRange(state("baseline", 10, { showReal: true }), "sellStage36", 20);
+  assert.equal(nominal.count, 20);
+  assert.equal(real.count, 20);
+  assert.ok(real.max < nominal.max, "all positive-inflation rotations must be deflated");
+  assert.ok(real.median < nominal.median, "the displayed median must also be in real terms");
 });
 
 test("mergeAssumptions keeps defaults and ignores NaN or null overrides", () => {
