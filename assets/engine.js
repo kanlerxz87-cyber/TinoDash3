@@ -390,6 +390,17 @@
     return variants;
   }
 
+  function quantile(sortedValues, probability) {
+    // Linear interpolation at (n - 1) * p (Hyndman–Fan type 7), used by default
+    // by common statistical tools. Keeps the even-sample median between the two
+    // central observations instead of selecting the upper one.
+    var position = (sortedValues.length - 1) * probability;
+    var lower = Math.floor(position);
+    var upper = Math.ceil(position);
+    var fraction = position - lower;
+    return sortedValues[lower] + (sortedValues[upper] - sortedValues[lower]) * fraction;
+  }
+
   function evaluateRange(state, pathKey, variantCount) {
     var offsets = sequenceVariants(state.scenario, variantCount || 12);
     var values = offsets.map(function (offset) {
@@ -404,9 +415,9 @@
     values.sort(function (a, b) { return a - b; });
     return {
       min: values[0],
-      p25: values[Math.floor(values.length * 0.25)],
-      median: values[Math.floor(values.length / 2)],
-      p75: values[Math.floor(values.length * 0.75)],
+      p25: quantile(values, 0.25),
+      median: quantile(values, 0.5),
+      p75: quantile(values, 0.75),
       max: values[values.length - 1],
       count: values.length
     };
@@ -417,6 +428,14 @@
     var months = Math.round(state.horizon * 12);
     var helper = makeShiftedScenario(state.scenario, offset);
     var a = state.assumptions;
+    var deflator = 1;
+    var deflationMonth;
+    if (a.showReal) {
+      for (deflationMonth = 0; deflationMonth < months; deflationMonth += 1) {
+        deflator *= 1 + monthlyRate(helper("inflation", Math.floor(deflationMonth / 12)));
+      }
+    }
+    function inSelectedTerms(value) { return value / deflator; }
 
     function investShift(start, count, stageMonths, phaseMonths) {
       var gradual = phaseMonths > 1;
@@ -469,32 +488,32 @@
     var held, proceeds, remaining;
 
     switch (pathKey) {
-      case "sellStocks": return investShift(saleTax(1, 0), months, 0, 1);
-      case "sellStage36": return investShift(saleTax(1, 0), months, a.stageMonths, a.phaseMonths);
-      case "sellDca12": return investShift(saleTax(1, 0), months, 0, 12);
+      case "sellStocks": return inSelectedTerms(investShift(saleTax(1, 0), months, 0, 1));
+      case "sellStage36": return inSelectedTerms(investShift(saleTax(1, 0), months, a.stageMonths, a.phaseMonths));
+      case "sellDca12": return inSelectedTerms(investShift(saleTax(1, 0), months, 0, 12));
       case "rentThenSell":
         held = holdShift(1, rentMonths);
         proceeds = saleTax(held.value, held.depreciation);
         remaining = months - rentMonths;
-        return held.cash + (remaining <= 0 ? proceeds : investShift(proceeds, remaining, a.stageMonths, a.phaseMonths));
+        return inSelectedTerms(held.cash + (remaining <= 0 ? proceeds : investShift(proceeds, remaining, a.stageMonths, a.phaseMonths)));
       case "liveThenSell":
         held = holdShift(1, liveMonths, true);
         proceeds = proceedsWith121(held.value, a.saleCostRatio, 1, a);
         remaining = months - liveMonths;
-        return (held.imputed - held.carryOpportunity) + (remaining <= 0 ? proceeds : investShift(proceeds, remaining, a.stageMonths, a.phaseMonths));
+        return inSelectedTerms((held.imputed - held.carryOpportunity) + (remaining <= 0 ? proceeds : investShift(proceeds, remaining, a.stageMonths, a.phaseMonths)));
       case "partialSell":
         held = holdShift(0.5, rentMonths);
         remaining = months - rentMonths;
-        return investShift(saleTax(0.5, 0, 0.5), months, a.stageMonths, a.phaseMonths) +
-          held.cash + (remaining <= 0 ? saleTax(held.value, held.depreciation, 0.5) : investShift(saleTax(held.value, held.depreciation, 0.5), remaining, a.stageMonths, a.phaseMonths));
+        return inSelectedTerms(investShift(saleTax(0.5, 0, 0.5), months, a.stageMonths, a.phaseMonths) +
+          held.cash + (remaining <= 0 ? saleTax(held.value, held.depreciation, 0.5) : investShift(saleTax(held.value, held.depreciation, 0.5), remaining, a.stageMonths, a.phaseMonths)));
       case "holdRental":
         held = holdShift(1, months);
-        return held.cash + saleTax(held.value, held.depreciation);
+        return inSelectedTerms(held.cash + saleTax(held.value, held.depreciation));
       case "holdLive":
         held = holdShift(1, months, true);
-        return held.value + held.cash + held.imputed - held.carryOpportunity;
+        return inSelectedTerms(held.value + held.cash + held.imputed - held.carryOpportunity);
       default:
-        return 1;
+        return inSelectedTerms(1);
     }
   }
 

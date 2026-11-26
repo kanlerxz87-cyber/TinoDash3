@@ -128,8 +128,8 @@
         <p class="table-note">Dollar figures apply a $1,000,000 illustrative unit and round to the nearest $10. They are a scale reference, not a valuation of either property.</p>
 
         <div class="chart-wrap" style="margin-top:1.4rem">
-          <svg id="distributionChart" role="img" aria-label="Bar chart of normalised outcomes by path"></svg>
-          <p class="chart-note">Bars show the selected sequence and horizon. This is a comparison of choices, <strong>not</strong> an empirical probability distribution.</p>
+          <svg id="outcomeChart" role="img" aria-label="Ranked bar chart of point outcomes by path"></svg>
+          <p class="chart-note">Bars show one selected sequence and horizon. They compare point outcomes; they are <strong>not</strong> a distribution. The range chart below shows outcomes across 20 unweighted sequence rotations.</p>
         </div>
 
         <div class="grid two" style="margin-top:1.4rem">
@@ -138,7 +138,7 @@
             <p class="section-intro" style="margin-top:.3rem">The same sequence, rotated through 20 start positions. This isolates <em>sequence risk</em>: what happens if the same set of years arrives in a different order.</p>
             <div class="table-wrap" style="margin-top:.8rem">
               <table class="table-tight">
-                <caption>Min · quartiles · max across 20 rotations</caption>
+                <caption>Five-number summary across 20 unweighted sequence rotations</caption>
                 <thead><tr><th>Path</th><th class="num">Min</th><th class="num">P25</th><th class="num">Median</th><th class="num">P75</th><th class="num">Max</th><th class="num">Spread</th></tr></thead>
                 <tbody id="rangeRows"></tbody>
               </table>
@@ -154,6 +154,15 @@
                 <tbody id="flipRows"></tbody>
               </table>
             </div>
+          </div>
+        </div>
+
+        <div class="range-distribution" style="margin-top:1.5rem">
+          <h3 id="range-distribution-title">Unweighted outcome distribution across all eight paths</h3>
+          <p class="section-intro">The whisker spans the minimum to maximum across 20 rotations; the box spans P25 to P75; the centre line is the median. P25, P75, and the median use linear interpolation between sorted outcomes (type 7). Select a scenario, horizon, and nominal or real terms above. Every path is compared at the same start and horizon.</p>
+          <div class="chart-wrap range-chart" style="margin-top:.8rem">
+            <svg id="rangeDistributionChart" role="img" aria-label="Range plot of minimum, quartiles, median, and maximum outcomes for all eight paths across 20 unweighted sequence rotations"></svg>
+            <p class="chart-note">These are designed model outputs, not observed returns or probability intervals. The 20 rotations receive equal weight only to expose sequence sensitivity; no likelihood is assigned to any outcome.</p>
           </div>
         </div>
       </div>

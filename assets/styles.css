@@ -161,6 +161,8 @@ td small { color: var(--muted); display: block; margin-top: .2rem; }
 
 .chart-wrap { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 1rem; overflow: hidden; }
 .chart-wrap svg { width: 100%; min-height: 290px; display: block; }
+.range-chart { overflow-x: auto; }
+.range-chart svg { min-width: 820px; min-height: 400px; }
 .chart-note { color: var(--muted); font-size: .79rem; margin: .6rem 0 0; }
 
 .disclosure { font-size: .79rem; color: var(--muted); }
