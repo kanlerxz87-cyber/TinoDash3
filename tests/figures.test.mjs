@@ -183,3 +183,20 @@ test("published figure files contain no postal codes, place names, or parcel ide
 });
 
 console.log(`\n${passed} figure tests passed${PT ? "" : " (private household checks skipped)"}.`);
+
+// ---------- T-029: every published staging row equals the model output, row for row ----------
+test("Black Swan staging table: all 24 published rows equal the model output at the official anchor", () => {
+  const page = fs.readFileSync(path.join(root, "blackswan.html"), "utf8");
+  const published = page.match(/<tr><td>(?:1929|2007|No crash)[^\n]*?mo cash, then 12 mo buys[^\n]*?<\/tr>/g) || [];
+  const regimes = [["crash1929", "1929–1933-style collapse"], ["crash2008", "2007–2009-style financial crisis"], ["base", "No crash (steady growth)"]];
+  const cashes = [[F.OFFICIAL.treasury3M, "4.34% (Treasury 3M, 25 Nov 2026)"], [0.02, "2.00% (stress)"]];
+  const expected = [];
+  for (const [k, label] of regimes) for (const [cy, cl] of cashes) for (const st of [24, 36]) for (const yrs of [10, 20]) {
+    const r = F.simulate(1000000, F.REGIMES[k], yrs * 12, cy, st, 12);
+    expected.push(`<tr><td>${label}</td><td>${cl}</td><td>${st} mo cash, then 12 mo buys</td><td>${yrs} yrs</td><td>${F.usd(r.lumpEnd)}</td><td>${F.usd(r.stagedEnd)}</td><td>${F.usd(r.stagedMinusLump)}</td><td>${F.usd(r.lumpWorst)}</td><td>${F.usd(r.stagedWorst)}</td></tr>`);
+  }
+  // Compare the nine numeric/label cells; the trailing source-link cell is markup, not a number.
+  const numericOnly = published.map((row) => row.replace(/<td><a class="source-link"[\s\S]*?<\/td><\/tr>$/, "</tr>"));
+  assert.equal(published.length, 24, "24 staging rows on the page");
+  assert.deepEqual(numericOnly, expected);
+});
