@@ -14,7 +14,8 @@
     blackswan: "blackswan.html",
     flagged: "flagged.html",
     verification: "verification.html",
-    "decision-rules": "decision-rules.html"
+    "decision-rules": "decision-rules.html",
+    requests: "requests.html"
   };
 
   const current = (key) => (page === key ? " current" : "");
@@ -48,6 +49,7 @@
                 <a class="${current("process")}" href="${pages.process}#timeline">Step-by-step &amp; deadlines</a>
                 <a class="${current("review")}" href="${pages.review}">Flags &amp; suggestions</a>
                 <a class="${current("flagged")}" href="${pages.flagged}">Flagged for review</a>
+                <a class="${current("requests")}" href="${pages.requests}">Recheck &amp; request tracker</a>
                 <a href="${pages.questions}#inventory">Private inventory</a>
               </div>
             </div>

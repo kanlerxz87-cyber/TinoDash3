@@ -1,5 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
+import { createRequire } from "node:module";
 
 const root = process.cwd();
 const include = [".html", ".js", ".mjs", ".css", ".md", ".json", ".txt", ".svg", ".xml", ".yml", ".yaml"];
@@ -36,6 +38,37 @@ for (const file of files) {
       hits.push(`${path.relative(root, file)}:${line} — ${rule.label}`);
       if (match.index === rule.pattern.lastIndex) rule.pattern.lastIndex += 1;
     }
+  }
+}
+
+
+// Private digest check (T-022): if the gitignored private/privacy-terms.js exists, every
+// number, word and five-digit token in every public text file is hashed and compared.
+// Only digests are stored, so no household value or place name is written to Git or logs.
+const sha = (s) => crypto.createHash("sha256").update(s).digest("hex");
+let privateTerms = null;
+try {
+  const require = createRequire(import.meta.url);
+  privateTerms = require(path.join(root, "private/privacy-terms.js"));
+} catch (e) {
+  privateTerms = null;
+}
+if (privateTerms) {
+  for (const file of files) {
+    const content = fs.readFileSync(file, "utf8");
+    const rel = path.relative(root, file);
+    const seen = new Set();
+    for (const token of content.match(/\d{1,3}(?:,\d{3})+|\d{4,}/g) || []) {
+      const d = token.replace(/,/g, "");
+      if (privateTerms.forbiddenNumberDigests.has(sha(d))) seen.add(`household figure in ${rel}`);
+    }
+    for (const w of (content.toLowerCase().match(/[a-z]+/g) || [])) {
+      if (privateTerms.forbiddenWordDigests.has(sha(w))) seen.add(`place name in ${rel}`);
+    }
+    for (const token of content.match(/(?<![\d,])\d{5}(?![\d,])/g) || []) {
+      if (privateTerms.forbiddenPostalDigests.has(sha(token))) seen.add(`postal code in ${rel}`);
+    }
+    for (const label of seen) hits.push(label + " (private digest match)");
   }
 }
 
