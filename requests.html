@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recheck of official anchors on 26 Nov 2026, traceability of each requested item to a page, and the items that remain blocked.">
+  <title>Recheck &amp; request tracker — Inheritance Decision Desk</title>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script defer src="assets/site.js"></script>
+</head>
+<body data-page="requests">
+  <div data-site-header></div>
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Recheck &amp; request tracker</p>
+          <h1>What was rechecked on 26 Nov 2026, and what each request maps to.</h1>
+          <p class="lede">Every requested item is listed with the page where it lives and its status. Household figures are not published here: they stay in the private, gitignored workspace and are used only for internal modelling.</p>
+        </div>
+        <aside class="hero-callout"><p class="eyebrow" style="color:#9edbd0">Honest status</p><h2>Built is not the same as verified.</h2><p>Several items are built as methods or templates. Their inputs remain blank until an official source or the owner supplies a verified value.</p></aside>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="recheck-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">A · Official recheck</p><h2 id="recheck-title">Anchors checked on 26 Nov 2026</h2></div></div>
+        <div class="table-wrap"><table class="table-tight" data-source-table><caption>Recheck results (fetched 26 Nov 2026 unless stated)</caption>
+          <thead><tr><th>Item</th><th>Value on the site</th><th>Result of the recheck</th><th>Status</th><th>Official source</th></tr></thead>
+          <tbody>
+            <tr><td>Federal basic exclusion, deaths in 2026</td><td>$15,000,000</td><td>IRS estate-tax page, filing-threshold table: 2026 = $15,000,000.</td><td><span class="status ready">Confirmed</span></td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax">IRS estate tax</a></td></tr>
+            <tr><td>Treasury 3-month par yield</td><td>4.36% (24 Nov 2026)</td><td>Official 24 Nov 2026 value confirmed. The latest official row is 25 Nov 2026 at 4.34%. The site is not yet updated because its staging tables were computed at 4.36%.</td><td><span class="status review">Change request — update to 25 Nov</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611">Treasury daily par yield curve</a></td></tr>
+            <tr><td>Treasury 2-year par yield</td><td>4.63% (24 Nov 2026)</td><td>Official 24 Nov 2026 value confirmed. The latest official row is 25 Nov 2026 at 4.61%. Same change request as above.</td><td><span class="status review">Change request — update to 25 Nov</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611">Treasury daily par yield curve</a></td></tr>
+            <tr><td>Prop 19 indexed allowance, transfers 16 Feb 2025 – 15 Feb 2027</td><td>$1,044,586</td><td>BOE news release NR 25-02 states $1,044,586 for that window. The BOE FAQ page could not be fetched on 26 Nov 2026, so the release was confirmed through its search record only.</td><td><span class="status ready">Confirmed (release)</span></td><td><a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm">BOE NR 25-02</a></td></tr>
+            <tr><td>Prop 19 allowance for transfers from 16 Feb 2027</td><td>Not published on the site</td><td>No official value found on 26 Nov 2026. The allowance is re-indexed every two years, so any inheritance after 15 Feb 2027 uses a value that is not yet known.</td><td><span class="status blocked">Open — recheck after 16 Feb 2027</span></td><td><a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm">BOE NR 25-02</a></td></tr>
+            <tr><td>Form 540 “1% above $1,000,000” item</td><td>Behavioral Health Services Tax on taxable income (not a capital-gain rate)</td><td>Not re-fetched on 26 Nov 2026. Last checked 25 Nov 2026 against the FTB 2025 Form 540 instructions (see Flagged F-19).</td><td><span class="status review">Last checked 25 Nov — recheck when 2026 instructions post</span></td><td><a class="source-link" href="https://www.ftb.ca.gov/forms/2025/2025-540-instructions.html">FTB 2025 Form 540 instructions</a></td></tr>
+            <tr><td>Measure H (San Francisco parcel tax)</td><td>Preliminary result only</td><td>Not re-checked on 26 Nov 2026. Certification and operative text are still open (Flagged F-17).</td><td><span class="status blocked">Open</span></td><td><a class="source-link" href="flagged.html">Flagged F-17</a></td></tr>
+          </tbody></table></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="trace-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">B · Traceability</p><h2 id="trace-title">Each requested item, where it lives, and its status</h2></div></div>
+        <div class="table-wrap"><table class="table-tight" data-source-table><caption>Requested items (status as of 26 Nov 2026)</caption>
+          <thead><tr><th>Requested item</th><th>Where it lives</th><th>Status</th><th>What is still missing</th></tr></thead>
+          <tbody>
+            <tr><td>Black Swan phased entry (3M–2Y Treasuries for 24–36 months, then equities)</td><td><a href="blackswan.html">Black Swan staging</a></td><td><span class="status ready">Built</span></td><td>Crash depths and durations are stylised, not index-verified (Flagged F-15).</td></tr>
+            <tr><td>Mixed paths alongside the pure choices</td><td><a href="paths.html">Paths, ranges &amp; crash tests</a></td><td><span class="status ready">Built</span></td><td>Dollar results are normalised to a $1.0M unit; a dollar-scaled household run is not on the public site.</td></tr>
+            <tr><td>“What would change the answer” on the first screen</td><td><a href="index.html">Overview</a></td><td><span class="status ready">Built</span></td><td>—</td></tr>
+            <tr><td>Reinvestment risk beside the headline</td><td><a href="blackswan.html">Black Swan staging</a>, <a href="index.html">Overview</a></td><td><span class="status ready">Built</span></td><td>Cash yields are the official 24 Nov 2026 values until updated.</td></tr>
+            <tr><td>Same transfer dates and horizons for every choice</td><td><a href="paths.html">Paths, ranges &amp; crash tests</a></td><td><span class="status ready">Built</span></td><td>—</td></tr>
+            <tr><td>Taxes, debt, occupancy change, capital cost, liquidity</td><td><a href="paths.html">Paths</a>, <a href="process.html">Tax &amp; transaction math</a></td><td><span class="status review">Partial</span></td><td>Debt and carrying-cost inputs are not in the public engine.</td></tr>
+            <tr><td>What-if controls and a distribution chart</td><td><a href="paths.html">Paths, ranges &amp; crash tests</a></td><td><span class="status ready">Built</span></td><td>The chart shows sequence variants, not probabilities.</td></tr>
+            <tr><td>Imputed-rent input for living paths</td><td><a href="assumptions.html">Assumptions register</a></td><td><span class="status review">Input exists — value blank</span></td><td>No verified imputed-rent source.</td></tr>
+            <tr><td>Primary-residence exclusion for live-then-sell</td><td><a href="paths.html">Paths</a>, <a href="process.html">Tax math</a></td><td><span class="status ready">Built</span></td><td>Eligibility depends on the owner's actual occupancy and counsel review.</td></tr>
+            <tr><td>Prop 19 eligibility and carry-forward</td><td><a href="figures.html">Figures &amp; thresholds</a>, <a href="process.html">Tax math</a></td><td><span class="status ready">Built</span></td><td>Eligibility needs counsel and the assessor's confirmation. The next allowance is open (section A).</td></tr>
+            <tr><td>Depreciation and recapture</td><td><a href="paths.html">Paths</a>, <a href="glossary.html">Glossary</a></td><td><span class="status review">Partial</span></td><td>Needs the owner's depreciation history.</td></tr>
+            <tr><td>Transfer tax and recording fees in the sell path</td><td><a href="process.html">Tax &amp; transaction math</a></td><td><span class="status ready">Built</span></td><td>Official rates checked 25 Nov 2026; city measures apply only where the property is located.</td></tr>
+            <tr><td>Federal estate exclusion and inheritance-tax projections</td><td><a href="figures.html">Figures &amp; thresholds</a>, <a href="sources.html">Sources &amp; law monitor</a></td><td><span class="status ready">Built</span></td><td>Projection beyond 2027 is a proposal-tracking item, not a forecast.</td></tr>
+            <tr><td>Insurance for both properties</td><td><a href="process.html">Tax &amp; transaction math</a></td><td><span class="status blocked">Blank — unverified</span></td><td>No official rate or quote. Needs insurer quotes from the owner.</td></tr>
+            <tr><td>Water, electricity, solar credit (both properties)</td><td>Private workspace only</td><td><span class="status review">Private</span></td><td>Owner estimates, not published. Source register: <a href="sources.html">Sources</a>.</td></tr>
+            <tr><td>Property-tax and assessed-value history and projections</td><td>Private workspace only; method on <a href="figures.html">Figures</a></td><td><span class="status review">Private</span></td><td>Published pages carry the method, not household values.</td></tr>
+            <tr><td>Independent appraisal and rent comparables</td><td><a href="questions.html">Questions &amp; gates</a></td><td><span class="status blocked">Blocked — needs appraiser</span></td><td>No official source can supply these values.</td></tr>
+            <tr><td>Investment policy and pre-committed decision rules</td><td><a href="decision-rules.html">Decision rules</a></td><td><span class="status ready">Built</span></td><td>Rules must be agreed by the household before figures are applied.</td></tr>
+            <tr><td>Estate liquidity, portability, prior taxable gifts</td><td><a href="questions.html">Questions &amp; gates</a></td><td><span class="status blocked">Open question</span></td><td>Needs the owner's records and the estate attorney.</td></tr>
+            <tr><td>Five-year maintenance and capital plan</td><td><a href="figures.html">Figures &amp; thresholds</a>, <a href="questions.html">Questions &amp; gates</a></td><td><span class="status review">Template only</span></td><td>No verified cost data on the site.</td></tr>
+            <tr><td>Track proposed legislation (enacted vs proposed)</td><td><a href="sources.html">Sources &amp; law monitor</a></td><td><span class="status ready">Built</span></td><td>Re-check at least annually.</td></tr>
+            <tr><td>Glossary</td><td><a href="glossary.html">Glossary</a></td><td><span class="status ready">Built</span></td><td>—</td></tr>
+            <tr><td>Attorney and CPA one-page briefing sheet</td><td><a href="brief.html">Brief</a></td><td><span class="status ready">Built (printable)</span></td><td>Owner must review before sharing.</td></tr>
+            <tr><td>Deadlines as a timeline</td><td><a href="process.html#timeline">Step-by-step &amp; deadlines</a></td><td><span class="status ready">Built</span></td><td>—</td></tr>
+            <tr><td>Suggestions section for choosing changes before implementation</td><td><a href="review.html">Flags &amp; suggestions</a></td><td><span class="status ready">Built</span></td><td>—</td></tr>
+            <tr><td>Remove prior public exposure from Git history</td><td><a href="flagged.html">Flagged register</a></td><td><span class="status blocked">Blocked — owner / privacy counsel</span></td><td>No history rewrite was performed. Current-tree remediation is complete (T-022).</td></tr>
+          </tbody></table></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="log-title">
+      <div class="container">
+        <div class="section-header"><div><p class="eyebrow">C · Change log</p><h2 id="log-title">What changed in this recheck</h2></div></div>
+        <ul class="plain-list">
+          <li><strong>26 Nov 2026 (T-022).</strong> Removed the city name and a city-specific link from the insurance row; the non-official insurance range is now blank and flagged.</li>
+          <li><strong>26 Nov 2026.</strong> Redacted household-level recomputation values that a prior audit note had copied into the public tree. The Git history still holds earlier copies (owner decision).</li>
+          <li><strong>26 Nov 2026.</strong> Privacy scan now checks public files against a private, digest-only term list, so no household value or place name is stored in Git.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+</body>
+</html>
