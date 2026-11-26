@@ -125,10 +125,23 @@ test("staging: lower cash yield (reinvestment risk) reduces staged outcome", () 
   assert.ok(lo.stagedEnd < hi.stagedEnd);
 });
 
-test("Treasury anchors are the official 24 Nov 2026 par yields", () => {
-  assert.equal(F.OFFICIAL.treasury3M, 0.0436);
-  assert.equal(F.OFFICIAL.treasury2Y, 0.0463);
-  assert.equal(F.OFFICIAL.treasuryDate, "24 Nov 2026");
+test("Treasury anchors are the latest fetched official 25 Nov 2026 par yields", () => {
+  assert.equal(F.OFFICIAL.treasury3M, 0.0434);
+  assert.equal(F.OFFICIAL.treasury2Y, 0.0461);
+  assert.equal(F.OFFICIAL.treasuryDate, "25 Nov 2026");
+});
+
+test("published Black Swan outputs are regenerated from the current 3-month proxy", () => {
+  const crash = F.simulate(1000000, F.REGIMES.crash1929, 120, F.OFFICIAL.treasury3M, 24, 12);
+  assert.equal(crash.stagedEnd, 1854 * 1000 + 940);
+  assert.equal(crash.stagedMinusLump, 1489 * 1000 + 800);
+  const normal = F.simulate(1000000, F.REGIMES.base, 120, F.OFFICIAL.treasury3M, 24, 12);
+  assert.equal(normal.stagedEnd, 1577 * 1000 + 630);
+  assert.equal(normal.stagedMinusLump, -(38 * 1000 + 70));
+  const page = fs.readFileSync(path.join(root, "blackswan.html"), "utf8");
+  assert.ok(page.includes("$1,854,940"));
+  assert.ok(page.includes("−$38,070"));
+  assert.ok(page.includes("4.34% (Treasury 3M, 25 Nov 2026)"));
 });
 
 // ---------- privacy: published files must not contain raw figures or location identifiers ----------

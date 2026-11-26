@@ -29,8 +29,8 @@
           <thead><tr><th>Item</th><th>Value on the site</th><th>Result of the recheck</th><th>Status</th><th>Official source</th></tr></thead>
           <tbody>
             <tr><td>Federal basic exclusion, deaths in 2026</td><td>$15,000,000</td><td>IRS estate-tax page, filing-threshold table: 2026 = $15,000,000.</td><td><span class="status ready">Confirmed</span></td><td><a class="source-link" href="https://www.irs.gov/businesses/small-businesses-self-employed/estate-tax">IRS estate tax</a></td></tr>
-            <tr><td>Treasury 3-month par yield</td><td>4.36% (24 Nov 2026)</td><td>Official 24 Nov 2026 value confirmed. The latest official row is 25 Nov 2026 at 4.34%. The site is not yet updated because its staging tables were computed at 4.36%.</td><td><span class="status review">Change request — update to 25 Nov</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611">Treasury daily par yield curve</a></td></tr>
-            <tr><td>Treasury 2-year par yield</td><td>4.63% (24 Nov 2026)</td><td>Official 24 Nov 2026 value confirmed. The latest official row is 25 Nov 2026 at 4.61%. Same change request as above.</td><td><span class="status review">Change request — update to 25 Nov</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611">Treasury daily par yield curve</a></td></tr>
+            <tr><td>Treasury 3-month par yield</td><td>4.34% (25 Nov 2026)</td><td>Official 25 Nov 2026 row fetched directly from Treasury. The Black Swan results were regenerated at this anchor; historical 24 Nov values remain in the verification history.</td><td><span class="status ready">Rechecked and rebuilt</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611">Treasury daily par yield curve</a></td></tr>
+            <tr><td>Treasury 2-year par yield</td><td>4.61% (25 Nov 2026)</td><td>Official 25 Nov 2026 row fetched directly from Treasury. Displayed as the 2-year reference yield; not used as an assumed cash yield in the calculation.</td><td><span class="status ready">Rechecked</span></td><td><a class="source-link" href="https://home.treasury.gov/resource-center/data-chart-center/interest-rates/TextView?type=daily_treasury_yield_curve&amp;field_tdr_date_value_month=202611">Treasury daily par yield curve</a></td></tr>
             <tr><td>Prop 19 indexed allowance, transfers 16 Feb 2025 – 15 Feb 2027</td><td>$1,044,586</td><td>BOE news release NR 25-02 states $1,044,586 for that window. The BOE FAQ page could not be fetched on 26 Nov 2026, so the release was confirmed through its search record only.</td><td><span class="status ready">Confirmed (release)</span></td><td><a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm">BOE NR 25-02</a></td></tr>
             <tr><td>Prop 19 allowance for transfers from 16 Feb 2027</td><td>Not published on the site</td><td>No official value found on 26 Nov 2026. The allowance is re-indexed every two years, so any inheritance after 15 Feb 2027 uses a value that is not yet known.</td><td><span class="status blocked">Open — recheck after 16 Feb 2027</span></td><td><a class="source-link" href="https://www.boe.ca.gov/news/2025/nr-25-02.htm">BOE NR 25-02</a></td></tr>
             <tr><td>Form 540 “1% above $1,000,000” item</td><td>Behavioral Health Services Tax on taxable income (not a capital-gain rate)</td><td>Not re-fetched on 26 Nov 2026. Last checked 25 Nov 2026 against the FTB 2025 Form 540 instructions (see Flagged F-19).</td><td><span class="status review">Last checked 25 Nov — recheck when 2026 instructions post</span></td><td><a class="source-link" href="https://www.ftb.ca.gov/forms/2025/2025-540-instructions.html">FTB 2025 Form 540 instructions</a></td></tr>
@@ -48,7 +48,7 @@
             <tr><td>Black Swan phased entry (3M–2Y Treasuries for 24–36 months, then equities)</td><td><a href="blackswan.html">Black Swan staging</a></td><td><span class="status ready">Built</span></td><td>Crash depths and durations are stylised, not index-verified (Flagged F-15).</td></tr>
             <tr><td>Mixed paths alongside the pure choices</td><td><a href="paths.html">Paths, ranges &amp; crash tests</a></td><td><span class="status ready">Built</span></td><td>Dollar results are normalised to a $1.0M unit; a dollar-scaled household run is not on the public site.</td></tr>
             <tr><td>“What would change the answer” on the first screen</td><td><a href="index.html">Overview</a></td><td><span class="status ready">Built</span></td><td>—</td></tr>
-            <tr><td>Reinvestment risk beside the headline</td><td><a href="blackswan.html">Black Swan staging</a>, <a href="index.html">Overview</a></td><td><span class="status ready">Built</span></td><td>Cash yields are the official 24 Nov 2026 values until updated.</td></tr>
+            <tr><td>Reinvestment risk beside the headline</td><td><a href="blackswan.html">Black Swan staging</a>, <a href="index.html">Overview</a></td><td><span class="status ready">Built</span></td><td>The official 25 Nov 2026 snapshot is now the active anchor; future yields remain uncertain.</td></tr>
             <tr><td>Same transfer dates and horizons for every choice</td><td><a href="paths.html">Paths, ranges &amp; crash tests</a></td><td><span class="status ready">Built</span></td><td>—</td></tr>
             <tr><td>Taxes, debt, occupancy change, capital cost, liquidity</td><td><a href="paths.html">Paths</a>, <a href="process.html">Tax &amp; transaction math</a></td><td><span class="status review">Partial</span></td><td>Debt and carrying-cost inputs are not in the public engine.</td></tr>
             <tr><td>What-if controls and a distribution chart</td><td><a href="paths.html">Paths, ranges &amp; crash tests</a></td><td><span class="status ready">Built</span></td><td>The chart shows sequence variants, not probabilities.</td></tr>
@@ -72,6 +72,60 @@
             <tr><td>Suggestions section for choosing changes before implementation</td><td><a href="review.html">Flags &amp; suggestions</a></td><td><span class="status ready">Built</span></td><td>—</td></tr>
             <tr><td>Remove prior public exposure from Git history</td><td><a href="flagged.html">Flagged register</a></td><td><span class="status blocked">Blocked — owner / privacy counsel</span></td><td>No history rewrite was performed. Current-tree remediation is complete (T-022).</td></tr>
           </tbody></table></div>
+      </div>
+    </section>
+
+    <section class="section tint" id="decision-readiness" aria-labelledby="readiness-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Suggested review sequence</p>
+            <h2 id="readiness-title">What to resolve before choosing a path</h2>
+            <p>This is a recommended order for collecting evidence and making the decision—not a recommendation to live in, rent, or sell. The public model is not ready to rank this household's options.</p>
+          </div>
+          <span class="status review">Evidence gates open</span>
+        </div>
+        <div class="grid two">
+          <article class="card accent">
+            <span class="label">1 · Pre-commit before seeing outcomes</span>
+            <h3>Agree the decision rules in writing.</h3>
+            <p>Set the household's priorities, time horizon, required liquidity, risk tolerance, occupancy intent, and the conditions that would favor selling, renting, living, or a mixed path.</p>
+            <p><strong>By role:</strong> decision-makers, with an independent investment adviser if desired.</p>
+            <p><strong>Gate:</strong> dated rules are signed before household figures are entered into a private model. <a href="decision-rules.html">Decision rules</a>.</p>
+          </article>
+          <article class="card accent">
+            <span class="label">2 · Establish estate facts</span>
+            <h3>Build the private inventory and confirm the transfer.</h3>
+            <p>Collect trust and title documents, beneficiary interests, date-of-death valuation evidence, debts, other estate assets, prior taxable gifts, any portability filing, and known deadlines. Keep all source documents in an encrypted workspace outside this repository.</p>
+            <p><strong>By role:</strong> trustee, estate attorney, tax adviser, and qualified appraiser.</p>
+            <p><strong>Gate:</strong> the attorney and CPA reconcile the inventory and unresolved elections. Review <a href="https://www.irs.gov/publications/p559">IRS Publication 559</a> and the <a href="https://www.irs.gov/instructions/i706">IRS Form 706 instructions</a>.</p>
+          </article>
+          <article class="card accent">
+            <span class="label">3 · Replace estimates with evidence</span>
+            <h3>Obtain independent property and operating ranges.</h3>
+            <p>Request a written valuation, market-rent comparables, official assessment and applicable rate records, current insurance indications, lease and occupancy review, utility history, and a five-year maintenance/capital plan. Verify any use, transfer-tax, or tenant-law conditions for the actual transfer date.</p>
+            <p><strong>By role:</strong> appraiser, property professional, insurer, building specialist, and local counsel.</p>
+            <p><strong>Gate:</strong> each input has a dated source, low/base/high range, or a visible “unverified” status. Use the <a href="questions.html#inventory">private inventory checklist</a> and <a href="questions.html#missing">missing-information plan</a>.</p>
+          </article>
+          <article class="card accent">
+            <span class="label">4 · Rebuild comparable paths</span>
+            <h3>Use matched dates, horizons, taxes, and cost boundaries.</h3>
+            <p>Run same-year sale first, then pure and mixed paths at common horizons. Include basis, depreciation and recapture, transaction costs, debt, occupancy changes, carrying and capital costs, imputed rent, liquidity, Property B's continuing cash flow, and staged-investing reinvestment risk. Stress inflation, returns, and crash-entry timing as ranges, not forecasts.</p>
+            <p><strong>By role:</strong> tax adviser and an independent model reviewer.</p>
+            <p><strong>Gate:</strong> the same documented inputs reproduce the outputs, sensitivities, and distribution chart. <a href="paths.html">Paths and ranges</a> · <a href="blackswan.html">Black Swan tests</a>.</p>
+          </article>
+          <article class="card warning">
+            <span class="label">5 · Decide, document, and revisit</span>
+            <h3>Require professional review before irreversible action.</h3>
+            <p>Record the selected path, decision date, rationale, alternatives rejected, delegated authority, liquidity plan, and conditions that would change the answer. Ask counsel and tax professionals to review legal and tax issues; use a qualified investment professional for portfolio implementation.</p>
+            <p><strong>Gate:</strong> written reviews and the decision log are complete. Re-run annually and after a material law, occupancy, insurance, rent, or market change.</p>
+            <p><a href="brief.html">Printable attorney &amp; CPA brief</a> · <a href="process.html#timeline">Deadlines and process timeline</a> · <a href="review.html#suggestions">Review suggestions before implementation</a>.</p>
+          </article>
+        </div>
+        <div class="callout" style="margin-top:1rem">
+          <strong>Known versus unknown.</strong>
+          <p>The public pages provide dated law references, a normalized comparison method, and the distinction between an inherited asset and a separately owned asset. They do not establish the trust's controlling terms, future law, actual estate size, tax basis, property condition or value, rent, insurance, debt, eligibility, or household preferences. A professional must validate these before a household-specific conclusion is reasonable.</p>
+        </div>
       </div>
     </section>
 
